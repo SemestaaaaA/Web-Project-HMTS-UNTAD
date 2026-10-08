@@ -1,40 +1,44 @@
 # SYSTEM ARCHITECTURE & DEVELOPER KICKSTART GUIDE
 ## Web Profil & Sistem Manajemen Organisasi HMTS UNTAD
-**Stack:** Laravel 11/12 · Livewire 3 · Alpine.js · Tailwind CSS · PostgreSQL / MySQL / SQLite  
-**Design Aesthetic:** Industrial Civil Engineering & Heavy Construction · Tactical Telemetry  
-**Palette:** Canvas `#0C0712` · **CTA Kuning `#FFE500`** · **Pendukung Oranye `#CC6600`**  
+**Stack:** Laravel 11/12 · Livewire 3 · Alpine.js · Tailwind CSS · MySQL  
+**Database Engine:** MySQL 8.0+ / MariaDB 10.11+ (Localhost)  
+**Public Site Architecture:** 4 Halaman Utama Terpisah (Beranda, Tentang Kami, Kegiatan, Layanan)  
+**Role Structure:** Simple Dual-Role (`superadmin` & `admin`) tanpa Enum / Spatie  
+**Design Aesthetic:** Modern Architectural Civil Engineering · Streamlined Agency Precision · Non-Gimmick Minimalist  
+**Reference Benchmark:** `docs/design.md` & `preview.html`  
+**Palette:** Canvas `#0A0A0E` · **CTA Tombol Oranye Baja `#CC6600`** (Teks Putih) · **Aksen Sorotan Kuning Helm `#FFE500`** · Tipografi `#FFFFFF` & `#E4E4E7`  
+**Infrastructure Principle:** Zero-Redis Monolith · Single VPS Budget-Friendly  
 **Timezone:** Asia/Makassar (WITA - UTC+8)  
-**Versi Dokumen:** 3.0 (Civil Construction Edition)  
-**Tanggal Pembaruan:** 7 Oktober 2026  
+**Versi Dokumen:** 5.3 (Steel Orange CTA & High-Vis Yellow Accent Edition)  
+**Tanggal Pembaruan:** 8 Oktober 2026  
 
 ---
 
 ## 1. Panduan Memulai Proyek Cepat (Developer Kickstart: 0 to Running)
 
 ### 1.1 Persyaratan Sistem
-- **PHP:** 8.3 atau 8.4 (Ekstensi: `pdo`, `mbstring`, `openssl`, `tokenizer`, `xml`, `gd` atau `imagick`, `curl`)
+- **PHP:** 8.3 atau 8.4 (Ekstensi: `pdo_mysql`, `mbstring`, `openssl`, `tokenizer`, `xml`, `gd`, `curl`)
 - **Composer:** 2.6+
 - **Node.js & NPM:** Node 20 LTS atau 22 LTS, NPM 10+
-- **Database:** PostgreSQL 16+ atau MySQL 8.0+ / MariaDB 10.11+ (atau SQLite 3.35+ untuk lokal)
+- **Database:** MySQL 8.0+ atau MariaDB 10.11+ (Localhost)
+- **Infrastruktur Memory:** Cukup single VPS murah (1–2 GB RAM), **tanpa perlu instalasi daemon Redis**.
 
-### 1.2 Langkah Instalasi
+### 1.2 Langkah Instalasi Ramping (Lean Dependencies)
 
 ```bash
 # 1. Masuk ke root direktori repositori
 cd hmts-web
 
-# 2. Buat proyek Laravel baru (jika belum ada file framework)
+# 2. Buat proyek Laravel baru
 composer create-project laravel/laravel:^11.0 . --prefer-dist
 
-# 3. Pasang paket Composer inti
+# 3. Pasang paket Composer esensial (Bebas Spatie & Bebas PhpSpreadsheet)
 composer require livewire/livewire:^3.5 \
-    spatie/laravel-permission:^6.9 \
     simplesoftwareio/simple-qrcode:^4.2 \
-    maatwebsite/excel:^3.1 \
     barryvdh/laravel-dompdf:^3.0 \
     intervention/image-laravel:^1.3
 
-# 4. Pasang auth starter kit (Breeze)
+# 4. Pasang auth starter kit (Breeze Blade)
 composer require laravel/breeze --dev
 php artisan breeze:install blade --no-interaction
 
@@ -46,12 +50,24 @@ npm install @alpinejs/mask @alpinejs/collapse html5-qrcode
 cp .env.example .env
 php artisan key:generate
 
+# Konfigurasi Database MySQL & Driver Bawaan Tanpa Redis:
+# DB_CONNECTION=mysql
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE=hmts_db
+# DB_USERNAME=root
+# DB_PASSWORD=your_password
+#
+# CACHE_STORE=database
+# QUEUE_CONNECTION=database
+# SESSION_DRIVER=database
+
 # 7. Hubungkan storage publik & buat direktori privat
 php artisan storage:link
 mkdir -p storage/app/private/receipts
 mkdir -p storage/app/private/letters
 
-# 8. Jalankan migrasi dan seeder awal
+# 8. Jalankan migrasi MySQL dan seeder awal
 php artisan migrate --seed
 
 # 9. Jalankan server pengembangan
@@ -80,18 +96,56 @@ npm run dev
 
 ---
 
-## 2. Ikhtisar Arsitektur Sistem: Modern Monolith (TALL Stack)
+## 2. Arsitektur Routing & Pembagian 4 Halaman Publik
+
+Sistem membagi portal publik menjadi **4 halaman terpisah yang bersih** untuk memastikan pengalaman pengguna yang fokus dan navigasi yang lapang:
 
 ```
-                      [ Pengunjung Publik ]         [ Pengurus & Anggota ]
+Portal Publik:
+├── 1. GET /          → HomeController::class          (Beranda: Hero, Profil Singkat, Kelebihan, 5 Pilar, Proker, Layanan Singkat, Peta Map)
+├── 2. GET /tentang   → AboutController::class         (Tentang Kami, Visi Misi, Mars, Struktur)
+├── 3. GET /kegiatan  → ProgramIndex::class (Livewire) (Kalender Proker, Detail TOR, Daftar Tim)
+└── 4. GET /layanan   → ServiceHub::class (Livewire)   (Hub Pinjam Alat, QR, Aspirasi, Aset)
+
+Command Center Internal (/app):
+└── 5. GET /app/*     → Dashboard / Livewire Modul     (Khusus Superadmin & Admin)
+```
+
+### 2.1 Definisi Routing (`routes/web.php`)
+```php
+use App\Http\Controllers\Public\HomeController;
+use App\Http\Controllers\Public\AboutController;
+use App\Livewire\Public\ProgramIndex;
+use App\Livewire\Public\ServiceHub;
+
+// --- PORTAL PUBLIK (4 HALAMAN UTAMA) ---
+Route::get('/', HomeController::class)->name('home');
+Route::get('/tentang', AboutController::class)->name('about');
+Route::get('/kegiatan', ProgramIndex::class)->name('programs.index');
+Route::get('/layanan', ServiceHub::class)->name('services.hub');
+
+// --- OTENTIKASI & COMMAND CENTER INTERNAL (/APP) ---
+Route::middleware(['auth'])->prefix('app')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('app.dashboard');
+    // Modul M1 - M12 khusus Superadmin & Admin...
+});
+```
+
+---
+
+## 3. Ikhtisar Arsitektur Sistem: Zero-Redis Modern Monolith
+
+```
+                      [ Pengunjung Publik ]         [ Admin & Superadmin ]
                                 │                              │
-                         (Portal Publik)               (Dashboard /app)
+                (Portal Publik: 4 Halaman)             (Dashboard /app)
+               [ / , /tentang, /kegiatan, /layanan ]           │
                                 │                              │
                                 └───┐                      ┌───┘
                                     ▼                      ▼
                      ┌──────────────────────────────────────────────┐
-                     │          Cloudflare CDN & Edge Proxy         │
-                     │  (SSL, WAF, Turnstile Anti-Spam, Edge Cache) │
+                     │          Nginx Web Server / Reverse Proxy    │
+                     │          (SSL Let's Encrypt, Gzip, Security) │
                      └──────────────────────┬───────────────────────┘
                                             │
                                             ▼
@@ -101,78 +155,73 @@ npm run dev
                      │  │            Laravel 11/12 Engine        │  │
                      │  ├───────────────────┬────────────────────┤  │
                      │  │ Blade Views       │ Livewire 3 Engine  │  │
-                     │  │ (Public Portal)   │ (/app Components)  │  │
+                     │  │ (4 Public Pages)  │ (/app & Services)  │  │
                      │  ├───────────────────┴────────────────────┤  │
                      │  │ Middlewares (Auth, ActivePeriodScope,  │  │
-                     │  │  RBAC Policies, Throttle, Turnstile)   │  │
+                     │  │  Role Gate, Throttle, Native Honeypot) │  │
                      │  ├────────────────────────────────────────┤  │
                      │  │ Eloquent ORM + Action Classes          │  │
                      │  └───────────────────┬────────────────────┘  │
                      └──────────────────────┼───────────────────────┘
                                             │
-                     ┌──────────────────────┼───────────────────────┐
-                     ▼                      ▼                       ▼
-            ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────────┐
-            │   Database       │  │ Cache & Queues   │  │ Storage Disks        │
-            │ (PostgreSQL/     │  │ (Database /      │  │ ├─ Public (Foto/Logo)│
-            │  MySQL/SQLite)   │  │  Redis Driver)   │  │ └─ Private (Nota/PDF)│
-            └──────────────────┘  └──────────────────┘  └──────────────────────┘
+                     ┌──────────────────────┴───────────────────────┐
+                     ▼                                              ▼
+            ┌──────────────────────────────────┐          ┌──────────────────────┐
+            │         MySQL 8.0+ Database      │          │ Storage Disks        │
+            │ ├─ Tabel Bisnis (Members, Cash)  │          │ ├─ Public (Foto/Logo)│
+            │ ├─ Tabel Cache (QR Token 30s)    │          │ └─ Private (Nota/PDF)│
+            │ ├─ Tabel Jobs (Queue Background) │          └──────────────────────┘
+            │ └─ Tabel Sessions                │
+            └──────────────────────────────────┘
 ```
 
 ---
 
-## 3. Diagram Entity-Relationship Database (ERD)
+## 4. Skema Basis Data & Model Autentikasi Pengguna
 
-```mermaid
-erDiagram
-    PERIODS ||--o{ DIVISIONS : has
-    PERIODS ||--o{ MEMBERS : registers
-    PERIODS ||--o{ PROGRAMS : schedules
-    PERIODS ||--o{ CASH_ACCOUNTS : owns
-    PERIODS ||--o{ CASH_TRANSACTIONS : records
-    PERIODS ||--o{ INVENTORIES : tracks
-    PERIODS ||--o{ BORROWINGS : logs
-    PERIODS ||--o{ LETTERS : logs
-    PERIODS ||--o{ MEETING_NOTES : archives
-    PERIODS ||--o{ ASPIRATIONS : receives
-    PERIODS ||--o{ DESIGN_ASSETS : catalogs
+### 4.1 Skema Tabel `users` Sederhana (Tanpa Enum)
+```sql
+CREATE TABLE users (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(20) NOT NULL DEFAULT 'admin', -- 'superadmin' atau 'admin'
+    remember_token VARCHAR(100) NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL
+);
+```
 
-    USERS ||--o| MEMBERS : profile
-    USERS ||--o{ AUDIT_LOGS : performs
-    USERS ||--o{ BORROWINGS : requests
+### 4.2 Otorisasi Native pada Model `User` (`app/Models/User.php`)
+```php
+namespace App\Models;
 
-    DIVISIONS ||--o{ MEMBERS : assigns
-    DIVISIONS ||--o{ PROGRAMS : manages
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-    PROGRAMS ||--o{ COMMITTEES : organizes
-    PROGRAMS ||--o{ ATTENDANCE_SESSIONS : holds
-    PROGRAMS ||--o{ CASH_TRANSACTIONS : budgets
+class User extends Authenticatable
+{
+    protected $fillable = [
+        'name', 'email', 'password', 'role',
+    ];
 
-    COMMITTEES ||--o{ COMMITTEE_MEMBERS : includes
-    COMMITTEES ||--o{ COMMITTEE_TASKS : assigns
-    MEMBERS ||--o{ COMMITTEE_MEMBERS : joins
+    public function isSuperAdmin(): bool
+    {
+        return $this->role === 'superadmin';
+    }
 
-    ATTENDANCE_SESSIONS ||--o{ ATTENDANCES : collects
-    MEMBERS ||--o{ ATTENDANCES : attends
-
-    CASH_ACCOUNTS ||--o{ CASH_TRANSACTIONS : holds
-    CASH_TRANSACTIONS ||--o{ TRANSACTION_RECEIPTS : attaches
-
-    INVENTORIES ||--o{ BORROWING_ITEMS : includes
-    BORROWINGS ||--o{ BORROWING_ITEMS : contains
-
-    LETTERS ||--o{ DISPOSITIONS : directs
-    USERS ||--o{ DISPOSITIONS : assigns_to
-
-    MEETING_NOTES ||--o{ MEETING_ACTION_ITEMS : yields
-    MEMBERS ||--o{ MEETING_ACTION_ITEMS : executes
+    public function isAdmin(): bool
+    {
+        return in_array($this->role, ['admin', 'superadmin']);
+    }
+}
 ```
 
 ---
 
-## 4. Pola Desain Perangkat Lunak Inti
+## 5. Pola Desain Perangkat Lunak Inti
 
-### 4.1 Multi-Tenancy Temporal: `ActivePeriodScope`
+### 5.1 Multi-Tenancy Temporal: `ActivePeriodScope`
 ```php
 namespace App\Models\Scopes;
 
@@ -199,7 +248,7 @@ class ActivePeriodScope implements Scope
 }
 ```
 
-### 4.2 Immutable Financial Ledger: `VoidCashTransactionAction`
+### 5.2 Immutable Financial Ledger dengan Otorisasi Superadmin: `VoidCashTransactionAction`
 ```php
 namespace App\Actions\Cash;
 
@@ -207,11 +256,16 @@ use App\Models\CashTransaction;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class VoidCashTransactionAction
 {
     public function execute(CashTransaction $transaction, string $reason, User $voidedBy): CashTransaction
     {
+        if (!$voidedBy->isSuperAdmin()) {
+            throw new AuthorizationException('Hanya Superadmin yang memiliki otoritas pembatalan transaksi kas.');
+        }
+
         if ($transaction->status === 'voided') {
             throw ValidationException::withMessages([
                 'transaction' => 'Transaksi ini sudah pernah dibatalkan (void).'
@@ -239,7 +293,7 @@ class VoidCashTransactionAction
 }
 ```
 
-### 4.3 Anti-Bentrok Jadwal Peminjaman: `CheckBorrowingConflictAction`
+### 5.3 Anti-Bentrok Jadwal Peminjaman Alat: `CheckBorrowingConflictAction`
 ```php
 namespace App\Actions\Inventory;
 
@@ -266,3 +320,52 @@ class CheckBorrowingConflictAction
     }
 }
 ```
+
+### 5.4 Ekspor Rekap Data Hemat RAM (*Native Streamed CSV*)
+```php
+namespace App\Actions\Export;
+
+use Symfony\Component\HttpFoundation\StreamedResponse;
+use App\Models\CashTransaction;
+
+class ExportCashTransactionsCsvAction
+{
+    public function execute(): StreamedResponse
+    {
+        return response()->streamDownload(function () {
+            $handle = fopen('php://output', 'w');
+            fputcsv($handle, ['Tanggal', 'Akun Kas', 'Tipe', 'Keterangan', 'Nominal', 'Status']);
+
+            CashTransaction::with('cashAccount')
+                ->orderBy('created_at')
+                ->chunk(200, function ($transactions) use ($handle) {
+                    foreach ($transactions as $t) {
+                        fputcsv($handle, [
+                            $t->created_at->format('Y-m-d H:i'),
+                            $t->cashAccount->name,
+                            $t->type,
+                            $t->description,
+                            $t->amount,
+                            $t->status,
+                        ]);
+                    }
+                });
+
+            fclose($handle);
+        }, 'rekap-kas-hmts-' . date('Y-m-d') . '.csv', [
+            'Content-Type' => 'text/csv',
+        ]);
+    }
+}
+```
+
+---
+
+## 6. Standar UI/UX Frontend & Desain Multi-Halaman
+
+Mengacu pada [`docs/design.md`](file:///C:/Users/hp/Desktop/hmts-web/docs/design.md) dan prototipe [`preview.html`](file:///C:/Users/hp/Desktop/hmts-web/preview.html):
+- **Floating Island Navbar:** Navbar kapsul mengambang 4 menu (`BERANDA`, `TENTANG KAMI`, `KEGIATAN`, `LAYANAN`) + tombol `LOGIN PENGURUS ↗`.
+- **Halaman 1 (Beranda):** Hero monumental dengan panah sirkular (`→`), pintasan layanan cepat, teaser 5 pilar peminatan, teaser proker, dan banner akreditasi.
+- **Halaman 2 (Tentang Kami):** Narasi sejarah sejak 1994, filosofi logo segitiga truss, visi & 3 pilar misi kabinet, lirik & pemutar audio Mars HMTS FT-UNTAD, serta struktur kepengurusan lengkap (BPH & 5 Departemen).
+- **Halaman 3 (Kegiatan):** Kalender timeline tahunan, filter kategori proker, kartu detail kompetisi Civil Expo/BIM/Desa, unduh berkas TOR, dan pendaftaran.
+- **Halaman 4 (Layanan):** Hub 4 tab (Peminjaman Alat Lab M7/M8 anti-bentrok, Scan Presensi QR M2, Kotak Aspirasi & Lacak Tiket M11, dan Bank Aset M12).

@@ -1,11 +1,14 @@
 # AI CODING AGENT OPERATIONAL GUIDELINES & ROADMAP
 ## Web Profil & Sistem Manajemen Organisasi HMTS UNTAD
-**Stack:** Laravel 11/12 · Livewire 3 · Alpine.js · Tailwind CSS  
-**Design System:** Industrial Civil Engineering & Heavy Construction · Tactical Telemetry  
-**Color Benchmark:** Latar `#0C0712` · **CTA Kuning `#FFE500`** · **Pendukung Oranye `#CC6600`**  
+**Stack:** Laravel 11/12 · Livewire 3 · Alpine.js · Tailwind CSS · MySQL  
+**Database Engine:** MySQL 8.0+ / MariaDB 10.11+  
+**Role Structure:** Simple Dual-Role (`superadmin` & `admin`) tanpa Enum / Spatie  
+**Design System:** Modern Architectural Civil Engineering · Streamlined Agency Precision · Non-Gimmick Minimalist  
+**Color Benchmark:** Latar `#0A0A0E` · **CTA Kuning `#FFE500`** · **Pendukung Oranye `#CC6600`**  
+**Infrastructure Principle:** Zero-Redis Monolith · Single VPS Budget-Friendly  
 **Target:** Panduan Resmi Agen AI & Pengembang Perangkat Lunak  
-**Versi:** 3.0 (Civil Construction Edition)  
-**Tanggal Pembaruan:** 7 Oktober 2026  
+**Versi:** 5.1 (Streamlined Civil Edition)  
+**Tanggal Pembaruan:** 8 Oktober 2026  
 
 ---
 
@@ -13,32 +16,34 @@
 
 Sebagai AI Coding Assistant untuk proyek HMTS UNTAD, Anda bertindak sebagai **Senior Full-Stack Laravel Architect & Livewire Specialist**. Tugas Anda adalah menulis kode yang bersih, aman, mudah dipelihara (*maintainable*), teruji, dan berorientasi pada kepatuhan aturan bisnis organisasi mahasiswa teknik sipil tanpa *over-engineering*.
 
-### 5 Aturan Emas Proyek:
+### 6 Aturan Emas Proyek:
 1. **Single Source of Truth & Multi-Period Scoping:** Seluruh tabel operasional wajib memiliki relasi ke `period_id`. Gunakan `ActivePeriodScope` agar data pengurus lama tetap terkunci aman sebagai arsip.
-2. **Immutable Financial Ledger:** Jangan pernah membuat method `update` atau `delete` untuk nominal kas di tabel `cash_transactions`. Semua koreksi wajib melalui action class `VoidCashTransactionAction`.
-3. **Zero Identity Logging pada Aspirasi (M11):** Dilarang keras menyimpan `user_id`, `ip_address`, nama, atau identitas apapun di tabel `aspirations`.
-4. **Isolasi Penyimpanan (Private Disk):** Berkas sensitif (nota kuitansi, surat rahasia, bukti sakit) wajib disimpan di disk `private` dan diakses hanya lewat *temporary signed URL*.
-5. **Modern Monolith (TALL Stack Standards):** Maksimalkan kemampuan Livewire 3, Alpine.js, dan Blade Components. Hindari penambahan JavaScript runtime/framework sekunder yang tidak diperlukan.
+2. **Simple Dual-Role Model (Tanpa Spatie & Tanpa Enum):** Gunakan kolom string `role` (`'superadmin'` / `'admin'`) pada model `User`. Tidak perlu paket Spatie Permission maupun file Enum terpisah. Otorisasi dilakukan via method native model `isSuperAdmin()` dan `isAdmin()`.
+3. **Immutable Financial Ledger:** Jangan pernah membuat method `update` atau `delete` untuk nominal kas di tabel `cash_transactions`. Semua koreksi wajib melalui action class `VoidCashTransactionAction` yang hanya boleh dieksekusi oleh `superadmin`.
+4. **Zero Identity Logging pada Aspirasi (M11):** Dilarang keras menyimpan `user_id`, `ip_address`, nama, atau identitas apapun di tabel `aspirations`.
+5. **Isolasi Penyimpanan (Private Disk):** Berkas sensitif (nota kuitansi, surat rahasia, bukti sakit) wajib disimpan di disk `private` (`storage/app/private`) dan diakses hanya lewat *temporary signed URL*.
+6. **Zero-Redis & Zero-Bloat Monolith:** Manfaatkan cache, session, dan queue bawaan database MySQL (`CACHE_STORE=database`, `QUEUE_CONNECTION=database`). Gunakan *Native Streamed CSV* untuk ekspor data (tanpa `maatwebsite/excel`).
 
 ---
 
 ## 2. Standar Koding & Konvensi Frontend
 
-### 2.1 Konvensi Visual: Heavy Civil Construction Aesthetic
-- **Latar Belakang Kanvas:** `#0C0712` (Baja struktural pekat / Obsidian) dengan CAD blueprint grid halus.
-- **Warna Aksen Kunci (CTA Primer):** **Kuning Konstruksi `#FFE500`** dengan teks kontras hitam pekat `#000000`. Digunakan khusus untuk tombol aksi utama, indikator fokus, dan penanda penting.
-- **Warna Pendukung:** **Oranye Baja `#CC6600`** (warna cat primer baja struktural) untuk garis aksen, border penampang modul, overline tags, dan status perhatian.
-- **Elemen Gambar Kerja Konstruksi:**
-  - Markah penomoran stempel teknik: `[ STA 0+000 ]`, `BM-UNTAD-01`, `ELEV +24.50m`.
-  - Garis aksen bahaya (*hazard stripe*).
-  - Tanda silang (*crosshairs* `+`) pada sudut-sudut kontainer teknik.
-- **Lapisan Kaca Gelap (Structural Tempered Glass):**
-  - Panel & Kartu: `bg-brand-surface/80 backdrop-blur-md border border-white/10 rounded-lg shadow-[0_8px_30px_-4px_rgba(0,0,0,0.55)]`
-  - Input Field: `bg-black/50 backdrop-blur-md border border-white/15 focus:border-brand-yellow text-white rounded-lg`
+### 2.1 Konvensi Visual: Modern Civil Engineering Aesthetic (Sesuai `docs/design.md`)
+- **Latar Belakang Kanvas:** `#0A0A0E` (Baja struktural pekat / Obsidian Slate) dengan blueprint grid halus.
+- **Warna Aksen Kunci (CTA Primer):** **Kuning Konstruksi `#FFE500`** dengan teks kontras hitam pekat `#000000`. Digunakan khusus untuk tombol aksi utama berkapsul (`rounded-full`), indikator kartu aktif, dan penanda penting.
+- **Warna Pendukung:** **Oranye Baja `#CC6600`** untuk garis aksen, border pendukung, dan overline tags.
+- **Komponen Kunci:**
+  - *Floating Island Navbar* berkapsul melengkung penuh (`rounded-full`) dengan efek *backdrop-blur*.
+  - *Framed Hero Container* (`rounded-[2rem]`) berlatar foto nyata infrastruktur dan lencana panah sirkular (`→`).
+  - *Floating Quick Bar* formulir layanan & aspirasi mengambang di dasar hero.
+  - Grid 5 kartu keahlian sipil (dengan status kartu aktif kuning untuk geoteknik).
+  - Grid 4 kartu program kerja dengan foto thumbnail di bagian atas.
+  - Alur SOP operasional 5 langkah bernomor (`01` s/d `05`).
+  - Kotak sorotan akuntabilitas dengan angka metrik 99.2% dan kisi foto civitas.
 - **Tipografi:**
-  - Headings / Labels: **Poppins** (Bold/ExtraBold)
+  - Headings / Labels: **Poppins** (Bold/Black)
   - Data Teknis / Uang / Kode Tiket / Stationing: **JetBrains Mono**
-  - Paragraf Bacaan: **Inter**
+  - Paragraf Bacaan & UI: **Inter**
 
 ---
 
@@ -53,13 +58,11 @@ hmts-untad/
 │   │   │   └── VoidCashTransactionAction.php
 │   │   ├── Inventory/
 │   │   │   └── CheckBorrowingConflictAction.php
-│   │   └── Attendance/
-│   │       └── GenerateDynamicQrTokenAction.php
-│   ├── Enums/
-│   │   ├── CashType.php
-│   │   ├── TransactionStatus.php
-│   │   ├── BorrowingStatus.php
-│   │   └── AspirationStatus.php
+│   │   ├── Attendance/
+│   │   │   └── GenerateDynamicQrTokenAction.php
+│   │   └── Export/
+│   │       ├── ExportCashTransactionsCsvAction.php
+│   │       └── ExportMembersCsvAction.php
 │   ├── Http/
 │   │   ├── Controllers/
 │   │   │   ├── Public/
@@ -69,7 +72,8 @@ hmts-untad/
 │   │   │   └── Storage/
 │   │   │       └── PrivateFileStreamController.php
 │   │   └── Middleware/
-│   │       └── SetActivePeriodContext.php
+│   │       ├── SetActivePeriodContext.php
+│   │       └── EnsureSuperAdmin.php
 │   ├── Livewire/
 │   │   ├── Attendance/
 │   │   │   ├── QrSessionManager.php
@@ -90,6 +94,7 @@ hmts-untad/
 │   ├── Models/
 │   │   ├── Scopes/
 │   │   │   └── ActivePeriodScope.php
+│   │   ├── User.php
 │   │   ├── Period.php
 │   │   ├── Division.php
 │   │   ├── Member.php
@@ -107,6 +112,8 @@ hmts-untad/
 │   │   ├── Aspiration.php
 │   │   └── DesignAsset.php
 │   └── Policies/
+│       ├── CashTransactionPolicy.php
+│       └── InventoryPolicy.php
 ├── config/
 │   └── hmts.php
 ├── database/
@@ -119,7 +126,7 @@ hmts-untad/
 │       ├── components/ui/
 │       │   ├── button-cta.blade.php
 │       │   ├── button-secondary.blade.php
-│       │   ├── glass-card.blade.php
+│       │   ├── clean-card.blade.php
 │       │   ├── input.blade.php
 │       │   └── status-pill.blade.php
 │       ├── layouts/
@@ -137,16 +144,14 @@ hmts-untad/
 
 ---
 
-## 4. Paket Pustaka Composer & NPM Wajib
+## 4. Paket Pustaka Composer & NPM Wajib (Lean)
 
 ```bash
 # Core & Autentikasi
 composer require livewire/livewire
-composer require spatie/laravel-permission
 composer require laravel/breeze --dev
 
 # Dokumen, Gambar & QR
-composer require maatwebsite/excel
 composer require barryvdh/laravel-dompdf
 composer require intervention/image-laravel
 composer require simplesoftwareio/simple-qrcode
@@ -160,7 +165,7 @@ npm install @alpinejs/mask @alpinejs/collapse html5-qrcode
 
 ## 5. Resep Kode Utama (Action Recipes)
 
-### 5.1 Resep: Action Void Kas Transaksi
+### 5.1 Resep: Action Void Kas Transaksi (Otorisasi Superadmin)
 ```php
 namespace App\Actions\Cash;
 
@@ -168,11 +173,16 @@ use App\Models\CashTransaction;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class VoidCashTransactionAction
 {
     public function execute(CashTransaction $transaction, string $reason, User $voidedBy): CashTransaction
     {
+        if (!$voidedBy->isSuperAdmin()) {
+            throw new AuthorizationException('Hanya Superadmin yang memiliki otoritas pembatalan transaksi kas.');
+        }
+
         if ($transaction->status === 'voided') {
             throw ValidationException::withMessages(['status' => 'Transaksi ini sudah pernah dibatalkan.']);
         }
@@ -198,43 +208,39 @@ class VoidCashTransactionAction
 }
 ```
 
-### 5.2 Resep: Stream Berkas Privat Berizin
+### 5.2 Resep: Ekspor Data Streamed CSV Hemat RAM
 ```php
-namespace App\Http\Controllers\Storage;
+namespace App\Actions\Export;
 
-use App\Http\Controllers\Controller;
-use App\Models\TransactionReceipt;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+use App\Models\Member;
 
-class PrivateFileStreamController extends Controller
+class ExportMembersCsvAction
 {
-    public function streamReceipt(Request $request, TransactionReceipt $receipt): BinaryFileResponse
+    public function execute(): StreamedResponse
     {
-        if (! $request->hasValidSignature()) {
-            abort(403, 'Tautan kedaluwarsa atau tidak valid.');
-        }
+        return response()->streamDownload(function () {
+            $handle = fopen('php://output', 'w');
+            fputcsv($handle, ['NIM', 'Nama Lengkap', 'Peminatan', 'Divisi', 'Status']);
 
-        $this->authorize('view', $receipt->cashTransaction);
+            Member::with('division')
+                ->orderBy('nim')
+                ->chunk(200, function ($members) use ($handle) {
+                    foreach ($members as $m) {
+                        fputcsv($handle, [
+                            $m->nim,
+                            $m->name,
+                            $m->specialization,
+                            $m->division?->name ?? '-',
+                            $m->status,
+                        ]);
+                    }
+                });
 
-        if (! Storage::disk('private')->exists($receipt->file_path)) {
-            abort(404, 'Berkas kuitansi tidak ditemukan.');
-        }
-
-        return response()->file(Storage::disk('private')->path($receipt->file_path));
+            fclose($handle);
+        }, 'data-anggota-hmts-' . date('Y-m-d') . '.csv', [
+            'Content-Type' => 'text/csv',
+        ]);
     }
 }
-```
-
----
-
-## 6. Verifikasi & Pengujian Kualitas
-
-```bash
-# 1. Jalankan unit & feature tests
-php artisan test
-
-# 2. Periksa linter & coding standard formatting
-vendor/bin/pint --test
 ```

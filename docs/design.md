@@ -3,8 +3,8 @@
 **Design Aesthetic:** Modern Architectural Civil Engineering · Streamlined Agency Precision · Non-Gimmick Minimalist  
 **Reference Benchmark:** `docs/design/new/new.png`  
 **Stack Frontend:** Tailwind CSS · Livewire 3 · Alpine.js · Blade Components  
-**Color Benchmark:** Canvas `#0A0A0E` · **CTA & Highlight Kuning `#FFE500`** · **Aksen Pendukung Oranye Baja `#CC6600`** · Tipografi `#FFFFFF` & `#E4E4E7`  
-**Versi Dokumen:** 5.0 (Streamlined Civil Edition)  
+**Color Benchmark:** Canvas `#0A0A0E` · **CTA Tombol Oranye Baja `#CC6600`** (Hover: `#E67300`, Teks: `#FFFFFF`) · **Aksen Sorotan Kuning Helm `#FFE500`** · Tipografi `#FFFFFF` & `#E4E4E7`  
+**Versi Dokumen:** 5.1 (Steel Orange CTA & High-Vis Yellow Accent Edition)  
 **Tanggal Pembaruan:** 8 Oktober 2026  
 
 ---
@@ -18,19 +18,17 @@ Berdasarkan pembaruan visual resmi (`docs/design/new/new.png`), antarmuka HMTS F
    - Menghilangkan taburan teks telemetri semu (seperti koordinat GPS berulang, stempel CAD berlebihan di setiap sudut, dan label teknis berlapis) yang membuat visual terasa sesak.
    - Memberi ruang napas vertikal yang lega (`py-20` hingga `py-24`) antar-seksi.
 2. **Adopsi Tata Letak Modern (Sesuai `new.png`):**
-   - **Floating Island Navigation:** Navbar kapsul mengambang (*pill navbar*) dengan sudut melengkung penuh (`rounded-full`), efek *backdrop-blur*, dan tombol aksi primer berkapsul kuning.
+   - **Floating Island Navigation:** Navbar kapsul mengambang (*pill navbar*) dengan sudut melengkung penuh (`rounded-full`), efek *backdrop-blur*, dan tombol aksi primer berkapsul oranye baja (`#CC6600`) dengan teks putih.
    - **Framed Hero Container:** Hero dibungkus dalam kontainer berbingkai dengan sudut melengkung halus (`rounded-[2rem]` / `rounded-[2.5rem]`), berlatar belakang foto nyata lapangan teknik sipil dengan kontras tajam.
-   - **Inline Headline Badge:** Judul utama monumental memuat aksen lencana panah sirkular (`→`) di antara teks penegasan.
-   - **Floating Quick Layanan & Aspirasi Bar:** Bar formulir cepat mengambang di dasar hero (*schedule / lead capture bar*), memuat input berkapsul rapi dan tombol kirim kuning.
+   - **Inline Headline Badge:** Judul utama monumental memuat aksen lencana panah sirkular (`→`) dan sorotan kata kunci kuning `#FFE500`.
    - **Grid 5 Kartu Keahlian Sipil:** Barisan 5 pilar keilmuan (Struktur, Geoteknik, MK, Hidro, Transportasi) dengan ikon sirkular atas dan status kartu aktif dengan *border* kuning bersinar.
-   - **Grid 4 Kartu Program Unggulan:** Kartu visual dengan foto riil di bagian atas, lencana nomor sirkular di sudut gambar, dan tautan aksi kuning.
-   - **Alur 5 Langkah Terstruktur:** Visualisasi SOP operasional organisasi dengan 5 kartu bernomor (`01` s/d `05`).
-   - **Focal Success Box & Akuntabilitas:** Blok tengah sorotan performa kabinet (metrik 99.2%, akreditasi LAM-Teknik Unggul, tombol portal `/app`, dan kisi foto civitas sipil).
-3. **Konsistensi Palet Warna Resmi HMTS:**
+   - **Grid Program Unggulan:** Kartu visual dengan foto riil di bagian atas, lencana nomor sirkular di sudut gambar, dan tombol aksi oranye baja.
+   - **Pusat Layanan & Map Terpadu:** Akses cepat peminjaman alat lab, presensi mandiri, kotak aspirasi, dan lokasi map sekretariat kampus.
+3. **Harmonisasi Palet Warna Resmi HMTS:**
    - **Kanvas Gelap Struktural:** `#0A0A0E` (Obsidian Slate).
    - **Permukaan Kartu:** `#121217` & `#181820`.
-   - **Kuning Helm Proyek (Primer CTA & Status Aktif):** `#FFE500` (hover: `#E6CF00`).
-   - **Oranye Baja (Aksen Pendukung):** `#CC6600`.
+   - **Oranye Baja (CTA Utama / Tombol Aksi):** `#CC6600` (Hover: `#E67300`). Memberi karakter kokoh, industrial, dan grounded. Teks di dalam tombol selalu **Putih Tebal (`#FFFFFF`)** demi kontras tajam.
+   - **Kuning Helm Proyek (Aksen Sorotan & Pendukung Teks):** `#FFE500`. Digunakan secara presisi untuk menyorot kata penting headline, tag overline `//`, indikator status, angka metrik capaian `640+`, dan border kartu prioritas.
    - **Teks Tinta Putih & Muted:** `#FFFFFF` dan `#E4E4E7`.
 
 ---
@@ -41,14 +39,14 @@ Berdasarkan pembaruan visual resmi (`docs/design/new/new.png`), antarmuka HMTS F
 | :--- | :--- | :--- | :--- |
 | **Canvas Primary** | `#0A0A0E` | Latar utama kanvas gelap struktural | `bg-[#0A0A0E]` |
 | **Surface Dark** | `#121217` | Latar kartu standar & bar navigasi | `bg-[#121217]` |
-| **Surface Elevated** | `#181820` | Latar bar formulir & kartu aktif | `bg-[#181820]` |
-| **Yellow Accent (Utama)** | `#FFE500` | Tombol CTA primer, tab aktif, border aktif | `bg-[#FFE500]`, `text-[#FFE500]` |
-| **Yellow Hover** | `#E6CF00` | State hover tombol primer | `hover:bg-[#E6CF00]` |
-| **Steel Orange (Pendukung)**| `#CC6600` | Penanda kategori pendukung & overline | `text-[#CC6600]`, `border-[#CC6600]` |
-| **Text Primary** | `#FFFFFF` | Judul, angka metrik utama, teks headline | `text-white` |
+| **Surface Elevated** | `#181820` | Latar formulir & kartu aktif | `bg-[#181820]` |
+| **Steel Orange (CTA Utama)**| `#CC6600` | Tombol CTA primer, tombol submit, tombol navigasi aktif | `bg-[#CC6600]`, `text-white` |
+| **Steel Orange Hover** | `#E67300` | State hover tombol primer oranye | `hover:bg-[#E67300]` |
+| **Yellow Highlight (Aksen Teks)**| `#FFE500` | Sorotan kata headline, overline `//`, angka capaian, icon | `text-[#FFE500]`, `bg-[#FFE500]` |
+| **Text Primary** | `#FFFFFF` | Judul, teks di dalam tombol oranye, headline | `text-white` |
 | **Text Body Muted** | `#E4E4E7` / `#A1A1AA` | Paragraf deskripsi dan data sekunder | `text-zinc-300` / `text-zinc-400` |
 | **Border Hairline** | `rgba(255, 255, 255, 0.08)` | Pembatas kartu rapi dan halus | `border-white/10` |
-| **Border Active Yellow** | `#FFE500` | Border penegas pada kartu aktif | `border-[#FFE500]` |
+| **Border Active Yellow** | `#FFE500` | Border penegas pada kartu aktif geoteknik | `border-[#FFE500]` |
 
 ---
 
@@ -74,14 +72,15 @@ Berdasarkan pembaruan visual resmi (`docs/design/new/new.png`), antarmuka HMTS F
     </a>
     <!-- Links -->
     <nav class="hidden lg:flex items-center gap-1 font-mono text-xs">
-        <a href="#beranda" class="px-4 py-2 rounded-full bg-[#FFE500] text-black font-bold">Beranda</a>
-        <a href="#keahlian" class="px-4 py-2 rounded-full text-zinc-300 hover:text-white">Keahlian</a>
-        <a href="#proker" class="px-4 py-2 rounded-full text-zinc-300 hover:text-white">Proker</a>
+        <a href="#beranda" class="px-4 py-2 rounded-full bg-[#CC6600] text-white font-bold">Beranda</a>
+        <a href="#tentang" class="px-4 py-2 rounded-full text-zinc-300 hover:text-white">Tentang Kami</a>
+        <a href="#kegiatan" class="px-4 py-2 rounded-full text-zinc-300 hover:text-white">Kegiatan</a>
+        <a href="#layanan" class="px-4 py-2 rounded-full text-zinc-300 hover:text-white">Layanan</a>
     </nav>
-    <!-- CTA Button-in-Button -->
-    <button class="inline-flex items-center gap-2 bg-[#FFE500] text-black px-5 py-2 rounded-full text-xs font-mono font-bold uppercase">
-        <span>PORTAL / LOGIN</span>
-        <span class="w-5 h-5 rounded-full bg-black/15 flex items-center justify-center">↗</span>
+    <!-- CTA Button Oranye Baja -->
+    <button class="inline-flex items-center gap-2 bg-[#CC6600] hover:bg-[#E67300] text-white px-5 py-2 rounded-full text-xs font-mono font-bold uppercase transition-all shadow-lg shadow-[#CC6600]/20">
+        <span>LOGIN PENGURUS</span>
+        <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[11px]">↗</span>
     </button>
 </header>
 ```
