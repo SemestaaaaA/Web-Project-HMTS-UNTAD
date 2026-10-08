@@ -365,8 +365,8 @@ class ExportCashTransactionsCsvAction
 ## 6. Standar UI/UX Frontend & Desain Multi-Halaman
 
 Mengacu pada [`docs/design.md`](file:///C:/Users/hp/Desktop/hmts-web/docs/design.md) dan prototipe [`preview.html`](file:///C:/Users/hp/Desktop/hmts-web/preview.html):
-- **Floating Island Navbar:** Navbar kapsul mengambang 4 menu (`BERANDA`, `TENTANG KAMI`, `KEGIATAN`, `LAYANAN`) + tombol `LOGIN PENGURUS ↗`.
-- **Halaman 1 (Beranda):** Hero monumental dengan panah sirkular (`→`), pintasan layanan cepat, teaser 5 pilar peminatan, teaser proker, dan banner akreditasi.
-- **Halaman 2 (Tentang Kami):** Narasi sejarah sejak 1994, filosofi logo segitiga truss, visi & 3 pilar misi kabinet, lirik & pemutar audio Mars HMTS FT-UNTAD, serta struktur kepengurusan lengkap (BPH & 5 Departemen).
+- **Floating Island Navbar:** Navbar kapsul mengambang 4 menu (`BERANDA`, `TENTANG KAMI`, `KEGIATAN`, `LAYANAN`) dengan logo resmi HMTS FT-UNTAD (`docs/hmts.png`) + tombol `LOGIN PENGURUS ↗`.
+- **Halaman 1 (Beranda):** Hero monumental 2 kolom (headline "Himpunan Mahasiswa Teknik Sipil" & lambang resmi besar), pintasan layanan cepat HMTS FT-UNTAD Periode 2026/2027, teaser 5 pilar peminatan, teaser proker, dan banner akreditasi.
+- **Halaman 2 (Tentang Kami):** Narasi sejarah sejak 1994, filosofi logo resmi mahkota Tadulako truss segitiga, visi & 3 pilar misi kepengurusan, lirik & pemutar audio Mars HMTS FT-UNTAD, serta bagan bertingkat struktur kepengurusan (Ketua, 4 Pimpinan Harian, 8 Divisi Pelaksana Periode 2026/2027).
 - **Halaman 3 (Kegiatan):** Kalender timeline tahunan, filter kategori proker, kartu detail kompetisi Civil Expo/BIM/Desa, unduh berkas TOR, dan pendaftaran.
 - **Halaman 4 (Layanan):** Hub 4 tab (Peminjaman Alat Lab M7/M8 anti-bentrok, Scan Presensi QR M2, Kotak Aspirasi & Lacak Tiket M11, dan Bank Aset M12).

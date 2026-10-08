@@ -1,0 +1,49 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+@theme {
+    --color-brand-orange: #CC6600;
+    --color-brand-orange-hover: #E67300;
+    --color-brand-orangeHover: #E67300;
+    --color-brand-yellow: #FFE500;
+    --font-display: 'Poppins', sans-serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Ambient Canvas Background with Fixed Lighting System */
+.ambient-canvas {
+    background-color: #0A0A0E;
+    background-image:
+        radial-gradient(ellipse 900px 500px at 50% 0%, rgba(204, 102, 0, 0.16), transparent 70%),
+        radial-gradient(circle 700px at 85% 25%, rgba(255, 229, 0, 0.07), transparent 60%),
+        radial-gradient(circle 600px at 15% 45%, rgba(204, 102, 0, 0.08), transparent 65%),
+        radial-gradient(circle 800px at 70% 75%, rgba(255, 229, 0, 0.07), transparent 65%),
+        radial-gradient(circle 600px at 25% 95%, rgba(255, 229, 0, 0.05), transparent 60%);
+    background-attachment: fixed;
+}
+
+/* Precision Clean Cards */
+.clean-card {
+    background: rgba(18, 18, 23, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clean-card:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+}
+
+.clean-card-active {
+    background: rgba(24, 24, 32, 0.85);
+    border: 1px solid #FFE500;
+    border-radius: 1rem;
+    box-shadow: 0 0 25px rgba(255, 229, 0, 0.12);
+}

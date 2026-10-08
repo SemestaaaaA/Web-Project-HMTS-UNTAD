@@ -128,11 +128,9 @@
 
       <!-- Logo & Brand -->
       <a href="#home" onclick="navigateTo('home'); return false;" class="flex items-center gap-3 group">
-        <div class="w-9 h-9 rounded-full bg-brand-yellow text-black font-display font-black flex items-center justify-center text-xs shadow group-hover:scale-105 transition-transform">
-          TS
-        </div>
+        <img src="docs/hmts.png" alt="Logo HMTS FT-UNTAD" class="w-9 h-9 object-contain drop-shadow group-hover:scale-105 transition-transform">
         <div>
-          <span class="font-display font-bold text-sm tracking-tight text-white uppercase block leading-none">HMTS UNTAD</span>
+          <span class="font-display font-bold text-sm tracking-tight text-white uppercase block leading-none">HMTS FT-UNTAD</span>
           <span class="font-mono text-[10px] text-zinc-400">Teknik Sipil</span>
         </div>
       </a>
@@ -186,36 +184,43 @@
             <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0E] via-transparent to-transparent"></div>
           </div>
 
-          <!-- Hero Teks Utama -->
-          <div class="relative z-10 max-w-2xl pt-4">
+          <!-- Hero Konten: Grid 2 Kolom (Teks & Logo) -->
+          <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
 
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-zinc-300 mb-6">
-              <span class="w-1.5 h-1.5 rounded-full bg-brand-yellow"></span>
-              <span>Himpunan Mahasiswa Teknik Sipil FT UNTAD</span>
+            <!-- Kolom Kiri: Headline & CTA -->
+            <div class="lg:col-span-8">
+              <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white leading-[1.08] tracking-tight uppercase mb-4">
+                Himpunan Mahasiswa <br>
+                <span class="text-brand-yellow">Teknik Sipil</span>
+              </h1>
+
+              <!-- Tagar Resmi HMTS FT-UNTAD -->
+              <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow font-mono text-xs font-bold tracking-wider mb-6">
+                <span>#WeAreTheChampions</span>
+              </div>
+
+              <p class="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-xl mb-8 font-sans">
+                Pusat informasi resmi kegiatan akademik, riset kebencanaan, advokasi kemahasiswaan, dan layanan penunjang civitas Teknik Sipil Fakultas Teknik Universitas Tadulako.
+              </p>
+
+              <div class="flex flex-wrap items-center gap-3">
+                <button onclick="navigateTo('events')" class="inline-flex items-center gap-2.5 bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-3 rounded-full font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-150 active:scale-[0.98] shadow-lg shadow-brand-orange/25">
+                  <span>Jelajahi Kegiatan</span>
+                  <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs">↗</span>
+                </button>
+
+                <button onclick="navigateTo('services')" class="inline-flex items-center gap-2 bg-[#181820]/80 hover:bg-[#1e1e28] border border-white/15 text-white px-5 py-3 rounded-full font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider transition-colors">
+                  <span>Layanan Mahasiswa</span>
+                </button>
+              </div>
             </div>
 
-            <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white leading-[1.08] tracking-tight uppercase mb-5">
-              Kokoh, Inovatif, <br>
-              Membangun
-              <span class="inline-flex items-center justify-center w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-brand-yellow text-black text-base sm:text-xl font-black mx-1.5 align-middle shadow-lg transition-transform hover:scale-105">
-                →
-              </span>
-              <span class="text-zinc-100">Peradaban</span>
-            </h1>
-
-            <p class="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-xl mb-8">
-              Pusat informasi resmi kegiatan akademik, riset kebencanaan, advokasi kemahasiswaan, dan layanan penunjang civitas Teknik Sipil Universitas Tadulako.
-            </p>
-
-            <div class="flex flex-wrap items-center gap-3">
-              <button onclick="navigateTo('events')" class="inline-flex items-center gap-2.5 bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-3 rounded-full font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-150 active:scale-[0.98] shadow-lg shadow-brand-orange/25">
-                <span>Jelajahi Kegiatan</span>
-                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs">↗</span>
-              </button>
-
-              <button onclick="navigateTo('services')" class="inline-flex items-center gap-2 bg-[#181820]/80 hover:bg-[#1e1e28] border border-white/15 text-white px-5 py-3 rounded-full font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider transition-colors">
-                <span>Layanan Mahasiswa</span>
-              </button>
+            <!-- Kolom Kanan: Lambang Resmi Besar (Tanpa Kotak Pembungkus & Tanpa Teks) -->
+            <div class="lg:col-span-4 flex justify-center lg:justify-end">
+              <div class="relative flex items-center justify-center">
+                <div class="absolute -inset-6 rounded-full bg-gradient-to-tr from-brand-orange/25 to-brand-yellow/20 blur-3xl opacity-75"></div>
+                <img src="docs/hmts.png" alt="Lambang Resmi HMTS FT-UNTAD" class="relative w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64 object-contain drop-shadow-[0_25px_35px_rgba(0,0,0,0.85)] hover:scale-105 transition-transform duration-300">
+              </div>
             </div>
 
           </div>
@@ -223,10 +228,12 @@
           <!-- Quick Access Strip di Dasar Hero (Gaya new.png) -->
           <div class="relative z-10 pt-8 mt-8 border-t border-white/10">
             <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
-              <div class="flex items-center gap-3 text-xs font-mono text-zinc-400">
-                <span class="text-brand-yellow font-semibold">Kabinet Tektonika</span>
+              <div class="flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-400">
+                <span class="text-brand-yellow font-semibold">HMTS FT-UNTAD</span>
                 <span class="text-white/20">•</span>
                 <span>Periode 2026/2027</span>
+                <span class="text-white/20">•</span>
+                <span class="text-brand-yellow font-bold">#WeAreTheChampions</span>
               </div>
 
               <!-- 4 Shortcut Layanan Cepat -->
@@ -334,8 +341,8 @@
 
               <div class="border-t border-white/10 pt-4 space-y-2.5 text-xs font-mono text-zinc-300">
                 <div class="flex items-center justify-between">
-                  <span class="text-zinc-500">Kabinet</span>
-                  <span class="text-white font-semibold">Tektonika (2026/2027)</span>
+                  <span class="text-zinc-500">Masa Bakti</span>
+                  <span class="text-white font-semibold">Periode 2026/2027</span>
                 </div>
                 <div class="flex items-center justify-between">
                   <span class="text-zinc-500">Forum Nasional</span>
@@ -708,7 +715,7 @@
           Sejarah, Visi Misi, & <span class="text-brand-yellow">Struktur Pengurus</span>
         </h1>
         <p class="text-zinc-300 text-sm sm:text-base max-w-2xl leading-relaxed">
-          Mengenal tonggak sejarah, prinsip nilai perjuangan, dan susunan kepengurusan Kabinet Tektonika HMTS FT-UNTAD periode 2026/2027.
+          Mengenal tonggak sejarah, prinsip nilai perjuangan, dan susunan kepengurusan HMTS FT-UNTAD periode 2026/2027.
         </p>
       </div>
     </section>
@@ -736,8 +743,13 @@
 
         <!-- Makna Lambang -->
         <div class="lg:col-span-5 clean-card p-6 sm:p-8">
-          <span class="text-brand-yellow font-mono text-xs font-semibold uppercase block mb-2">Identitas Visual</span>
-          <h3 class="font-display font-bold text-xl text-white uppercase mb-4">Makna Lambang Organisasi</h3>
+          <div class="flex items-center gap-4 mb-5 pb-4 border-b border-white/10">
+            <img src="docs/hmts.png" alt="Logo Resmi HMTS FT-UNTAD" class="w-16 h-16 object-contain drop-shadow-md">
+            <div>
+              <span class="text-brand-yellow font-mono text-xs font-semibold uppercase block">Identitas Visual</span>
+              <h3 class="font-display font-bold text-lg text-white uppercase">Makna Lambang HMTS</h3>
+            </div>
+          </div>
           <div class="space-y-3 font-mono text-xs text-zinc-300">
             <div class="p-3.5 rounded-xl bg-black/40 border border-white/5">
               <span class="text-brand-yellow font-bold block mb-1">Rangka Segitiga Truss</span>
@@ -770,7 +782,7 @@
           <div class="lg:col-span-5 rounded-3xl bg-brand-yellow text-black p-8 flex flex-col justify-between shadow-xl">
             <div>
               <div class="font-mono text-xs font-bold pb-3 mb-4 border-b border-black/20 flex justify-between">
-                <span>VISI KABINET</span>
+                <span>VISI STRATEGIS</span>
                 <span>2026/2027</span>
               </div>
               <p class="font-display font-bold text-lg sm:text-xl leading-snug uppercase">
@@ -778,7 +790,7 @@
               </p>
             </div>
             <div class="pt-6 border-t border-black/20 font-mono text-xs font-bold">
-              Kabinet Tektonika · HMTS FT-UNTAD
+              HMTS FT-UNTAD · Periode 2026/2027
             </div>
           </div>
 
@@ -835,67 +847,173 @@
       </div>
     </section>
 
-    <!-- STRUKTUR KEPENGURUSAN -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-[#0D0D12]/70 backdrop-blur-sm relative z-10">
+    <!-- STRUKTUR KEPENGURUSAN (BAGAN BERTINGKAT) -->
+    <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-[#0D0D12]/70 backdrop-blur-sm relative z-10">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-          <span class="text-brand-yellow font-mono text-xs font-semibold uppercase block mb-1">Struktur Kepengurusan</span>
-          <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">Kabinet Tektonika 2026/2027</h2>
-          <p class="text-xs text-zinc-400 mt-2">Badan Pengurus Harian dan Departemen Pelaksana.</p>
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-brand-yellow font-mono text-xs font-semibold uppercase block mb-1">Bagan Struktur Organisasi</span>
+          <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">Kepengurusan HMTS FT-UNTAD</h2>
+          <p class="text-xs font-mono text-zinc-400 mt-2">Periode 2026/2027 · Dewan Pimpinan Harian & 8 Divisi Pelaksana</p>
         </div>
 
-        <!-- 4 Pimpinan BPH -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-          <div class="clean-card p-6 border-brand-yellow/40">
-            <span class="font-mono text-[11px] text-brand-yellow font-semibold uppercase block mb-1">Ketua Himpunan</span>
-            <h4 class="font-display font-bold text-base text-white">M. Rayhan Pratama</h4>
+        <!-- TINGKAT 1: KETUA (Puncak Bagan) -->
+        <div class="flex flex-col items-center mb-6">
+          <div class="clean-card max-w-sm w-full p-6 text-center border-brand-yellow/60 relative shadow-xl shadow-brand-yellow/5">
+            <span class="font-mono text-xs text-brand-yellow font-bold uppercase block mb-1">01. KETUA</span>
+            <h4 class="font-display font-bold text-lg text-white">M. Rayhan Pratama</h4>
             <div class="font-mono text-xs text-zinc-400 mt-1">NIM: F11122045 · Angkatan '22</div>
+            <div class="mt-3 pt-3 border-t border-white/10 text-xs text-zinc-400">
+              Penanggung jawab umum arah kebijakan & kepemimpinan organisasi
+            </div>
           </div>
-          <div class="clean-card p-6">
-            <span class="font-mono text-[11px] text-zinc-400 font-semibold uppercase block mb-1">Wakil Ketua</span>
-            <h4 class="font-display font-bold text-base text-white">Dimas Arya Nugraha</h4>
-            <div class="font-mono text-xs text-zinc-400 mt-1">NIM: F11122087 · Angkatan '22</div>
-          </div>
-          <div class="clean-card p-6">
-            <span class="font-mono text-[11px] text-zinc-400 font-semibold uppercase block mb-1">Sekretaris Umum</span>
-            <h4 class="font-display font-bold text-base text-white">Amanda Putri Lestari</h4>
-            <div class="font-mono text-xs text-zinc-400 mt-1">NIM: F11123014 · Angkatan '23</div>
-          </div>
-          <div class="clean-card p-6">
-            <span class="font-mono text-[11px] text-zinc-400 font-semibold uppercase block mb-1">Bendahara Umum</span>
-            <h4 class="font-display font-bold text-base text-white">Siti Nurhaliza</h4>
-            <div class="font-mono text-xs text-zinc-400 mt-1">NIM: F11123059 · Angkatan '23</div>
+          <!-- Batang Vertikal Penghubung Tingkat 1 ke Tingkat 2 -->
+          <div class="w-0.5 h-8 bg-brand-yellow/50"></div>
+        </div>
+
+        <!-- TINGKAT 2: 4 PIMPINAN HARIAN (Ketua 1, Ketua 2, Sekum, Bendum) -->
+        <div class="relative mb-8">
+          <!-- Garis Horizontal Penghubung Cabang Tingkat 2 (Desktop) -->
+          <div class="hidden lg:block absolute top-0 left-[12.5%] right-[12.5%] h-0.5 bg-white/20"></div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 pt-4">
+            <!-- Ketua 1 -->
+            <div class="clean-card p-5 relative flex flex-col justify-between">
+              <div class="hidden lg:block absolute -top-4 left-1/2 -translate-x-1/2 w-0.5 h-4 bg-white/20"></div>
+              <div>
+                <span class="font-mono text-xs text-brand-yellow font-bold uppercase block mb-1">02. KETUA 1</span>
+                <h4 class="font-display font-bold text-base text-white">Dimas Arya Nugraha</h4>
+                <div class="font-mono text-xs text-zinc-400 mt-0.5">NIM: F11122087 · Angkatan '22</div>
+                <p class="text-xs text-zinc-400 mt-2.5 leading-relaxed">Koordinator bidang internal keorganisasian & sinkronisasi divisi.</p>
+              </div>
+            </div>
+
+            <!-- Ketua 2 -->
+            <div class="clean-card p-5 relative flex flex-col justify-between">
+              <div class="hidden lg:block absolute -top-4 left-1/2 -translate-x-1/2 w-0.5 h-4 bg-white/20"></div>
+              <div>
+                <span class="font-mono text-xs text-brand-yellow font-bold uppercase block mb-1">03. KETUA 2</span>
+                <h4 class="font-display font-bold text-base text-white">Fadel Muhammad</h4>
+                <div class="font-mono text-xs text-zinc-400 mt-0.5">NIM: F11122103 · Angkatan '22</div>
+                <p class="text-xs text-zinc-400 mt-2.5 leading-relaxed">Koordinator bidang eksternal, kemitraan lembaga, & keprofesian.</p>
+              </div>
+            </div>
+
+            <!-- Sekretaris Umum -->
+            <div class="clean-card p-5 relative flex flex-col justify-between">
+              <div class="hidden lg:block absolute -top-4 left-1/2 -translate-x-1/2 w-0.5 h-4 bg-white/20"></div>
+              <div>
+                <span class="font-mono text-xs text-brand-yellow font-bold uppercase block mb-1">04. SEKRETARIS UMUM</span>
+                <h4 class="font-display font-bold text-base text-white">Amanda Putri Lestari</h4>
+                <div class="font-mono text-xs text-zinc-400 mt-0.5">NIM: F11123014 · Angkatan '23</div>
+                <p class="text-xs text-zinc-400 mt-2.5 leading-relaxed">Tata kelola persuratan, inventaris arsip, & administrasi kesekretariatan.</p>
+              </div>
+            </div>
+
+            <!-- Bendahara Umum -->
+            <div class="clean-card p-5 relative flex flex-col justify-between">
+              <div class="hidden lg:block absolute -top-4 left-1/2 -translate-x-1/2 w-0.5 h-4 bg-white/20"></div>
+              <div>
+                <span class="font-mono text-xs text-brand-yellow font-bold uppercase block mb-1">05. BENDAHARA UMUM</span>
+                <h4 class="font-display font-bold text-base text-white">Siti Nurhaliza</h4>
+                <div class="font-mono text-xs text-zinc-400 mt-0.5">NIM: F11123059 · Angkatan '23</div>
+                <p class="text-xs text-zinc-400 mt-2.5 leading-relaxed">Manajemen perbendaharaan kas, transparansi anggaran, & laporan keuangan.</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- 5 Departemen -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 font-mono text-xs">
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-            <div class="text-brand-yellow font-semibold mb-1">01. Akademik</div>
-            <div class="text-white font-bold mb-1">Keilmuan & Riset</div>
-            <div class="text-[11px] text-zinc-400">Koord: Muh. Faisal</div>
+        <!-- Batang Penghubung ke 8 Divisi Pelaksana -->
+        <div class="flex flex-col items-center my-6">
+          <div class="w-0.5 h-8 bg-white/20"></div>
+          <div class="px-4 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-brand-yellow font-semibold tracking-wider">
+            8 DIVISI PELAKSANA
           </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-            <div class="text-brand-yellow font-semibold mb-1">02. Kaderisasi</div>
-            <div class="text-white font-bold mb-1">PSDM & Organisasi</div>
-            <div class="text-[11px] text-zinc-400">Koord: Rizky Pratama</div>
+          <div class="w-0.5 h-8 bg-white/20"></div>
+        </div>
+
+        <!-- TINGKAT 3: 8 DIVISI PELAKSANA -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Divisi 1: Ristek -->
+          <div class="clean-card p-5 flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-xs text-brand-yellow font-semibold block mb-1">DIVISI 01</span>
+              <h4 class="font-display font-bold text-base text-white mb-1">Ristek</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed">Riset & Teknologi: Inovasi rekayasa konstruksi, material beton, dan teknologi rekayasa sipil.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 font-mono text-[11px] text-zinc-400">Koordinator & Anggota</div>
           </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-            <div class="text-brand-yellow font-semibold mb-1">03. Pengmas</div>
-            <div class="text-white font-bold mb-1">Bakti Sosial & Desa</div>
-            <div class="text-[11px] text-zinc-400">Koord: Nurul Hidayah</div>
+
+          <!-- Divisi 2: Infokom -->
+          <div class="clean-card p-5 flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-xs text-brand-yellow font-semibold block mb-1">DIVISI 02</span>
+              <h4 class="font-display font-bold text-base text-white mb-1">Infokom</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed">Informasi & Komunikasi: Pengelolaan media resmi, publikasi digital, dan dokumentasi visual.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 font-mono text-[11px] text-zinc-400">Koordinator & Anggota</div>
           </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-            <div class="text-brand-yellow font-semibold mb-1">04. Alumni</div>
-            <div class="text-white font-bold mb-1">Jejaring Profesi</div>
-            <div class="text-[11px] text-zinc-400">Koord: Hendra Wijaya</div>
+
+          <!-- Divisi 3: Penalaran -->
+          <div class="clean-card p-5 flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-xs text-brand-yellow font-semibold block mb-1">DIVISI 03</span>
+              <h4 class="font-display font-bold text-base text-white mb-1">Penalaran</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed">Penalaran Ilmiah: Pendampingan lomba jembatan (KJI/KBGI), bimbingan akademik, & tutor sebaya.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 font-mono text-[11px] text-zinc-400">Koordinator & Anggota</div>
           </div>
-          <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-            <div class="text-brand-yellow font-semibold mb-1">05. Medinfo</div>
-            <div class="text-white font-bold mb-1">Media & Publikasi</div>
-            <div class="text-[11px] text-zinc-400">Koord: Alifia Zahra</div>
+
+          <!-- Divisi 4: FKMTSI -->
+          <div class="clean-card p-5 flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-xs text-brand-yellow font-semibold block mb-1">DIVISI 04</span>
+              <h4 class="font-display font-bold text-base text-white mb-1">FKMTSI</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed">Forum Wilayah & Nasional: Hubungan koordinasi FKMTSI Wilayah VIII dan temu wicara nasional.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 font-mono text-[11px] text-zinc-400">Koordinator & Anggota</div>
+          </div>
+
+          <!-- Divisi 5: Hublua -->
+          <div class="clean-card p-5 flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-xs text-brand-yellow font-semibold block mb-1">DIVISI 05</span>
+              <h4 class="font-display font-bold text-base text-white mb-1">Hublua</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed">Hubungan Luar & Alumni: Sinergi dengan instansi PUPR, BUMN Karya, LPJK, dan jejaring alumni.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 font-mono text-[11px] text-zinc-400">Koordinator & Anggota</div>
+          </div>
+
+          <!-- Divisi 6: Bursa -->
+          <div class="clean-card p-5 flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-xs text-brand-yellow font-semibold block mb-1">DIVISI 06</span>
+              <h4 class="font-display font-bold text-base text-white mb-1">Bursa</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed">Kewirausahaan Sipil: Pengadaan merchandise resmi, atribut keteknikan, dan kemandirian dana.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 font-mono text-[11px] text-zinc-400">Koordinator & Anggota</div>
+          </div>
+
+          <!-- Divisi 7: Advokasi -->
+          <div class="clean-card p-5 flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-xs text-brand-yellow font-semibold block mb-1">DIVISI 07</span>
+              <h4 class="font-display font-bold text-base text-white mb-1">Advokasi</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed">Advokasi Mahasiswa: Penjaringan aspirasi civitas, advokasi sarana lab, dan perlindungan hak mahasiswa.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 font-mono text-[11px] text-zinc-400">Koordinator & Anggota</div>
+          </div>
+
+          <!-- Divisi 8: Kaderisasi -->
+          <div class="clean-card p-5 flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-xs text-brand-yellow font-semibold block mb-1">DIVISI 08</span>
+              <h4 class="font-display font-bold text-base text-white mb-1">Kaderisasi</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed">PSDM & Kaderisasi: Pembinaan karakter moral calon insinyur, pelatihan kepemimpinan, & jiwa korsa.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 font-mono text-[11px] text-zinc-400">Koordinator & Anggota</div>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -1348,11 +1466,9 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-xs text-zinc-500">
 
       <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-full bg-brand-yellow text-black font-display font-black flex items-center justify-center text-xs">
-          TS
-        </div>
+        <img src="docs/hmts.png" alt="Logo HMTS FT-UNTAD" class="w-8 h-8 object-contain">
         <div>
-          <span class="text-white font-semibold">HMTS FT-UNTAD</span> — Kabinet Tektonika
+          <span class="text-white font-semibold">HMTS FT-UNTAD</span> — Periode 2026/2027
           <div class="text-[11px] text-zinc-500">Jurusan Teknik Sipil, Universitas Tadulako</div>
         </div>
       </div>
@@ -1365,7 +1481,7 @@
       </div>
 
       <div class="text-[11px] text-zinc-500 text-center md:text-right">
-        © 2026 HMTS FT-UNTAD. Kokoh, Inovatif, Membangun Peradaban.
+        © 2026 HMTS FT-UNTAD. Kokoh, Inovatif, Membangun Peradaban. <span class="text-brand-yellow font-bold">#WeAreTheChampions</span>
       </div>
 
     </div>
@@ -1443,7 +1559,7 @@
       </button>
 
       <div class="text-center pb-3 mb-5 border-b border-white/10">
-        <div class="w-10 h-10 rounded-full bg-brand-yellow text-black font-black flex items-center justify-center text-sm mx-auto mb-2">TS</div>
+        <img src="docs/hmts.png" alt="Logo HMTS FT-UNTAD" class="w-12 h-12 object-contain mx-auto mb-2 drop-shadow">
         <h3 class="font-display font-bold text-xl text-white uppercase">Login Pengurus</h3>
         <p class="text-xs text-zinc-400 mt-1 font-mono">Portal Akses Pengurus HMTS FT-UNTAD</p>
       </div>

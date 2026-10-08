@@ -17,7 +17,7 @@
 Himpunan Mahasiswa Teknik Sipil Universitas Tadulako (HMTS UNTAD) membutuhkan platform digital terintegrasi yang memisahkan secara tegas antara konsumsi publik dan manajemen internal:
 1. **Portal Publik 4 Halaman:** Etalase resmi organisasi yang modern, berwibawa, bersih (*anti-slop*), dan terstruktur rapi ke dalam 4 halaman khusus agar informasi tidak bertumpuk di satu halaman panjang:
    - **Halaman 1: Beranda (`/`):** Showcase monumental, ringkasan keilmuan, sorotan proker terdekat, dan pintasan layanan cepat.
-   - **Halaman 2: Tentang Kami (`/tentang`):** Sejarah organisasi sejak 1994, filosofi lambang, visi & misi, lirik resmi Mars HMTS FT-UNTAD, serta struktur kepengurusan lengkap (BPH & 5 Departemen).
+   - **Halaman 2: Tentang Kami (`/tentang`):** Sejarah organisasi sejak 1994, filosofi lambang resmi (`docs/hmts.png`), visi & misi, lirik resmi Mars HMTS FT-UNTAD, serta bagan bertingkat struktur kepengurusan (Ketua, 4 Pimpinan Harian, 8 Divisi Pelaksana Periode 2026/2027).
    - **Halaman 3: Kegiatan (`/kegiatan`):** Kalender timeline proker, filter kategori, detail kompetisi/pelatihan, unduh TOR, dan registrasi tim.
    - **Halaman 4: Layanan Mahasiswa (`/layanan`):** *One-Stop Student Hub* untuk reservasi alat lab survei anti-bentrok (M7/M8), scan presensi QR acara (M2), kotak aspirasi anonim & pelacak tiket (M11), serta unduh bank aset resmi (M12).
 2. **Command Center Internal (`/app`):** Sistem operasional administrasi satu pintu untuk pengurus (`superadmin` & `admin`) mencakup pembukuan permanen (*immutable cash ledger*), verifikasi disposisi surat, rekap kehadiran QR dinamis, dan pengelolaan jadwal inventaris.
@@ -35,7 +35,7 @@ Himpunan Mahasiswa Teknik Sipil Universitas Tadulako (HMTS UNTAD) membutuhkan pl
 
 ### 2.2 Objektif Utama & Target MVP (Fase 1)
 - **Arsitektur Multi-Halaman Bersih (Anti-Bising):** Membagi portal publik menjadi 4 halaman terdedikasi untuk memberikan ruang napas (*macro-whitespace* `py-20`), navigasi pulau mengambang (*Floating Island Navbar*) 4 menu, dan pengalaman pengguna yang fokus.
-- **Warna Berkarakter Keteknikan:** Kuning Helm/Alat Berat (`#FFE500`) sebagai pemanggil aksi primer (*high-vis action*), Oranye Baja (`#CC6600`) sebagai penanda modul pendukung, di atas kanvas gelap `#0A0A0E`.
+- **Warna Berkarakter Keteknikan:** Oranye Baja (`#CC6600`) sebagai tombol aksi primer (CTA), Kuning Helm (`#FFE500`) sebagai aksen sorotan & status prioritas, di atas kanvas gelap `#0A0A0E` berfitur Ambient Glow.
 - **Database Terpusat MySQL:** Menggunakan basis data relasional MySQL 8.0+ / MariaDB 10.11+ lokal untuk integritas data struktural dan ACID transactions.
 - **Model Autentikasi Sederhana (Hanya `superadmin` & `admin`):** Tidak menggunakan paket RBAC rumit maupun Enum terpisah. Cukup kolom string `role` (`'superadmin'` / `'admin'`) pada tabel `users`.
 - **Arsitektur Ramping Tanpa Redis & Tanpa Bloat:**
@@ -67,9 +67,9 @@ Himpunan Mahasiswa Teknik Sipil Universitas Tadulako (HMTS UNTAD) membutuhkan pl
 
 ### 4.1 Halaman 1: Beranda (`/`)
 - **Top Minimal Utility Bar:** Indikator HMTS FT-UNTAD aktif, Jurusan Teknik Sipil Universitas Tadulako, Akreditasi Unggul, lokasi Palu, dan shortcut cepat ke Kotak Aspirasi Mahasiswa.
-- **Floating Island Navbar:** Navbar berkapsul (`rounded-full`) dengan logo monogram `TS`, 4 tombol menu utama (`Beranda`, `Tentang Kami`, `Kegiatan`, `Layanan`), serta tombol `Login Pengurus ↗`.
-- **Framed Hero Container:** Bingkai lengkung (`rounded-[2rem] sm:rounded-[2.5rem]`) berlatar foto infrastruktur riil dengan headline monumental: `KOKOH, INOVATIF, MEMBANGUN [→] PERADABAN`, subteks ringkas (< 25 kata), serta tombol aksi primer Oranye Baja (`Jelajahi Kegiatan ↗`) dan tombol sekunder (`Layanan Mahasiswa`).
-- **Quick Access Strip di Dasar Hero:** Bar jalan pintas layanan terpadu yang memuat status periode aktif Kabinet Tektonika 2026/2027 dan 4 tombol aksi cepat (`Pinjam Alat Lab →`, `Presensi QR →`, `Kotak Aspirasi →`, `Bank Aset →`).
+- **Floating Island Navbar:** Navbar berkapsul (`rounded-full`) dengan logo resmi HMTS FT-UNTAD (`docs/hmts.png`), 4 tombol menu utama (`Beranda`, `Tentang Kami`, `Kegiatan`, `Layanan`), serta tombol `Login Pengurus ↗`.
+- **Framed Hero Container:** Bingkai lengkung (`rounded-[2rem] sm:rounded-[2.5rem]`) berlatar foto infrastruktur riil dengan tata letak 2 kolom: headline monumental `HIMPUNAN MAHASISWA TEKNIK SIPIL` berpadu tagar resmi `#WeAreTheChampions` di kolom kiri, lambang resmi besar (`docs/hmts.png`) tanpa kotak pembungkus dengan pendaran ambien di kolom kanan, subteks deskripsi (< 25 kata), serta tombol aksi primer Oranye Baja (`Jelajahi Kegiatan ↗`) dan tombol sekunder (`Layanan Mahasiswa`).
+- **Quick Access Strip di Dasar Hero:** Bar jalan pintas layanan terpadu yang memuat status periode aktif HMTS FT-UNTAD Periode 2026/2027 dan 4 tombol aksi cepat (`Pinjam Alat Lab →`, `Presensi QR →`, `Kotak Aspirasi →`, `Bank Aset →`).
 - **Strip Afiliasi & Akreditasi:** Banner kemitraan semi-transparan (`bg-[#0D0D12]/70 backdrop-blur-sm`): Akreditasi Unggul LAM-Teknik, BMPTTSSI Wilayah VIII, HAKI Indonesia, LPJK Sulawesi Tengah, Kementerian PUPR.
 - **Tentang HMTS & Metrik Kunci:** Narasi ringkas kiprah sejak 1994, fokus mitigasi kebencanaan tanah, semboyan resmi, dan 4 metrik capaian: 640+ Mahasiswa Aktif, 1994 Tahun Berdiri, Akreditasi Unggul, 1.200+ Jejaring Alumni.
 - **5 Konsentrasi Keilmuan Sipil (M1):** 5 kartu pilar keilmuan (Rekayasa Struktur, Geoteknik & Tanah [highlight kartu aktif kuning], Manajemen Konstruksi, Sumber Daya Air, Rekayasa Transportasi).
@@ -79,12 +79,13 @@ Himpunan Mahasiswa Teknik Sipil Universitas Tadulako (HMTS UNTAD) membutuhkan pl
 
 ### 4.2 Halaman 2: Tentang Kami (`/tentang`)
 - **Sejarah Organisasi:** Kilas balik berdirinya HMTS FT-UNTAD sejak 1994, peran kepemimpinan mahasiswa sipil di Bumi Tadulako, dan aksi kebencanaan gempa & likuefaksi Palu 2018.
-- **Makna Lambang:** Filosofi 3 pilar visual: Rangka Segitiga Truss Baja (stabilitas mekanika), Kuning Helm Keselamatan (etos K3 konstruksi), dan Hitam Obsidian Kanvas (integritas etika profesi).
-- **Visi & 3 Pilar Misi:** Visi kabinet aktif dalam boks kuning monumental dan 3 pilar misi: *Penalaran & Keilmuan*, *Kaderisasi & Karakter*, serta *Pengabdian Rekayasa Tepat Guna*.
+- **Makna Lambang:** Filosofi lambang resmi HMTS FT-UNTAD (`docs/hmts.png`): Mahkota Tadulako berpadu truss segitiga bergradasi biru, kuning, coklat bumi (stabilitas mekanika, keselamatan K3, dan kepemimpinan berintegritas).
+- **Visi & 3 Pilar Misi:** Visi kepengurusan aktif dalam boks kuning monumental dan 3 pilar misi: *Penalaran & Keilmuan*, *Kaderisasi & Karakter*, serta *Pengabdian Rekayasa Tepat Guna*.
 - **Mars HMTS FT-UNTAD:** Lirik lagu perjuangan organisasi dengan tipografi editorial bersih dan pemutar audio mars.
-- **Struktur Kepengurusan Kabinet Tektonika:**
-  - 4 Badan Pengurus Harian (BPH): Ketua Himpunan [Superadmin], Wakil Ketua, Sekretaris Umum, Bendahara Umum — ditampilkan bersih (Nama, NIM, Angkatan) tanpa kutipan fiktif yang berlebihan.
-  - 5 Departemen Pelaksana: Dep. Akademik & Riset, Dep. Kaderisasi, Dep. Pengmas, Dep. Hubungan Alumni, Dep. Media & Publikasi.
+- **Struktur Kepengurusan HMTS FT-UNTAD Periode 2026/2027 (Bagan Bertingkat / Tiered Tree Layout):**
+  - **Tier 1 (Puncak Kepemimpinan):** Ketua Himpunan [Superadmin].
+  - **Tier 2 (Pimpinan Harian - 4 BPH):** Ketua 1 (Internal), Ketua 2 (Eksternal), Sekretaris Umum, Bendahara Umum — ditampilkan bersih (Nama, NIM, Angkatan) dengan estetika `clean-card` dan garis stem vertikal/horizontal.
+  - **Tier 3 (Divisi Pelaksana - 8 Divisi):** Divisi Ristek, Divisi Infokom, Divisi Penalaran, Divisi FKMTSI, Divisi Hublua (Hubungan Luar & Alumni), Divisi Bursa, Divisi Advokasi, Divisi Kaderisasi. Ditampilkan dalam grid kartu rapi lengkap dengan ikon garis SVG, peran, dan lingkup kerja tanpa nama kabinet fiktif.
 
 ### 4.3 Halaman 3: Kegiatan & Proker (`/kegiatan`)
 - **Kalender Agenda Proker (M3 & M4):** Rekapitulasi 28 agenda kerja terjadwal.
