@@ -4,13 +4,14 @@
 **Database Engine:** MySQL 8.0+ / MariaDB 10.11+ (Localhost)  
 **Public Site Architecture:** 4 Halaman Utama Terpisah (Beranda, Tentang Kami, Kegiatan, Layanan)  
 **Role Structure:** Simple Dual-Role (`superadmin` & `admin`) tanpa Enum / Spatie  
-**Design Aesthetic:** Modern Architectural Civil Engineering · Streamlined Agency Precision · Non-Gimmick Minimalist  
+**Design Aesthetic:** Modern Architectural Civil Engineering · Anti-Slop Minimalist · Ambient Glow Lighting  
 **Reference Benchmark:** `docs/design.md` & `preview.html`  
 **Palette:** Canvas `#0A0A0E` · **CTA Tombol Oranye Baja `#CC6600`** (Teks Putih) · **Aksen Sorotan Kuning Helm `#FFE500`** · Tipografi `#FFFFFF` & `#E4E4E7`  
+**Background System:** Ambient Glow Lighting System (Fixed Diffused Light Orbs) — *Bebas Pola Grid Kotak-Kotak*  
 **Infrastructure Principle:** Zero-Redis Monolith · Single VPS Budget-Friendly  
 **Timezone:** Asia/Makassar (WITA - UTC+8)  
-**Versi Dokumen:** 5.3 (Steel Orange CTA & High-Vis Yellow Accent Edition)  
-**Tanggal Pembaruan:** 8 Oktober 2026  
+**Versi Dokumen:** 6.0 (Final Paten — Anti-Slop & Ambient Glow Edition)  
+**Tanggal Pembaruan:** 9 Oktober 2026  
 
 ---
 
@@ -102,7 +103,7 @@ Sistem membagi portal publik menjadi **4 halaman terpisah yang bersih** untuk me
 
 ```
 Portal Publik:
-├── 1. GET /          → HomeController::class          (Beranda: Hero, Profil Singkat, Kelebihan, 5 Pilar, Proker, Layanan Singkat, Peta Map)
+├── 1. GET /          → HomeController::class          (Beranda: Hero, Profil Singkat, 5 Pilar Keilmuan, Proker Pilihan, Akses Layanan Mandiri, Peta Map)
 ├── 2. GET /tentang   → AboutController::class         (Tentang Kami, Visi Misi, Mars, Struktur)
 ├── 3. GET /kegiatan  → ProgramIndex::class (Livewire) (Kalender Proker, Detail TOR, Daftar Tim)
 └── 4. GET /layanan   → ServiceHub::class (Livewire)   (Hub Pinjam Alat, QR, Aspirasi, Aset)

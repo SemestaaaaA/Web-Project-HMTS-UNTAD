@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HMTS UNTAD — Portal Resmi Himpunan Mahasiswa Teknik Sipil</title>
+  <title>HMTS UNTAD — Himpunan Mahasiswa Teknik Sipil Universitas Tadulako</title>
 
   <!-- Google Fonts: Poppins (Display Headlines), Inter (Body & UI), JetBrains Mono (Technical Details) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -24,7 +24,6 @@
               orange: '#CC6600',
               orangeHover: '#E67300',
               yellow: '#FFE500',
-              yellowHover: '#E6CF00',
               border: 'rgba(255, 255, 255, 0.08)',
               borderHover: 'rgba(204, 102, 0, 0.4)'
             }
@@ -40,24 +39,28 @@
   </script>
 
   <style>
-    /* Blueprint Background Grid */
-    .blueprint-grid-subtle {
+    /* Ambient Glow Lighting System */
+    .ambient-canvas {
+      background-color: #0A0A0E;
       background-image:
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 40px 40px;
+        radial-gradient(ellipse 900px 500px at 50% 0%, rgba(204, 102, 0, 0.16), transparent 70%),
+        radial-gradient(circle 700px at 85% 25%, rgba(255, 229, 0, 0.07), transparent 60%),
+        radial-gradient(circle 600px at 15% 45%, rgba(204, 102, 0, 0.08), transparent 65%),
+        radial-gradient(circle 800px at 70% 75%, rgba(204, 102, 0, 0.07), transparent 65%),
+        radial-gradient(circle 600px at 25% 95%, rgba(255, 229, 0, 0.05), transparent 60%);
+      background-attachment: fixed;
     }
 
-    /* Clean Card Styling */
     .clean-card {
       background-color: #121217;
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 1.25rem;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     }
     .clean-card:hover {
-      border-color: rgba(204, 102, 0, 0.4);
+      border-color: rgba(255, 255, 255, 0.2);
       transform: translateY(-2px);
+      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
     }
 
     .clean-card-active {
@@ -67,9 +70,8 @@
       border-radius: 1.25rem;
     }
 
-    /* Custom Scrollbar */
     ::-webkit-scrollbar {
-      width: 8px;
+      width: 7px;
     }
     ::-webkit-scrollbar-track {
       background: #0A0A0E;
@@ -83,66 +85,78 @@
     }
   </style>
 </head>
-<body class="bg-brand-canvas text-zinc-200 font-sans antialiased selection:bg-brand-orange selection:text-white min-h-screen relative overflow-x-hidden blueprint-grid-subtle">
+<body class="bg-brand-canvas text-zinc-200 font-sans antialiased selection:bg-brand-orange selection:text-white min-h-screen relative overflow-x-hidden ambient-canvas">
 
-  <!-- TOP MINIMAL TICKER -->
-  <div class="border-b border-white/5 bg-black/70 px-4 py-2 text-[11px] font-mono text-zinc-400 relative z-50">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-3">
-        <span class="text-brand-yellow font-bold flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-brand-yellow animate-pulse"></span>
-          KABINET TEKTONIKA 2026/2027
+  <!-- FIXED AMBIENT LIGHTING GLOWS -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+    <!-- Top Warm Steel Orange Glow -->
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[750px] h-[400px] bg-brand-orange/15 rounded-full blur-[140px]"></div>
+    <!-- Upper Right Safety Yellow Light Accent -->
+    <div class="absolute top-[18%] -right-24 w-[450px] h-[450px] bg-brand-yellow/10 rounded-full blur-[150px]"></div>
+    <!-- Mid Left Ambient Warmth -->
+    <div class="absolute top-[48%] -left-32 w-[550px] h-[550px] bg-brand-orange/10 rounded-full blur-[160px]"></div>
+    <!-- Bottom Subtle Glow -->
+    <div class="absolute bottom-[5%] right-[10%] w-[500px] h-[500px] bg-brand-yellow/[0.06] rounded-full blur-[160px]"></div>
+  </div>
+
+  <!-- TOP MINIMAL UTILITY BAR -->
+  <div class="border-b border-white/5 bg-black/60 px-4 py-2 text-xs font-mono text-zinc-400 relative z-50">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5">
+        <span class="inline-flex items-center gap-1.5 text-zinc-300 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          HMTS FT-UNTAD
         </span>
         <span class="text-white/20 hidden sm:inline">•</span>
-        <span class="hidden sm:inline text-zinc-400">AKREDITASI UNGGUL (LAM-TEKTIK)</span>
+        <span class="hidden sm:inline text-zinc-400">Jurusan Teknik Sipil Universitas Tadulako</span>
         <span class="text-white/20 hidden md:inline">•</span>
-        <span class="hidden md:inline text-zinc-500">FAKULTAS TEKNIK UNIVERSITAS TADULAKO</span>
+        <span class="hidden md:inline text-zinc-400">Akreditasi Unggul</span>
       </div>
-      <div class="flex items-center gap-4 text-[10px] text-zinc-400">
-        <span class="hidden sm:inline">KOTA PALU, SULAWESI TENGAH</span>
-        <button onclick="navigateTo('services', 'aspiration')" class="text-brand-yellow hover:underline flex items-center gap-1 font-bold">
-          <span>KOTAK ASPIRASI MAHASISWA</span>
+      <div class="flex items-center gap-4 text-xs">
+        <span class="hidden sm:inline text-zinc-400">Palu, Sulawesi Tengah</span>
+        <button onclick="navigateTo('services', 'aspiration')" class="text-brand-yellow hover:text-white transition-colors flex items-center gap-1 font-medium">
+          <span>Kotak Aspirasi Mahasiswa</span>
           <span>↗</span>
         </button>
       </div>
     </div>
   </div>
 
-  <!-- FLOATING ISLAND NAVIGATION (4 Menu Utama: Beranda, Tentang Kami, Kegiatan, Layanan) -->
+  <!-- FLOATING PILL NAVBAR -->
   <div class="sticky top-4 z-40 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <header class="bg-[#121217]/95 backdrop-blur-md border border-white/10 rounded-full px-4 sm:px-6 py-2.5 shadow-2xl flex items-center justify-between gap-4">
 
-      <!-- Logo & Identitas Organisasi -->
+      <!-- Logo & Brand -->
       <a href="#home" onclick="navigateTo('home'); return false;" class="flex items-center gap-3 group">
-        <div class="w-9 h-9 rounded-full bg-brand-yellow text-black font-display font-black flex items-center justify-center text-xs shadow-md group-hover:scale-105 transition-transform">
+        <div class="w-9 h-9 rounded-full bg-brand-yellow text-black font-display font-black flex items-center justify-center text-xs shadow group-hover:scale-105 transition-transform">
           TS
         </div>
         <div>
-          <span class="font-display font-black text-sm tracking-tight text-white uppercase block leading-none">HMTS UNTAD</span>
-          <span class="font-mono text-[10px] text-zinc-400 font-medium">Teknik Sipil</span>
+          <span class="font-display font-bold text-sm tracking-tight text-white uppercase block leading-none">HMTS UNTAD</span>
+          <span class="font-mono text-[10px] text-zinc-400">Teknik Sipil</span>
         </div>
       </a>
 
       <!-- 4 Menu Navigasi Utama -->
-      <nav class="hidden md:flex items-center gap-1.5 text-xs font-mono font-medium">
+      <nav class="hidden md:flex items-center gap-1 text-xs font-medium">
         <button id="nav-btn-home" onclick="navigateTo('home')" class="px-4 py-2 rounded-full bg-brand-orange text-white font-bold transition-all shadow-md">
-          BERANDA
+          Beranda
         </button>
         <button id="nav-btn-about" onclick="navigateTo('about')" class="px-4 py-2 rounded-full text-zinc-300 hover:text-white hover:bg-white/5 transition-colors">
-          TENTANG KAMI
+          Tentang Kami
         </button>
         <button id="nav-btn-events" onclick="navigateTo('events')" class="px-4 py-2 rounded-full text-zinc-300 hover:text-white hover:bg-white/5 transition-colors">
-          KEGIATAN
+          Kegiatan
         </button>
         <button id="nav-btn-services" onclick="navigateTo('services')" class="px-4 py-2 rounded-full text-zinc-300 hover:text-white hover:bg-white/5 transition-colors">
-          LAYANAN
+          Layanan
         </button>
       </nav>
 
-      <!-- Tombol Login Pengurus (Superadmin & Admin) -->
+      <!-- Tombol Login Pengurus -->
       <div class="flex items-center gap-2">
         <button onclick="toggleModal('adminLoginModal')" class="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-white px-4 sm:px-5 py-2 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all duration-150 active:scale-[0.98] shadow-lg shadow-brand-orange/20">
-          <span>LOGIN PENGURUS</span>
+          <span>Login Pengurus</span>
           <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[11px]">↗</span>
         </button>
       </div>
@@ -151,22 +165,22 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- HALAMAN 1: BERANDA (SHOWROOM & RINGKASAN UTAMA) -->
+  <!-- HALAMAN 1: BERANDA -->
   <!-- ========================================================================= -->
   <main id="page-home" class="page-container block">
 
-    <!-- 1. Hero Section Berbingkai -->
+    <!-- Hero Section Berbingkai -->
     <section class="pt-6 pb-12 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
 
-        <div class="relative rounded-[2rem] sm:rounded-[2.5rem] border border-white/10 overflow-hidden bg-[#101017] min-h-[500px] sm:min-h-[540px] p-6 sm:p-10 lg:p-14 flex flex-col justify-between">
+        <div class="relative rounded-[2rem] sm:rounded-[2.5rem] border border-white/10 overflow-hidden bg-[#101017] min-h-[520px] p-6 sm:p-10 lg:p-12 flex flex-col justify-between">
 
           <!-- Background Image dengan Vignette -->
           <div class="absolute inset-0 z-0">
             <img
               src="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=1600&q=80"
-              alt="Tim Insinyur Lapangan HMTS"
-              class="w-full h-full object-cover object-center opacity-30 contrast-125 scale-105"
+              alt="Teknik Sipil UNTAD"
+              class="w-full h-full object-cover object-center opacity-25 contrast-125"
             >
             <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A0E] via-[#0A0A0E]/85 to-transparent"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0E] via-transparent to-transparent"></div>
@@ -175,45 +189,65 @@
           <!-- Hero Teks Utama -->
           <div class="relative z-10 max-w-2xl pt-4">
 
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-xs font-mono text-zinc-300 mb-6">
-              <span class="text-brand-yellow font-bold text-sm">+</span>
-              <span>Himpunan Mahasiswa Teknik Sipil • FT UNTAD</span>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-zinc-300 mb-6">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-yellow"></span>
+              <span>Himpunan Mahasiswa Teknik Sipil FT UNTAD</span>
             </div>
 
-            <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white leading-[1.08] tracking-tight uppercase mb-6">
-              KOKOH, INOVATIF, <br>
-              MEMBANGUN
-              <span class="inline-flex items-center justify-center w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-brand-yellow text-black text-base sm:text-xl font-black mx-1.5 align-middle shadow-lg transition-transform hover:scale-110">
+            <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white leading-[1.08] tracking-tight uppercase mb-5">
+              Kokoh, Inovatif, <br>
+              Membangun
+              <span class="inline-flex items-center justify-center w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-brand-yellow text-black text-base sm:text-xl font-black mx-1.5 align-middle shadow-lg transition-transform hover:scale-105">
                 →
               </span>
-              <span class="text-zinc-100">PERADABAN</span>
+              <span class="text-zinc-100">Peradaban</span>
             </h1>
 
-            <p class="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-xl mb-8 font-sans">
-              Etalase resmi organisasi kemahasiswaan Departemen Teknik Sipil Universitas Tadulako. Wadah sinergi riset struktur, keprofesian konstruksi, mitigasi bencana likuefaksi, dan pengabdian nyata masyarakat Sulawesi Tengah.
+            <p class="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-xl mb-8">
+              Pusat informasi resmi kegiatan akademik, riset kebencanaan, advokasi kemahasiswaan, dan layanan penunjang civitas Teknik Sipil Universitas Tadulako.
             </p>
 
             <div class="flex flex-wrap items-center gap-3">
-              <button onclick="navigateTo('events')" class="inline-flex items-center gap-3 bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-3 rounded-full font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-150 active:scale-[0.98] shadow-lg shadow-brand-orange/25">
-                <span>JELAJAHI KEGIATAN KAMI</span>
-                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs">↗</span>
+              <button onclick="navigateTo('events')" class="inline-flex items-center gap-2.5 bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-3 rounded-full font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-150 active:scale-[0.98] shadow-lg shadow-brand-orange/25">
+                <span>Jelajahi Kegiatan</span>
+                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs">↗</span>
               </button>
 
-              <button onclick="navigateTo('about')" class="inline-flex items-center gap-2 bg-[#181820]/80 hover:bg-[#1e1e28] border border-white/15 text-white px-5 py-3 rounded-full font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider transition-colors">
-                <span>PROFIL ORGANISASI</span>
+              <button onclick="navigateTo('services')" class="inline-flex items-center gap-2 bg-[#181820]/80 hover:bg-[#1e1e28] border border-white/15 text-white px-5 py-3 rounded-full font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider transition-colors">
+                <span>Layanan Mahasiswa</span>
               </button>
             </div>
 
           </div>
 
-          <!-- Status Bawah Hero -->
-          <div class="relative z-10 pt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 mt-8 text-xs font-mono text-zinc-400">
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-              <span>STATUS KABINET: AKTIF & SOLID</span>
-            </div>
-            <div class="text-zinc-500">
-              KABINET TEKTONIKA 2026/2027
+          <!-- Quick Access Strip di Dasar Hero (Gaya new.png) -->
+          <div class="relative z-10 pt-8 mt-8 border-t border-white/10">
+            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+              <div class="flex items-center gap-3 text-xs font-mono text-zinc-400">
+                <span class="text-brand-yellow font-semibold">Kabinet Tektonika</span>
+                <span class="text-white/20">•</span>
+                <span>Periode 2026/2027</span>
+              </div>
+
+              <!-- 4 Shortcut Layanan Cepat -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full lg:w-auto">
+                <button onclick="navigateTo('services', 'borrow')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-zinc-300 hover:text-white transition-all flex items-center justify-between gap-2">
+                  <span>Pinjam Alat Lab</span>
+                  <span class="text-brand-yellow">→</span>
+                </button>
+                <button onclick="navigateTo('services', 'qr')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-zinc-300 hover:text-white transition-all flex items-center justify-between gap-2">
+                  <span>Presensi QR</span>
+                  <span class="text-brand-yellow">→</span>
+                </button>
+                <button onclick="navigateTo('services', 'aspiration')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-zinc-300 hover:text-white transition-all flex items-center justify-between gap-2">
+                  <span>Kotak Aspirasi</span>
+                  <span class="text-brand-yellow">→</span>
+                </button>
+                <button onclick="navigateTo('services', 'assets')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-zinc-300 hover:text-white transition-all flex items-center justify-between gap-2">
+                  <span>Bank Aset</span>
+                  <span class="text-brand-yellow">→</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -222,101 +256,94 @@
       </div>
     </section>
 
-    <!-- Strip Mitra & Akreditasi -->
-    <section class="py-6 border-y border-white/5 bg-[#0D0D12]">
+    <!-- Strip Afiliasi & Akreditasi -->
+    <section class="py-5 border-y border-white/5 bg-[#0D0D12]/70 backdrop-blur-sm relative z-10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div class="flex flex-wrap items-center justify-center sm:justify-between gap-6 sm:gap-8 text-xs font-mono text-zinc-400 font-bold uppercase tracking-widest text-center">
-          <span>LAM-TEKNIK UNGGUL</span>
+        <div class="flex flex-wrap items-center justify-center sm:justify-between gap-6 text-xs font-mono text-zinc-400 font-semibold tracking-wider text-center">
+          <span>AKREDITASI UNGGUL LAM-TEKNIK</span>
+          <span class="text-white/20 hidden sm:inline">•</span>
+          <span>BMPTTSSI WILAYAH VIII</span>
           <span class="text-white/20 hidden sm:inline">•</span>
           <span>HAKI INDONESIA</span>
           <span class="text-white/20 hidden sm:inline">•</span>
-          <span>LPJK SULTENG</span>
-          <span class="text-white/20 hidden sm:inline">•</span>
-          <span>BMPTTSSI WILAYAH VIII</span>
+          <span>LPJK SULAWESI TENGAH</span>
           <span class="text-white/20 hidden sm:inline">•</span>
           <span>KEMENTERIAN PUPR</span>
         </div>
       </div>
     </section>
 
-    <!-- 2. TENTANG HMTS SECARA SINGKAT -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <!-- 2. TENTANG HMTS & PROFIL SINGKAT -->
+    <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
-          <!-- Kolom Kiri: Narasi Ringkas & Indikator -->
+
+          <!-- Kolom Kiri: Deskripsi & Metrik Ringkas -->
           <div class="lg:col-span-7 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow text-xs font-mono font-bold">
-              <span>// TENTANG KAMI SECARA SINGKAT</span>
-            </div>
-            
             <h2 class="font-display font-black text-2xl sm:text-4xl text-white uppercase tracking-tight leading-tight">
-              KIPRAH INOVATIF TEKNIK SIPIL <br>
-              <span class="text-brand-yellow">DI BUMI TADULAKO SEJAK 1994</span>
+              Membangun Karakter Insinyur & <br>
+              <span class="text-brand-yellow">Pengabdian Nyata Sejak 1994</span>
             </h2>
 
-            <p class="text-sm sm:text-base text-zinc-300 leading-relaxed font-sans">
-              Himpunan Mahasiswa Teknik Sipil Fakultas Teknik Universitas Tadulako (HMTS FT-UNTAD) adalah lembaga kemahasiswaan tertua dan terbesar di Fakultas Teknik Universitas Tadulako, Palu, Sulawesi Tengah.
+            <p class="text-sm sm:text-base text-zinc-300 leading-relaxed">
+              Himpunan Mahasiswa Teknik Sipil FT UNTAD adalah wadah pengembangan keprofesian, penalaran ilmiah, dan integritas moral bagi seluruh mahasiswa Teknik Sipil di Kampus Bumi Tadulako, Palu.
             </p>
 
-            <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed font-sans">
-              Didirikan sebagai kawah candradimuka calon insinyur infrastruktur, HMTS aktif menjadi motor penggerak penalaran akademik, kajian mitigasi kebencanaan pasca-gempa dan likuefaksi Palu 2018, serta pembinaan karakter kepemimpinan yang berakar kuat pada nilai integritas keinsinyuran.
+            <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+              Sebagai wilayah dengan dinamika geologi aktif, HMTS secara konsisten mendorong riset struktur tahan gempa, mitigasi kebencanaan pasca-likuefaksi Palu 2018, dan kepedulian terhadap infrastruktur masyarakat pedesaan.
             </p>
 
-            <!-- Metrics Grid -->
+            <!-- 4 Metrik Kunci -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-              <div class="p-3.5 rounded-2xl bg-[#121217] border border-white/5">
-                <span class="font-display font-black text-xl text-brand-yellow block">640+</span>
-                <span class="font-mono text-[11px] text-zinc-400 uppercase">Mahasiswa Aktif</span>
+              <div class="p-4 rounded-2xl bg-[#121217] border border-white/5">
+                <span class="font-display font-black text-2xl text-brand-yellow block">640+</span>
+                <span class="font-mono text-xs text-zinc-400">Mahasiswa Aktif</span>
               </div>
-              <div class="p-3.5 rounded-2xl bg-[#121217] border border-white/5">
-                <span class="font-display font-black text-xl text-white block">32 Thn</span>
-                <span class="font-mono text-[11px] text-zinc-400 uppercase">Rekam Jejak</span>
+              <div class="p-4 rounded-2xl bg-[#121217] border border-white/5">
+                <span class="font-display font-black text-2xl text-white block">1994</span>
+                <span class="font-mono text-xs text-zinc-400">Tahun Berdiri</span>
               </div>
-              <div class="p-3.5 rounded-2xl bg-[#121217] border border-white/5">
-                <span class="font-display font-black text-xl text-brand-yellow block">UNGGUL</span>
-                <span class="font-mono text-[11px] text-zinc-400 uppercase">LAM-Teknik</span>
+              <div class="p-4 rounded-2xl bg-[#121217] border border-white/5">
+                <span class="font-display font-black text-2xl text-brand-yellow block">Unggul</span>
+                <span class="font-mono text-xs text-zinc-400">LAM-Teknik</span>
               </div>
-              <div class="p-3.5 rounded-2xl bg-[#121217] border border-white/5">
-                <span class="font-display font-black text-xl text-white block">1.200+</span>
-                <span class="font-mono text-[11px] text-zinc-400 uppercase">Jejaring Alumni</span>
+              <div class="p-4 rounded-2xl bg-[#121217] border border-white/5">
+                <span class="font-display font-black text-2xl text-white block">1.200+</span>
+                <span class="font-mono text-xs text-zinc-400">Jejaring Alumni</span>
               </div>
             </div>
 
             <div class="pt-2">
               <button onclick="navigateTo('about')" class="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-3 rounded-full font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-brand-orange/20">
-                <span>BACA PROFIL LENGKAP & VISI MISI</span>
+                <span>Pelajari Profil Organisasi</span>
                 <span>↗</span>
               </button>
             </div>
           </div>
 
-          <!-- Kolom Kanan: Card Filosofi & Identitas Organisasi -->
+          <!-- Kolom Kanan: Card Nilai Utama -->
           <div class="lg:col-span-5">
-            <div class="clean-card p-6 sm:p-8 relative overflow-hidden bg-gradient-to-br from-[#15151e] to-[#0d0d12]">
-              <div class="w-12 h-12 rounded-2xl bg-brand-yellow/10 border border-brand-yellow/30 flex items-center justify-center text-brand-yellow font-black text-xl mb-4">
-                📐
-              </div>
-              <span class="text-xs font-mono text-brand-yellow font-bold uppercase block mb-1">SEMBOYAN RESMI</span>
+            <div class="clean-card p-6 sm:p-8 bg-gradient-to-br from-[#15151e] to-[#0d0d12]">
+              <span class="text-xs font-mono text-brand-yellow font-bold uppercase block mb-2">Semboyan Utama</span>
               <h3 class="font-display font-black text-xl text-white uppercase mb-3">
                 "Kokoh, Inovatif, Membangun Peradaban"
               </h3>
               <p class="text-xs text-zinc-400 leading-relaxed mb-6 font-sans">
-                Setiap anggota HMTS dididik untuk memiliki fondasi moral yang kokoh, daya cipta teknologi infrastruktur yang adaptif terhadap tantangan geoteknik tropis, dan dedikasi sejati bagi kemaslahatan masyarakat.
+                Fondasi moral yang teguh, kapabilitas perancangan infrastruktur yang adaptif, dan kontribusi nyata yang bermanfaat bagi kesejahteraan masyarakat.
               </p>
 
-              <div class="border-t border-white/10 pt-4 space-y-2 text-xs font-mono text-zinc-300">
+              <div class="border-t border-white/10 pt-4 space-y-2.5 text-xs font-mono text-zinc-300">
                 <div class="flex items-center justify-between">
-                  <span class="text-zinc-500">KABINET SAAT INI</span>
-                  <span class="text-white font-bold">TEKTONIKA (2026/2027)</span>
+                  <span class="text-zinc-500">Kabinet</span>
+                  <span class="text-white font-semibold">Tektonika (2026/2027)</span>
                 </div>
                 <div class="flex items-center justify-between">
-                  <span class="text-zinc-500">FORUM KOMUNIKASI</span>
-                  <span class="text-white font-bold">BMPTTSSI WILAYAH VIII</span>
+                  <span class="text-zinc-500">Forum Nasional</span>
+                  <span class="text-white font-semibold">BMPTTSSI Wilayah VIII</span>
                 </div>
                 <div class="flex items-center justify-between">
-                  <span class="text-zinc-500">DOMISILI KAMPUS</span>
-                  <span class="text-white font-bold">TONDO, PALU, SULTENG</span>
+                  <span class="text-zinc-500">Sekretariat</span>
+                  <span class="text-white font-semibold">Kampus Tondo, Palu</span>
                 </div>
               </div>
             </div>
@@ -326,118 +353,133 @@
       </div>
     </section>
 
-    <!-- 3. KELEBIHAN MASUK HMTS -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-[#0D0D12]">
+    <!-- 3. BIDANG KEILMUAN TEKNIK SIPIL (5 PILAR) -->
+    <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-[#0D0D12]/70 backdrop-blur-sm relative z-10">
       <div class="max-w-7xl mx-auto">
-        <div class="pb-6 mb-10 border-b border-white/10 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 mb-8 border-b border-white/10">
           <div>
-            <span class="text-brand-yellow font-mono text-xs font-bold block mb-1">// NILAI TAMBAH MAHASISWA</span>
-            <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">KELEBIHAN BERGABUNG DENGAN HMTS FT-UNTAD</h2>
+            <span class="text-brand-yellow font-mono text-xs font-semibold block mb-1">Fokus Keteknikan</span>
+            <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">5 Konsentrasi Keilmuan Teknik Sipil</h2>
           </div>
           <p class="text-xs font-mono text-zinc-400 max-w-md">
-            Kompetensi terukur di luar kelas: pengalaman keprofesian nyata, jejaring industri, dan pembentukan mentalitas insinyur tangguh.
+            Pilar kurikulum dan riset terapan yang ditekuni mahasiswa Departemen Teknik Sipil UNTAD.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          
-          <!-- Benefit 1 -->
-          <div class="clean-card p-6 flex flex-col justify-between">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+
+          <!-- 01 Struktur -->
+          <div class="clean-card p-5 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="w-10 h-10 rounded-xl bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center text-lg">🌐</span>
-                <span class="font-mono text-[10px] text-zinc-500 font-bold uppercase tracking-wider">01 // KONEKSI INDUSTRI</span>
-              </div>
-              <h4 class="font-display font-bold text-base text-white uppercase mb-2">Jejaring Alumni Nasional & BUMN Karya</h4>
-              <p class="text-xs text-zinc-400 leading-relaxed font-sans">
-                Terhubung langsung dengan ribuan alumni Teknik Sipil UNTAD yang berkiprah di BUMN Konstruksi (Waskita, WIKA, Adhi Karya, Hutama Karya), Kementerian PUPR, dan konsultan perencana nasional.
-              </p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-white/5 text-[11px] font-mono text-brand-yellow">
-              + Relasi magang & bimbingan karir lulusan
+              <span class="text-brand-yellow font-mono font-bold text-xs block mb-2">01 // STRUKTUR</span>
+              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">Rekayasa Struktur</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed">Analisis gedung tahan gempa, jembatan baja bentang panjang, dan perancangan beton bertulang.</p>
             </div>
           </div>
 
-          <!-- Benefit 2 -->
-          <div class="clean-card p-6 flex flex-col justify-between">
+          <!-- 02 Geoteknik (Sorotan) -->
+          <div class="clean-card-active p-5 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="w-10 h-10 rounded-xl bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center text-lg">💻</span>
-                <span class="font-mono text-[10px] text-zinc-500 font-bold uppercase tracking-wider">02 // SERTIFIKASI KEAHLIAN</span>
-              </div>
-              <h4 class="font-display font-bold text-base text-white uppercase mb-2">Pelatihan Software & Bimtek Sipil</h4>
-              <p class="text-xs text-zinc-400 leading-relaxed font-sans">
-                Akses eksklusif workshop ber-SKP: Building Information Modeling (BIM Revit), AutoCAD, SAP2000, ETABS gempa, Plaxis geoteknik, dan penyusunan RAB standar Bina Marga.
-              </p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-white/5 text-[11px] font-mono text-brand-yellow">
-              + Sertifikat kompetensi resmi terakreditasi
+              <span class="text-brand-yellow font-mono font-bold text-xs block mb-2">02 // GEOTEKNIK</span>
+              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">Geoteknik & Tanah</h4>
+              <p class="text-xs text-zinc-300 leading-relaxed">Mekanika tanah, daya dukung pondasi dalam, dan riset mitigasi likuefaksi wilayah Palu.</p>
             </div>
           </div>
 
-          <!-- Benefit 3 -->
-          <div class="clean-card p-6 flex flex-col justify-between">
+          <!-- 03 Manajemen Konstruksi -->
+          <div class="clean-card p-5 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="w-10 h-10 rounded-xl bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center text-lg">🏆</span>
-                <span class="font-mono text-[10px] text-zinc-500 font-bold uppercase tracking-wider">03 // PRESTASI NASIONAL</span>
-              </div>
-              <h4 class="font-display font-bold text-base text-white uppercase mb-2">Inkubasi Lomba & Hibah Riset</h4>
-              <p class="text-xs text-zinc-400 leading-relaxed font-sans">
-                Pendampingan intensif dan fasilitas laboratorium penuh untuk delegasi Kompetisi Jembatan Indonesia (KJI), Lomba Kuat Tekan Beton (KBGI), dan Program Kreativitas Mahasiswa (PKM Dikti).
-              </p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-white/5 text-[11px] font-mono text-brand-yellow">
-              + Dukungan dana pembinaan delegasi lomba
+              <span class="text-brand-yellow font-mono font-bold text-xs block mb-2">03 // MANAJEMEN</span>
+              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">Manajemen Konstruksi</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed">Estimasi biaya RAB, penjadwalan kurva S, Building Information Modeling (BIM), dan standar K3.</p>
             </div>
           </div>
 
-          <!-- Benefit 4 -->
-          <div class="clean-card p-6 flex flex-col justify-between">
+          <!-- 04 Sumber Daya Air -->
+          <div class="clean-card p-5 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="w-10 h-10 rounded-xl bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center text-lg">🚜</span>
-                <span class="font-mono text-[10px] text-zinc-500 font-bold uppercase tracking-wider">04 // PRAKTIK LAPANGAN</span>
-              </div>
-              <h4 class="font-display font-bold text-base text-white uppercase mb-2">Pengalaman Lapangan & Sipil Bangun Desa</h4>
-              <p class="text-xs text-zinc-400 leading-relaxed font-sans">
-                Terjun langsung dalam investigasi kebencanaan tanah, perbaikan lantai jembatan perintis, perancangan fasilitas air bersih pedesaan, serta manajemen kepanitiaan berskala regional.
-              </p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-white/5 text-[11px] font-mono text-brand-yellow">
-              + Portofolio proyek sosial & kepemimpinan
+              <span class="text-brand-yellow font-mono font-bold text-xs block mb-2">04 // HIDRO</span>
+              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">Sumber Daya Air</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed">Pengendalian banjir DAS Palu, rekayasa bendungan, dan perancangan sistem drainase perkotaan.</p>
             </div>
           </div>
 
-          <!-- Benefit 5 -->
-          <div class="clean-card p-6 flex flex-col justify-between">
+          <!-- 05 Transportasi -->
+          <div class="clean-card p-5 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="w-10 h-10 rounded-xl bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center text-lg">🤝</span>
-                <span class="font-mono text-[10px] text-zinc-500 font-bold uppercase tracking-wider">05 // JIWA KORSA</span>
-              </div>
-              <h4 class="font-display font-bold text-base text-white uppercase mb-2">Solidaritas Korsa & Tutor Sebaya</h4>
-              <p class="text-xs text-zinc-400 leading-relaxed font-sans">
-                Kultur persaudaraan yang lekat tanpa sekat angkatan. Program bimbingan belajar rutin (Tutor Sebaya) untuk mata kuliah kalkulus, mekanika teknik, rekayasa struktur, dan hidrolika.
-              </p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-white/5 text-[11px] font-mono text-brand-yellow">
-              + Bantuan akademik & kelulusan tepat waktu
+              <span class="text-brand-yellow font-mono font-bold text-xs block mb-2">05 // TRANSPORT</span>
+              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">Rekayasa Transportasi</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed">Geometrik jalan raya, perkerasan aspal, analisis simpang, dan manajemen lalu lintas regional.</p>
             </div>
           </div>
 
-          <!-- Benefit 6 (CTA Card) -->
-          <div class="clean-card-active p-6 flex flex-col justify-between bg-[#15151e]">
-            <div>
-              <span class="font-mono text-xs text-brand-yellow font-bold uppercase block mb-2">// KADERISASI KEBANGGAAN</span>
-              <h4 class="font-display font-black text-lg text-white uppercase mb-2">Siap Bergabung dengan HMTS FT-UNTAD?</h4>
-              <p class="text-xs text-zinc-300 leading-relaxed font-sans mb-4">
-                Jadilah bagian dari generasi penerus perancang infrastruktur masa depan Indonesia bersama Kabinet Tektonika.
-              </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PROGRAM KERJA TERDEKAT (AGENDA TERPILIH) -->
+    <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 mb-8 border-b border-white/10">
+          <div>
+            <span class="text-brand-yellow font-mono text-xs font-semibold block mb-1">Agenda & Aksi</span>
+            <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">Program Kerja Pilihan</h2>
+          </div>
+          <button onclick="navigateTo('events')" class="inline-flex items-center gap-2 bg-brand-orange text-white px-5 py-2 rounded-full font-mono text-xs font-bold uppercase hover:bg-brand-orangeHover transition-colors shadow-md">
+            <span>Lihat Semua Kegiatan</span>
+            <span>↗</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Card Event 1 -->
+          <div class="clean-card overflow-hidden flex flex-col justify-between">
+            <div class="h-44 bg-zinc-900 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Civil Expo" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-rose-950/90 border border-rose-500/50 text-rose-300 font-mono text-[10px] px-2.5 py-0.5 rounded-full font-semibold">Pendaftaran Dibuka</span>
             </div>
-            <div class="pt-2">
-              <button onclick="navigateTo('about')" class="w-full py-2.5 rounded-full bg-brand-orange text-white font-mono font-bold text-xs uppercase hover:bg-brand-orangeHover transition-colors shadow-md">
-                PELAJARI TAHAP KADERISASI ↗
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h4 class="font-display font-bold text-base text-white uppercase mb-2">Civil Expo & Bridge Design 2026</h4>
+                <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Kompetisi jembatan nasional bentang panjang bersama dewan juri praktisi HAKI dan LPJK.</p>
+              </div>
+              <button onclick="navigateTo('events')" class="font-mono text-xs font-semibold text-brand-yellow hover:underline text-left">
+                Detail & Syarat Pendaftaran ↗
+              </button>
+            </div>
+          </div>
+
+          <!-- Card Event 2 -->
+          <div class="clean-card overflow-hidden flex flex-col justify-between">
+            <div class="h-44 bg-zinc-900 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="BIM Workshop" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-emerald-950/90 border border-emerald-500/50 text-emerald-300 font-mono text-[10px] px-2.5 py-0.5 rounded-full font-semibold">Sertifikasi SKP</span>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h4 class="font-display font-bold text-base text-white uppercase mb-2">Workshop BIM Revit & ETABS</h4>
+                <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Pelatihan software pemodelan struktur gedung dan analisis beban gempa SNI 1726.</p>
+              </div>
+              <button onclick="navigateTo('events')" class="font-mono text-xs font-semibold text-brand-yellow hover:underline text-left">
+                Detail & Syarat Pendaftaran ↗
+              </button>
+            </div>
+          </div>
+
+          <!-- Card Event 3 -->
+          <div class="clean-card overflow-hidden flex flex-col justify-between">
+            <div class="h-44 bg-zinc-900 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=600&q=80" alt="Sipil Bangun Desa" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-blue-950/90 border border-blue-500/50 text-blue-300 font-mono text-[10px] px-2.5 py-0.5 rounded-full font-semibold">Pengabdian Masyarakat</span>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h4 class="font-display font-bold text-base text-white uppercase mb-2">Sipil Bangun Desa: Rehab Jembatan</h4>
+                <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Aksi lapangan perbaikan lantai dan sling baja jembatan gantung perintis di Kab. Sigi.</p>
+              </div>
+              <button onclick="navigateTo('events')" class="font-mono text-xs font-semibold text-brand-yellow hover:underline text-left">
+                Detail & Syarat Pendaftaran ↗
               </button>
             </div>
           </div>
@@ -446,132 +488,36 @@
       </div>
     </section>
 
-    <!-- 4. PILAR (5 PILAR SPESIALISASI TEKNIK SIPIL) -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <!-- 5. AKSES LAYANAN MAHASISWA (4 LAYANAN UTAMA) -->
+    <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-[#0D0D12]/70 backdrop-blur-sm relative z-10">
       <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 mb-10 border-b border-white/10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 mb-8 border-b border-white/10">
           <div>
-            <span class="text-brand-yellow font-mono text-xs font-bold block mb-1">// KONSENTRASI KETEKNIKAN (M1)</span>
-            <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">5 PILAR SPESIALISASI TEKNIK SIPIL</h2>
+            <span class="text-brand-yellow font-mono text-xs font-semibold block mb-1">Layanan Terpadu</span>
+            <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">Akses Mandiri Mahasiswa</h2>
           </div>
-          <button onclick="navigateTo('about')" class="font-mono text-xs text-brand-yellow hover:underline font-bold">
-            BACA PROFIL LENGKAP & VISI MISI ↗
+          <button onclick="navigateTo('services')" class="font-mono text-xs text-brand-yellow hover:underline font-semibold">
+            Buka Seluruh Layanan ↗
           </button>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          <div class="clean-card p-5">
-            <span class="text-brand-yellow font-mono font-bold text-xs block mb-2">01 // STRUKTUR</span>
-            <h4 class="font-display font-bold text-sm text-white uppercase mb-2">REKAYASA STRUKTUR</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">Analisis gedung tahan gempa, jembatan baja bentang panjang, dan beton mutu tinggi SNI.</p>
-          </div>
-          <div class="clean-card-active p-5">
-            <span class="text-brand-yellow font-mono font-bold text-xs block mb-2">02 // GEOTEKNIK</span>
-            <h4 class="font-display font-bold text-sm text-white uppercase mb-2">GEOTEKNIK & TANAH</h4>
-            <p class="text-xs text-zinc-300 leading-relaxed">Mekanika tanah, pondasi dalam, dan riset mitigasi likuefaksi pasca-gempa wilayah Palu.</p>
-          </div>
-          <div class="clean-card p-5">
-            <span class="text-brand-yellow font-mono font-bold text-xs block mb-2">03 // PROYEK</span>
-            <h4 class="font-display font-bold text-sm text-white uppercase mb-2">MANAJEMEN KONSTRUKSI</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">RAB, kurva S, Building Information Modeling (BIM 3D/4D), dan manajemen risiko K3.</p>
-          </div>
-          <div class="clean-card p-5">
-            <span class="text-brand-yellow font-mono font-bold text-xs block mb-2">04 // HIDRO</span>
-            <h4 class="font-display font-bold text-sm text-white uppercase mb-2">SUMBER DAYA AIR</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">Pengendalian banjir DAS, rekayasa bendungan, dan drainase ekologis Sponge City.</p>
-          </div>
-          <div class="clean-card p-5">
-            <span class="text-brand-yellow font-mono font-bold text-xs block mb-2">05 // TRANSPORT</span>
-            <h4 class="font-display font-bold text-sm text-white uppercase mb-2">REKAYASA TRANSPORTASI</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">Geometrik jalan raya, perkerasan aspal, dan perencanaan jaringan mobilitas wilayah.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-    <!-- 5. PROGRAM KERJA (SOROTAN PROKER AKTIF TERDEKAT) -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-[#0D0D12]">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 mb-10 border-b border-white/10">
-          <div>
-            <span class="text-brand-yellow font-mono text-xs font-bold block mb-1">// AGENDA UNGGULAN TERDEKAT</span>
-            <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">PROGRAM KERJA SEDANG BERJALAN</h2>
-          </div>
-          <button onclick="navigateTo('events')" class="inline-flex items-center gap-2 bg-brand-orange text-white px-5 py-2 rounded-full font-mono text-xs font-bold uppercase hover:bg-brand-orangeHover shadow-md">
-            <span>SEMUA PROGRAM (28)</span>
-            <span>↗</span>
-          </button>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="clean-card overflow-hidden flex flex-col justify-between">
-            <div class="h-44 bg-zinc-900 overflow-hidden relative">
-              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Bridge Competition" class="w-full h-full object-cover grayscale">
-              <span class="absolute top-3 right-3 bg-rose-950 border border-rose-500/50 text-rose-300 font-mono text-[9px] px-2 py-0.5 rounded-full font-bold">REGISTRASI BUKA</span>
-            </div>
-            <div class="p-5">
-              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">CIVIL EXPO & BRIDGE DESIGN COMPETITION</h4>
-              <p class="text-xs text-zinc-400 mb-4">Lomba jembatan nasional bentang panjang bersama juri HAKI & LPJK.</p>
-              <button onclick="navigateTo('events')" class="font-mono text-xs font-bold text-brand-yellow hover:underline">LIHAT DETAIL & SYARAT ↗</button>
-            </div>
-          </div>
-
-          <div class="clean-card overflow-hidden flex flex-col justify-between">
-            <div class="h-44 bg-zinc-900 overflow-hidden relative">
-              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="BIM Workshop" class="w-full h-full object-cover grayscale">
-              <span class="absolute top-3 right-3 bg-emerald-950 border border-emerald-500/50 text-emerald-300 font-mono text-[9px] px-2 py-0.5 rounded-full font-bold">32 SKP RESMI</span>
-            </div>
-            <div class="p-5">
-              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">WORKSHOP BIM REVIT & ETABS ANALYSIS</h4>
-              <p class="text-xs text-zinc-400 mb-4">Pelatihan software pemodelan gempa SNI 1726 bersertifikat resmi.</p>
-              <button onclick="navigateTo('events')" class="font-mono text-xs font-bold text-brand-yellow hover:underline">LIHAT DETAIL & SYARAT ↗</button>
-            </div>
-          </div>
-
-          <div class="clean-card overflow-hidden flex flex-col justify-between">
-            <div class="h-44 bg-zinc-900 overflow-hidden relative">
-              <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=600&q=80" alt="Sipil Bangun Desa" class="w-full h-full object-cover grayscale">
-              <span class="absolute top-3 right-3 bg-blue-950 border border-blue-500/50 text-blue-300 font-mono text-[9px] px-2 py-0.5 rounded-full font-bold">PENGMAS DESA</span>
-            </div>
-            <div class="p-5">
-              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">SIPIL BANGUN DESA: REHAB JEMBATAN</h4>
-              <p class="text-xs text-zinc-400 mb-4">Aksi lapangan perbaikan lantai dan sling jembatan perintis di Kab. Sigi.</p>
-              <button onclick="navigateTo('events')" class="font-mono text-xs font-bold text-brand-yellow hover:underline">LIHAT DETAIL & SYARAT ↗</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. AKSES LAYANAN SINGKAT (HUB UTILITAS MAHASISWA) -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 mb-10 border-b border-white/10">
-          <div>
-            <span class="text-brand-yellow font-mono text-xs font-bold block mb-1">// HUB UTILITAS & LAYANAN MAHASISWA</span>
-            <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">AKSES CEPAT LAYANAN MAHASISWA</h2>
-          </div>
-          <button onclick="navigateTo('services')" class="font-mono text-xs text-brand-yellow hover:underline font-bold">
-            BUKA SEMUA FITUR LAYANAN ↗
-          </button>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
-          
           <!-- Layanan 1: Pinjam Alat -->
           <div onclick="navigateTo('services', 'borrow')" class="clean-card p-6 cursor-pointer group hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
             <div>
-              <div class="w-10 h-10 rounded-xl bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center text-lg mb-4 group-hover:scale-105 transition-transform">
-                🛠
+              <div class="w-10 h-10 rounded-xl bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63" />
+                </svg>
               </div>
-              <h4 class="font-display font-bold text-sm text-white uppercase mb-1">Pinjam Alat Lab</h4>
-              <span class="text-[11px] text-brand-yellow block mb-3 font-mono">Modul M7 & M8</span>
-              <p class="font-sans text-xs text-zinc-400 leading-relaxed mb-4">
-                Katalog & reservasi online: Total Station, Digital Theodolite, Waterpass, & Hammer Test tanpa tumpang tindih.
+              <h4 class="font-display font-bold text-base text-white uppercase mb-2">Peminjaman Alat Lab</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+                Katalog dan reservasi online instrumen ukur: Total Station, Digital Theodolite, Waterpass, dan Hammer Test.
               </p>
             </div>
-            <div class="pt-3 border-t border-white/5 flex items-center justify-between text-zinc-300 font-bold group-hover:text-brand-yellow transition-colors">
-              <span>AJUKAN PINJAM</span>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between font-mono text-xs text-zinc-300 font-semibold group-hover:text-brand-yellow transition-colors">
+              <span>Ajukan Peminjaman</span>
               <span>↗</span>
             </div>
           </div>
@@ -579,17 +525,18 @@
           <!-- Layanan 2: Presensi QR -->
           <div onclick="navigateTo('services', 'qr')" class="clean-card p-6 cursor-pointer group hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
             <div>
-              <div class="w-10 h-10 rounded-xl bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center text-lg mb-4 group-hover:scale-105 transition-transform">
-                📷
+              <div class="w-10 h-10 rounded-xl bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 3.75 9.375v-4.5ZM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5ZM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 13.5 9.375v-4.5Z" />
+                </svg>
               </div>
-              <h4 class="font-display font-bold text-sm text-white uppercase mb-1">Scan Presensi QR</h4>
-              <span class="text-[11px] text-brand-yellow block mb-3 font-mono">Modul M2 Mandiri</span>
-              <p class="font-sans text-xs text-zinc-400 leading-relaxed mb-4">
-                Absensi mandiri presisi tinggi menggunakan kamera smartphone atau kode 6-digit untuk rapat & seminar.
+              <h4 class="font-display font-bold text-base text-white uppercase mb-2">Presensi Mandiri QR</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+                Pencatatan kehadiran kegiatan seminar, rapat himpunan, atau workshop melalui pemindaian QR Code dan token sesi.
               </p>
             </div>
-            <div class="pt-3 border-t border-white/5 flex items-center justify-between text-zinc-300 font-bold group-hover:text-brand-yellow transition-colors">
-              <span>SCAN SEKARANG</span>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between font-mono text-xs text-zinc-300 font-semibold group-hover:text-brand-yellow transition-colors">
+              <span>Buka Pemindai</span>
               <span>↗</span>
             </div>
           </div>
@@ -597,17 +544,18 @@
           <!-- Layanan 3: Kotak Aspirasi -->
           <div onclick="navigateTo('services', 'aspiration')" class="clean-card p-6 cursor-pointer group hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
             <div>
-              <div class="w-10 h-10 rounded-xl bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center text-lg mb-4 group-hover:scale-105 transition-transform">
-                ✉
+              <div class="w-10 h-10 rounded-xl bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                </svg>
               </div>
-              <h4 class="font-display font-bold text-sm text-white uppercase mb-1">Kotak Aspirasi</h4>
-              <span class="text-[11px] text-brand-yellow block mb-3 font-mono">Modul M11 Terenkripsi</span>
-              <p class="font-sans text-xs text-zinc-400 leading-relaxed mb-4">
-                Sampaikan kritik sarana lab, akademik, atau advokasi mahasiswa secara anonim dengan kode lacak tiket.
+              <h4 class="font-display font-bold text-base text-white uppercase mb-2">Kotak Aspirasi</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+                Sampaikan kritik sarana lab, aspirasi akademik, atau evaluasi organisasi secara anonim dan lacak statusnya.
               </p>
             </div>
-            <div class="pt-3 border-t border-white/5 flex items-center justify-between text-zinc-300 font-bold group-hover:text-brand-yellow transition-colors">
-              <span>KIRIM ASPIRASI</span>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between font-mono text-xs text-zinc-300 font-semibold group-hover:text-brand-yellow transition-colors">
+              <span>Kirim Masukan</span>
               <span>↗</span>
             </div>
           </div>
@@ -615,17 +563,18 @@
           <!-- Layanan 4: Bank Aset -->
           <div onclick="navigateTo('services', 'assets')" class="clean-card p-6 cursor-pointer group hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
             <div>
-              <div class="w-10 h-10 rounded-xl bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center text-lg mb-4 group-hover:scale-105 transition-transform">
-                📁
+              <div class="w-10 h-10 rounded-xl bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+                </svg>
               </div>
-              <h4 class="font-display font-bold text-sm text-white uppercase mb-1">Bank Aset & Modul</h4>
-              <span class="text-[11px] text-brand-yellow block mb-3 font-mono">Modul M12 Pustaka</span>
-              <p class="font-sans text-xs text-zinc-400 leading-relaxed mb-4">
-                Unduhan terbuka Logo Kit resmi HMTS, blueprint format CAD DWG, modul uji beton, dan paper mitigasi gempa.
+              <h4 class="font-display font-bold text-base text-white uppercase mb-2">Bank Aset & Repositori</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+                Unduh berkas resmi logo kit HMTS, blueprint format CAD DWG, panduan uji praktikum, dan materi riset.
               </p>
             </div>
-            <div class="pt-3 border-t border-white/5 flex items-center justify-between text-zinc-300 font-bold group-hover:text-brand-yellow transition-colors">
-              <span>UNDUH BERKAS</span>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between font-mono text-xs text-zinc-300 font-semibold group-hover:text-brand-yellow transition-colors">
+              <span>Unduh Berkas</span>
               <span>↗</span>
             </div>
           </div>
@@ -634,36 +583,36 @@
       </div>
     </section>
 
-    <!-- 7. PETA MAP UNTUK LOKASI SEKRETARIAT -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-[#0D0D12]">
+    <!-- 6. SEKRETARIAT & LOKASI -->
+    <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
-        <div class="pb-6 mb-10 border-b border-white/10 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div class="pb-6 mb-8 border-b border-white/10 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <span class="text-brand-yellow font-mono text-xs font-bold block mb-1">// TITIK PUSAT SEKRETARIAT ORGANISASI</span>
-            <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">LOKASI SEKRETARIAT HMTS FT-UNTAD</h2>
+            <span class="text-brand-yellow font-mono text-xs font-semibold block mb-1">Sekretariat & Hub</span>
+            <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">Lokasi Sekretariat HMTS FT-UNTAD</h2>
           </div>
-          <div class="flex items-center gap-2 text-xs font-mono">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span class="text-zinc-300">STATUS RUANG: PIKET AKTIF</span>
+          <div class="flex items-center gap-2 text-xs font-mono text-zinc-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>Kampus Bumi Tadulako, Kota Palu</span>
           </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          
-          <!-- Kolom Peta Interaktif Embed Google Maps -->
-          <div class="lg:col-span-7 clean-card overflow-hidden relative min-h-[380px] flex flex-col">
+
+          <!-- Google Maps Embed -->
+          <div class="lg:col-span-7 clean-card overflow-hidden relative min-h-[360px] flex flex-col">
             <div class="p-3 bg-[#15151e] border-b border-white/10 flex items-center justify-between text-xs font-mono">
-              <span class="text-brand-yellow font-bold">📍 KAMPUS BUMI TADULAKO TONDO, PALU</span>
-              <span class="text-zinc-400">KOORDINAT: -0.835847, 119.893219</span>
+              <span class="text-zinc-300 font-medium">Fakultas Teknik Universitas Tadulako</span>
+              <span class="text-zinc-500">Koordinat: -0.835847, 119.893219</span>
             </div>
-            
-            <div class="relative w-full flex-1 min-h-[320px]">
+
+            <div class="relative w-full flex-1 min-h-[300px]">
               <iframe
                 title="Peta Lokasi Sekretariat HMTS FT UNTAD"
                 src="https://maps.google.com/maps?q=-0.835847,119.893219&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
-                style="border:0; min-height: 320px; filter: invert(90%) hue-rotate(180%) contrast(90%);"
+                style="border:0; min-height: 300px; filter: invert(90%) hue-rotate(180%) contrast(90%);"
                 allowfullscreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
@@ -672,62 +621,57 @@
             </div>
 
             <div class="p-4 bg-[#15151e] border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
-              <span class="text-zinc-400">Fakultas Teknik Universitas Tadulako</span>
+              <span class="text-zinc-400">Jl. Soekarno-Hatta Km. 9, Palu</span>
               <a
                 href="https://www.google.com/maps/dir/?api=1&destination=-0.835847,119.893219"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 text-brand-yellow hover:underline font-bold"
+                class="inline-flex items-center gap-1.5 text-brand-yellow hover:underline font-semibold"
               >
-                <span>BUKA PETUNJUK RUTE GOOGLE MAPS</span>
+                <span>Buka Rute Google Maps</span>
                 <span>↗</span>
               </a>
             </div>
           </div>
 
-          <!-- Kolom Rincian Gedung, Jam Piket & Kontak -->
+          <!-- Info Gedung & Jam Layanan -->
           <div class="lg:col-span-5 clean-card p-6 sm:p-8 flex flex-col justify-between">
             <div class="space-y-6">
-              
+
               <div>
-                <span class="text-brand-yellow font-mono text-xs font-bold uppercase block mb-1">GEDUNG & RUANGAN</span>
-                <h4 class="font-display font-black text-lg text-white uppercase mb-2">SEKRETARIAT BERSAMA FT-UNTAD</h4>
-                <p class="text-xs text-zinc-300 leading-relaxed font-sans">
+                <h4 class="font-display font-bold text-base text-white uppercase mb-2">Sekretariat Bersama HMTS</h4>
+                <p class="text-xs text-zinc-300 leading-relaxed">
                   Ruang HMTS Lantai 1, Sayap Timur Gedung Lembaga Kemahasiswaan Fakultas Teknik, Universitas Tadulako.
                 </p>
-                <p class="text-xs text-zinc-400 font-sans mt-1">
-                  Jl. Soekarno-Hatta Km. 9, Kel. Tondo, Kec. Mantikulore, Kota Palu, Sulawesi Tengah 94148.
+                <p class="text-xs text-zinc-400 mt-1">
+                  Kelurahan Tondo, Kecamatan Mantikulore, Kota Palu, Sulawesi Tengah 94148.
                 </p>
               </div>
 
               <div class="border-t border-white/10 pt-4">
-                <span class="text-brand-yellow font-mono text-xs font-bold uppercase block mb-2">JAM LAYANAN & PIKET PENGURUS</span>
+                <span class="text-xs font-mono text-brand-yellow font-semibold uppercase block mb-2">Jam Layanan & Piket</span>
                 <div class="space-y-2 text-xs font-mono">
-                  <div class="flex items-center justify-between p-2 rounded-lg bg-black/30 border border-white/5">
-                    <span class="text-zinc-300">Senin — Jumat:</span>
-                    <span class="text-brand-yellow font-bold">08.00 – 17.00 WITA</span>
+                  <div class="flex items-center justify-between p-2.5 rounded-xl bg-black/40 border border-white/5">
+                    <span class="text-zinc-300">Senin — Jumat</span>
+                    <span class="text-white font-semibold">08.00 – 17.00 WITA</span>
                   </div>
-                  <div class="flex items-center justify-between p-2 rounded-lg bg-black/30 border border-white/5">
-                    <span class="text-zinc-300">Sabtu — Minggu:</span>
-                    <span class="text-zinc-400">Sesuai Agenda Proker</span>
+                  <div class="flex items-center justify-between p-2.5 rounded-xl bg-black/40 border border-white/5">
+                    <span class="text-zinc-300">Sabtu — Minggu</span>
+                    <span class="text-zinc-400">Sesuai Agenda Kegiatan</span>
                   </div>
                 </div>
               </div>
 
               <div class="border-t border-white/10 pt-4">
-                <span class="text-brand-yellow font-mono text-xs font-bold uppercase block mb-2">SALURAN KOMUNIKASI RESMI</span>
+                <span class="text-xs font-mono text-brand-yellow font-semibold uppercase block mb-2">Kontak Resmi</span>
                 <div class="space-y-2 text-xs font-mono text-zinc-300">
                   <div class="flex items-center gap-2">
-                    <span class="text-brand-yellow">✉</span>
-                    <span>sekretariat@hmts-untad.ac.id</span>
+                    <span class="text-zinc-500">Email:</span>
+                    <span class="text-white">sekretariat@hmts-untad.ac.id</span>
                   </div>
                   <div class="flex items-center gap-2">
-                    <span class="text-brand-yellow">📞</span>
-                    <span>+62 821-9876-5432 (Hotline BPH)</span>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <span class="text-brand-yellow">📷</span>
-                    <span>@hmts_ftuntad (Instagram)</span>
+                    <span class="text-zinc-500">Instagram:</span>
+                    <span class="text-white">@hmts_ftuntad</span>
                   </div>
                 </div>
               </div>
@@ -735,8 +679,8 @@
             </div>
 
             <div class="pt-6 border-t border-white/10 mt-6">
-              <button onclick="navigateTo('services', 'borrow')" class="w-full py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-mono text-xs font-bold uppercase transition-colors">
-                PINJAM ALAT ATAU RUANG SEKRETARIAT ↗
+              <button onclick="navigateTo('services', 'borrow')" class="w-full py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-mono text-xs font-semibold uppercase transition-colors">
+                Pinjam Alat Laboratorium ↗
               </button>
             </div>
 
@@ -749,63 +693,63 @@
   </main>
 
   <!-- ========================================================================= -->
-  <!-- HALAMAN 2: TENTANG KAMI (SEJARAH, VISI MISI, LOGO, MARS, STRUKTUR LENGKAP) -->
+  <!-- HALAMAN 2: TENTANG KAMI -->
   <!-- ========================================================================= -->
   <main id="page-about" class="page-container hidden">
 
-    <!-- Header Halaman Tentang Kami -->
-    <section class="pt-10 pb-16 px-4 sm:px-6 lg:px-8 border-b border-white/10">
+    <!-- Header Halaman -->
+    <section class="pt-10 pb-12 px-4 sm:px-6 lg:px-8 border-b border-white/10">
       <div class="max-w-7xl mx-auto">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-zinc-300 mb-4">
-          <span class="text-brand-yellow font-bold">+</span>
-          <span>Profil Organisasi HMTS FT-UNTAD</span>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-zinc-300 mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-yellow"></span>
+          <span>Profil Organisasi</span>
         </div>
-        <h1 class="font-display font-black text-3xl sm:text-5xl text-white uppercase tracking-tight mb-4">
-          SEJARAH, VISI MISI, & <span class="text-brand-yellow">STRUKTUR KABINET</span>
+        <h1 class="font-display font-black text-3xl sm:text-5xl text-white uppercase tracking-tight mb-3">
+          Sejarah, Visi Misi, & <span class="text-brand-yellow">Struktur Pengurus</span>
         </h1>
         <p class="text-zinc-300 text-sm sm:text-base max-w-2xl leading-relaxed">
-          Mengenal lebih dekat Himpunan Mahasiswa Teknik Sipil Universitas Tadulako: tonggak perjuangan intelektual, kepemimpinan berwibawa, dan komitmen abadi bagi pembangunan bangsa.
+          Mengenal tonggak sejarah, prinsip nilai perjuangan, dan susunan kepengurusan Kabinet Tektonika HMTS FT-UNTAD periode 2026/2027.
         </p>
       </div>
     </section>
 
-    <!-- Sejarah & Filosofi Lambang -->
+    <!-- Sejarah & Makna Lambang -->
     <section class="py-16 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
         <!-- Sejarah Singkat -->
-        <div class="lg:col-span-7 clean-card p-8">
-          <span class="text-brand-yellow font-mono text-xs font-bold uppercase block mb-2">// KILAS BALIK HISTORIS</span>
-          <h3 class="font-display font-black text-xl text-white uppercase mb-4">SEJARAH HMTS FT-UNTAD</h3>
-          <div class="space-y-4 text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans">
+        <div class="lg:col-span-7 clean-card p-6 sm:p-8">
+          <span class="text-brand-yellow font-mono text-xs font-semibold uppercase block mb-2">Lintas Sejarah</span>
+          <h3 class="font-display font-bold text-xl text-white uppercase mb-4">Sejarah Singkat HMTS FT-UNTAD</h3>
+          <div class="space-y-4 text-xs sm:text-sm text-zinc-300 leading-relaxed">
             <p>
-              Himpunan Mahasiswa Teknik Sipil Universitas Tadulako (HMTS FT-UNTAD) didirikan seiring dengan berdirinya Program Studi Teknik Sipil Fakultas Teknik pada tahun 1994 di Bumi Tadulako, Kota Palu, Sulawesi Tengah.
+              Himpunan Mahasiswa Teknik Sipil Fakultas Teknik Universitas Tadulako didirikan seiring dengan berdirinya Program Studi Teknik Sipil pada tahun 1994 di Kampus Bumi Tadulako, Kota Palu, Sulawesi Tengah.
             </p>
             <p>
-              Sebagai organisasi kemahasiswaan tertua dan terbesar di Fakultas Teknik, HMTS hadir sebagai katalisator penalaran keinsinyuran, pengkaderan mentalitas tangguh, serta garda terdepan pengabdian kebencanaan pasca-gempa dan likuefaksi Palu 2018.
+              Sebagai lembaga kemahasiswaan tertua dan terbesar di Fakultas Teknik, HMTS hadir sebagai wadah penalaran ilmiah keinsinyuran, pengkaderan karakter berintegritas, serta pelopor pengabdian masyarakat saat mitigasi kebencanaan pasca-gempa dan likuefaksi Palu 2018.
             </p>
             <p>
-              Dengan semboyan <strong class="text-white">"Kokoh, Inovatif, Membangun Peradaban"</strong>, HMTS kini menaungi lebih dari 640 mahasiswa aktif dan ribuan alumni yang tersebar di industri konstruksi nasional dan internasional.
+              Dengan semboyan <strong class="text-white">"Kokoh, Inovatif, Membangun Peradaban"</strong>, HMTS kini menaungi lebih dari 640 mahasiswa aktif serta ribuan alumni yang berkarya di instansi pemerintah, BUMN Konstruksi, dan konsultan perencana nasional.
             </p>
           </div>
         </div>
 
-        <!-- Filosofi Lambang -->
-        <div class="lg:col-span-5 clean-card p-8">
-          <span class="text-brand-yellow font-mono text-xs font-bold uppercase block mb-2">// FILOSOFI IDENTITAS</span>
-          <h3 class="font-display font-black text-xl text-white uppercase mb-4">MAKNA LAMBANG HMTS</h3>
+        <!-- Makna Lambang -->
+        <div class="lg:col-span-5 clean-card p-6 sm:p-8">
+          <span class="text-brand-yellow font-mono text-xs font-semibold uppercase block mb-2">Identitas Visual</span>
+          <h3 class="font-display font-bold text-xl text-white uppercase mb-4">Makna Lambang Organisasi</h3>
           <div class="space-y-3 font-mono text-xs text-zinc-300">
-            <div class="p-3 rounded-xl bg-black/40 border border-white/5">
-              <span class="text-brand-yellow font-bold block mb-1">📐 SEGITIGA TRUSS BAJA</span>
-              <p class="font-sans text-[11px] text-zinc-400">Melambangkan kekokohan struktur rangka terstabil dalam rekayasa mekanika teknik sipil.</p>
+            <div class="p-3.5 rounded-xl bg-black/40 border border-white/5">
+              <span class="text-brand-yellow font-bold block mb-1">Rangka Segitiga Truss</span>
+              <p class="font-sans text-xs text-zinc-400">Simbol kekokohan struktur terstabil dalam ilmu mekanika teknik sipil.</p>
             </div>
-            <div class="p-3 rounded-xl bg-black/40 border border-white/5">
-              <span class="text-brand-yellow font-bold block mb-1">🟡 KUNING KESELAMATAN (SAFETY)</span>
-              <p class="font-sans text-[11px] text-zinc-400">Mencerminkan etos kerja lapangan, helm proyek, dan kewaspadaan standar K3 konstruksi.</p>
+            <div class="p-3.5 rounded-xl bg-black/40 border border-white/5">
+              <span class="text-brand-yellow font-bold block mb-1">Kuning Helm Keselamatan</span>
+              <p class="font-sans text-xs text-zinc-400">Mencerminkan etos kerja lapangan dan kewaspadaan standar K3 konstruksi.</p>
             </div>
-            <div class="p-3 rounded-xl bg-black/40 border border-white/5">
-              <span class="text-brand-yellow font-bold block mb-1">⚫ KANVAS HITAM OBSIDIAN</span>
-              <p class="font-sans text-[11px] text-zinc-400">Fondasi keteguhan integritas insinyur yang tak goyah oleh tantangan zaman.</p>
+            <div class="p-3.5 rounded-xl bg-black/40 border border-white/5">
+              <span class="text-brand-yellow font-bold block mb-1">Hitam Obsidian Kanvas</span>
+              <p class="font-sans text-xs text-zinc-400">Fondasi keteguhan integritas insinyur yang tak tergoyahkan.</p>
             </div>
           </div>
         </div>
@@ -813,72 +757,67 @@
       </div>
     </section>
 
-    <!-- Visi & Misi Split Section -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-[#0D0D12]">
+    <!-- Visi & Misi -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-[#0D0D12]/70 backdrop-blur-sm relative z-10">
       <div class="max-w-7xl mx-auto">
         <div class="pb-4 mb-8 border-b border-white/10">
-          <span class="text-brand-yellow font-mono text-xs font-bold uppercase block mb-1">// FONDASI STRATEGIS KABINET</span>
-          <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">VISI & 3 PILAR MISI ORGANISASI</h2>
+          <span class="text-brand-yellow font-mono text-xs font-semibold uppercase block mb-1">Arah Gerak Organisasi</span>
+          <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">Visi & 3 Pilar Misi</h2>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           <!-- Visi Box -->
-          <div class="lg:col-span-5 rounded-3xl bg-brand-yellow text-black p-8 flex flex-col justify-between shadow-2xl">
+          <div class="lg:col-span-5 rounded-3xl bg-brand-yellow text-black p-8 flex flex-col justify-between shadow-xl">
             <div>
               <div class="font-mono text-xs font-bold pb-3 mb-4 border-b border-black/20 flex justify-between">
-                <span>// VISI BESAR</span>
-                <span>PERIODE 2026/2027</span>
+                <span>VISI KABINET</span>
+                <span>2026/2027</span>
               </div>
-              <div class="font-display font-black text-4xl mb-4 leading-none">“</div>
-              <p class="font-display font-black text-lg sm:text-xl leading-snug uppercase">
-                MENJADI PUSAT KATALISATOR MAHASISWA TEKNIK SIPIL YANG BERINTEGRITAS TINGGI, UNGGUL DALAM RISET INFRASTRUKTUR TAHAN GEMPA, ADAPTIF TERHADAP TEKNOLOGI BIM, DAN BERDAMPAK NYATA BAGI KEMAJUAN DAERAH.
+              <p class="font-display font-bold text-lg sm:text-xl leading-snug uppercase">
+                Menjadi wadah pembinaan mahasiswa Teknik Sipil yang berintegritas tinggi, unggul dalam riset infrastruktur tahan gempa, adaptif terhadap kemajuan teknologi BIM, dan berkontribusi nyata bagi masyarakat.
               </p>
             </div>
             <div class="pt-6 border-t border-black/20 font-mono text-xs font-bold">
-              KABINET TEKTONIKA • HMTS FT-UNTAD
+              Kabinet Tektonika · HMTS FT-UNTAD
             </div>
           </div>
 
           <!-- Misi Pillars -->
           <div class="lg:col-span-7 space-y-4">
             <div class="clean-card p-6 border-l-4 border-l-brand-yellow">
-              <span class="font-mono text-brand-yellow font-bold text-xs uppercase block mb-1">PILAR 01 // PENALARAN & KEILMUAN</span>
-              <h4 class="font-display font-bold text-base text-white uppercase mb-1">PENGUATAN KAPASITAS ILMIAH STRUKTURAL</h4>
-              <p class="text-xs text-zinc-300 leading-relaxed">Menyelenggarakan sertifikasi software rekayasa teknik (BIM Revit, ETABS, Plaxis), pembinaan kompetisi jembatan nasional, dan pendampingan publikasi jurnal riset mahasiswa.</p>
+              <span class="font-mono text-brand-yellow font-semibold text-xs block mb-1">01 / Penalaran & Keilmuan</span>
+              <h4 class="font-display font-bold text-base text-white uppercase mb-1">Kapasitas Ilmiah & Keteknikan</h4>
+              <p class="text-xs text-zinc-300 leading-relaxed">Penyelenggaraan pelatihan software rekayasa teknik (BIM Revit, ETABS, SAP2000), pembinaan kompetisi jembatan nasional, dan pendampingan riset mahasiswa.</p>
             </div>
             <div class="clean-card p-6 border-l-4 border-l-brand-yellow">
-              <span class="font-mono text-brand-yellow font-bold text-xs uppercase block mb-1">PILAR 02 // KADERISASI & KELUARGA</span>
-              <h4 class="font-display font-bold text-base text-white uppercase mb-1">EKOSISTEM KEPEMIMPINAN BERKARAKTER</h4>
-              <p class="text-xs text-zinc-300 leading-relaxed">Membangun budaya organisasi yang menjunjung tinggi etika profesi insinyur, integritas moral, dan kekeluargaan yang solid lintas angkatan mahasiswa sipil.</p>
+              <span class="font-mono text-brand-yellow font-semibold text-xs block mb-1">02 / Kaderisasi & Karakter</span>
+              <h4 class="font-display font-bold text-base text-white uppercase mb-1">Kepemimpinan & Etika Profesi</h4>
+              <p class="text-xs text-zinc-300 leading-relaxed">Membangun budaya organisasi yang menjunjung tinggi etika insinyur, solidaritas korsa, dan hubungan kekeluargaan lintas angkatan.</p>
             </div>
             <div class="clean-card p-6 border-l-4 border-l-brand-yellow">
-              <span class="font-mono text-brand-yellow font-bold text-xs uppercase block mb-1">PILAR 03 // PENGABDIAN MASYARAKAT</span>
-              <h4 class="font-display font-bold text-base text-white uppercase mb-1">AKSI REKAYASA TEPAT GUNA PEDESAAN</h4>
-              <p class="text-xs text-zinc-300 leading-relaxed">Menerapkan kalkulasi teknis dalam perbaikan jembatan gantung perintis, sistem drainase sanitasi desa, dan edukasi bangunan perumahan tahan gempa.</p>
+              <span class="font-mono text-brand-yellow font-semibold text-xs block mb-1">03 / Pengabdian Masyarakat</span>
+              <h4 class="font-display font-bold text-base text-white uppercase mb-1">Aksi Rekayasa Tepat Guna</h4>
+              <p class="text-xs text-zinc-300 leading-relaxed">Menerapkan perhitungan teknis dalam perbaikan sarana jembatan perintis desa, sistem sanitasi lingkungan, dan sosialisasi bangunan aman gempa.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- MARS HMTS FT-UNTAD (LIRIK & PLAYER) -->
+    <!-- MARS HMTS -->
     <section class="py-16 px-4 sm:px-6 lg:px-8 border-t border-white/5">
-      <div class="max-w-4xl mx-auto rounded-3xl border border-white/15 bg-[#121217] p-8 sm:p-12 shadow-2xl">
-        <div class="text-center pb-6 mb-8 border-b border-white/10">
-          <span class="text-brand-yellow font-mono text-xs font-bold uppercase block mb-1">// LAGU PERJUANGAN ORGANISASI</span>
-          <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">MARS HMTS FT-UNTAD</h2>
-          <p class="text-xs text-zinc-400 mt-1 font-mono">Dinyanyikan dengan tempo tegap, berwibawa, dan membakar semangat kekeluargaan sipil.</p>
-        </div>
+      <div class="max-w-4xl mx-auto clean-card p-8 sm:p-10 text-center">
+        <span class="text-brand-yellow font-mono text-xs font-semibold uppercase block mb-1">Lagu Perjuangan Organisasi</span>
+        <h2 class="font-display font-bold text-2xl text-white uppercase mb-6">Mars HMTS FT-UNTAD</h2>
 
-        <!-- Lirik Mars Editorial -->
-        <div class="space-y-6 text-center font-serif text-sm sm:text-base text-zinc-200 leading-relaxed italic max-w-2xl mx-auto">
+        <div class="space-y-4 text-center text-sm sm:text-base text-zinc-300 leading-relaxed italic max-w-2xl mx-auto font-sans">
           <p>
             "Di bumi Tadulako kita bersatu padu,<br>
             Mengemban panji almamater tercinta.<br>
             Himpunan Mahasiswa Teknik Sipil berdiri kokoh,<br>
             Menempa nalar ciptakan karya peradaban."
           </p>
-          <div class="w-12 h-px bg-brand-yellow/50 mx-auto"></div>
+          <div class="w-12 h-px bg-white/20 mx-auto"></div>
           <p>
             "Baja dan beton menyatu dalam jiwa,<br>
             Ketelitian dan integritas panduan nyata.<br>
@@ -888,77 +827,73 @@
         </div>
 
         <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
-          <span class="text-zinc-500">PENCIPTA: KELUARGA BESAR HMTS FT-UNTAD</span>
-          <button onclick="alert('Audio Mars HMTS sedang diputar...');" class="inline-flex items-center gap-2 bg-brand-orange text-white px-5 py-2 rounded-full font-bold uppercase hover:bg-brand-orangeHover shadow-md">
-            <span>▶ PUTAR AUDIO MARS</span>
+          <span class="text-zinc-500">Pencipta: Keluarga Besar HMTS FT-UNTAD</span>
+          <button onclick="alert('Audio Mars HMTS sedang disiapkan.');" class="inline-flex items-center gap-2 bg-brand-orange text-white px-5 py-2 rounded-full font-semibold uppercase hover:bg-brand-orangeHover shadow-md">
+            <span>▶ Putar Audio Mars</span>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- STRUKTUR KEPENGURUSAN LENGKAP -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-[#0D0D12]">
+    <!-- STRUKTUR KEPENGURUSAN -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-[#0D0D12]/70 backdrop-blur-sm relative z-10">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-          <span class="text-brand-yellow font-mono text-xs font-bold uppercase block mb-1">// HIERARKI OPERASIONAL KABINET</span>
-          <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">STRUKTUR KEPENGURUSAN LENGKAP</h2>
-          <p class="text-xs text-zinc-400 mt-2">Dewan Pimpinan Harian (BPH) dan Biro/Departemen Spesialis periode 2026/2027.</p>
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-brand-yellow font-mono text-xs font-semibold uppercase block mb-1">Struktur Kepengurusan</span>
+          <h2 class="font-display font-black text-2xl sm:text-3xl text-white uppercase">Kabinet Tektonika 2026/2027</h2>
+          <p class="text-xs text-zinc-400 mt-2">Badan Pengurus Harian dan Departemen Pelaksana.</p>
         </div>
 
-        <!-- BPH 4 Pimpinan -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          <div class="clean-card p-6 border-brand-yellow/50">
-            <span class="font-mono text-[10px] text-brand-yellow font-bold uppercase block mb-1">KETUA HIMPUNAN (SUPERADMIN)</span>
+        <!-- 4 Pimpinan BPH -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+          <div class="clean-card p-6 border-brand-yellow/40">
+            <span class="font-mono text-[11px] text-brand-yellow font-semibold uppercase block mb-1">Ketua Himpunan</span>
             <h4 class="font-display font-bold text-base text-white">M. Rayhan Pratama</h4>
-            <div class="font-mono text-xs text-zinc-400 mt-1">NIM: F11122045 • Angkatan '22</div>
-            <p class="text-xs text-zinc-400 mt-3 italic">"Pondasi yang kokoh tidak takut gempa; integritas sipil adalah kompas peradaban bangsa."</p>
+            <div class="font-mono text-xs text-zinc-400 mt-1">NIM: F11122045 · Angkatan '22</div>
           </div>
           <div class="clean-card p-6">
-            <span class="font-mono text-[10px] text-zinc-400 font-bold uppercase block mb-1">WAKIL KETUA (ADMIN)</span>
+            <span class="font-mono text-[11px] text-zinc-400 font-semibold uppercase block mb-1">Wakil Ketua</span>
             <h4 class="font-display font-bold text-base text-white">Dimas Arya Nugraha</h4>
-            <div class="font-mono text-xs text-zinc-400 mt-1">NIM: F11122087 • Angkatan '22</div>
-            <p class="text-xs text-zinc-400 mt-3 italic">"Eksekusi kalkulasi lapangan dengan ketelitian mikron berorientasi solusi nyata."</p>
+            <div class="font-mono text-xs text-zinc-400 mt-1">NIM: F11122087 · Angkatan '22</div>
           </div>
           <div class="clean-card p-6">
-            <span class="font-mono text-[10px] text-zinc-400 font-bold uppercase block mb-1">SEKRETARIS UMUM (ADMIN)</span>
+            <span class="font-mono text-[11px] text-zinc-400 font-semibold uppercase block mb-1">Sekretaris Umum</span>
             <h4 class="font-display font-bold text-base text-white">Amanda Putri Lestari</h4>
-            <div class="font-mono text-xs text-zinc-400 mt-1">NIM: F11123014 • Angkatan '23</div>
-            <p class="text-xs text-zinc-400 mt-3 italic">"Tata kelola arsip persuratan digital adalah tulang punggung keberlanjutan organisasi."</p>
+            <div class="font-mono text-xs text-zinc-400 mt-1">NIM: F11123014 · Angkatan '23</div>
           </div>
           <div class="clean-card p-6">
-            <span class="font-mono text-[10px] text-zinc-400 font-bold uppercase block mb-1">BENDAHARA UMUM (ADMIN)</span>
+            <span class="font-mono text-[11px] text-zinc-400 font-semibold uppercase block mb-1">Bendahara Umum</span>
             <h4 class="font-display font-bold text-base text-white">Siti Nurhaliza</h4>
-            <div class="font-mono text-xs text-zinc-400 mt-1">NIM: F11123059 • Angkatan '23</div>
-            <p class="text-xs text-zinc-400 mt-3 italic">"Transparansi kas permanen setiap sen untuk pergerakan gagasan keteknikan paripurna."</p>
+            <div class="font-mono text-xs text-zinc-400 mt-1">NIM: F11123059 · Angkatan '23</div>
           </div>
         </div>
 
-        <!-- 5 Departemen / Biro -->
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 font-mono text-xs">
+        <!-- 5 Departemen -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 font-mono text-xs">
           <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-            <div class="text-brand-yellow font-bold mb-1">DEP. 01 AKADEMIK</div>
-            <div class="text-white font-bold mb-2">Keilmuan & Riset</div>
-            <div class="text-[11px] text-zinc-400">Koord: Muh. Faisal<br>5 Anggota Divisi</div>
+            <div class="text-brand-yellow font-semibold mb-1">01. Akademik</div>
+            <div class="text-white font-bold mb-1">Keilmuan & Riset</div>
+            <div class="text-[11px] text-zinc-400">Koord: Muh. Faisal</div>
           </div>
           <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-            <div class="text-brand-yellow font-bold mb-1">DEP. 02 KADERISASI</div>
-            <div class="text-white font-bold mb-2">PSDM & Organisasi</div>
-            <div class="text-[11px] text-zinc-400">Koord: Rizky Pratama<br>6 Anggota Divisi</div>
+            <div class="text-brand-yellow font-semibold mb-1">02. Kaderisasi</div>
+            <div class="text-white font-bold mb-1">PSDM & Organisasi</div>
+            <div class="text-[11px] text-zinc-400">Koord: Rizky Pratama</div>
           </div>
           <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-            <div class="text-brand-yellow font-bold mb-1">DEP. 03 PENGMAS</div>
-            <div class="text-white font-bold mb-2">Bakti & Desa Binaan</div>
-            <div class="text-[11px] text-zinc-400">Koord: Nurul Hidayah<br>6 Anggota Divisi</div>
+            <div class="text-brand-yellow font-semibold mb-1">03. Pengmas</div>
+            <div class="text-white font-bold mb-1">Bakti Sosial & Desa</div>
+            <div class="text-[11px] text-zinc-400">Koord: Nurul Hidayah</div>
           </div>
           <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-            <div class="text-brand-yellow font-bold mb-1">DEP. 04 ALUMNI</div>
-            <div class="text-white font-bold mb-2">Jejaring Profesi</div>
-            <div class="text-[11px] text-zinc-400">Koord: Hendra Wijaya<br>4 Anggota Divisi</div>
+            <div class="text-brand-yellow font-semibold mb-1">04. Alumni</div>
+            <div class="text-white font-bold mb-1">Jejaring Profesi</div>
+            <div class="text-[11px] text-zinc-400">Koord: Hendra Wijaya</div>
           </div>
           <div class="p-4 rounded-xl bg-white/5 border border-white/10">
-            <div class="text-brand-yellow font-bold mb-1">DEP. 05 MEDINFO</div>
-            <div class="text-white font-bold mb-2">Media & Branding</div>
-            <div class="text-[11px] text-zinc-400">Koord: Alifia Zahra<br>5 Anggota Divisi</div>
+            <div class="text-brand-yellow font-semibold mb-1">05. Medinfo</div>
+            <div class="text-white font-bold mb-1">Media & Publikasi</div>
+            <div class="text-[11px] text-zinc-400">Koord: Alifia Zahra</div>
           </div>
         </div>
       </div>
@@ -967,144 +902,145 @@
   </main>
 
   <!-- ========================================================================= -->
-  <!-- HALAMAN 3: KEGIATAN & PROKER (DETAIL AGENDA, TOR, REGISTRASI, FILTER) -->
+  <!-- HALAMAN 3: KEGIATAN & PROGRAM KERJA -->
   <!-- ========================================================================= -->
   <main id="page-events" class="page-container hidden">
 
-    <section class="pt-10 pb-16 px-4 sm:px-6 lg:px-8 border-b border-white/10">
+    <section class="pt-10 pb-12 px-4 sm:px-6 lg:px-8 border-b border-white/10">
       <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-zinc-300 mb-4">
-            <span class="text-brand-yellow font-bold">+</span>
-            <span>Modul M3 & M4: Timeline & Agenda Aksi</span>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-zinc-300 mb-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-yellow"></span>
+            <span>Agenda & Kegiatan</span>
           </div>
           <h1 class="font-display font-black text-3xl sm:text-5xl text-white uppercase tracking-tight mb-2">
-            KEGIATAN & <span class="text-brand-yellow">PROGRAM KERJA KABINET</span>
+            Kegiatan & <span class="text-brand-yellow">Program Kerja</span>
           </h1>
           <p class="text-zinc-300 text-sm max-w-xl">
-            Rangkaian agenda kompetisi nasional ketekniksipilan, workshop software struktur, dan pengabdian masyarakat.
+            Rangkaian agenda kompetisi nasional, pelatihan keteknikan bersertifikat, dan pengabdian masyarakat.
           </p>
         </div>
         <div class="font-mono text-xs text-zinc-400">
-          TOTAL AGENDA: <span class="text-brand-yellow font-bold">28 PROKER TERJADWAL</span>
+          Status: <span class="text-brand-yellow font-semibold">28 Agenda Terjadwal</span>
         </div>
       </div>
     </section>
 
     <!-- Filter Kategori Proker -->
-    <section class="py-6 border-b border-white/5 bg-[#0D0D12]">
+    <section class="py-5 border-b border-white/5 bg-[#0D0D12]/70 backdrop-blur-sm relative z-10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-wrap items-center gap-2 font-mono text-xs">
-        <span class="text-zinc-500 mr-2">// FILTER KATEGORI:</span>
-        <button class="px-4 py-1.5 rounded-full bg-brand-orange text-white font-bold">SEMUA EVENT</button>
-        <button class="px-4 py-1.5 rounded-full bg-white/5 text-zinc-300 hover:text-white">KOMPETISI NASIONAL</button>
-        <button class="px-4 py-1.5 rounded-full bg-white/5 text-zinc-300 hover:text-white">WORKSHOP & PELATIHAN</button>
-        <button class="px-4 py-1.5 rounded-full bg-white/5 text-zinc-300 hover:text-white">PENGABDIAN DESA</button>
-        <button class="px-4 py-1.5 rounded-full bg-white/5 text-zinc-300 hover:text-white">WEBINAR AKADEMIK</button>
+        <span class="text-zinc-500 mr-2">Filter:</span>
+        <button class="px-4 py-1.5 rounded-full bg-brand-orange text-white font-semibold">Semua</button>
+        <button class="px-4 py-1.5 rounded-full bg-white/5 text-zinc-300 hover:text-white">Kompetisi</button>
+        <button class="px-4 py-1.5 rounded-full bg-white/5 text-zinc-300 hover:text-white">Workshop & Pelatihan</button>
+        <button class="px-4 py-1.5 rounded-full bg-white/5 text-zinc-300 hover:text-white">Pengabdian Masyarakat</button>
+        <button class="px-4 py-1.5 rounded-full bg-white/5 text-zinc-300 hover:text-white">Seminar Akademik</button>
       </div>
     </section>
 
-    <!-- Grid Program Kerja Lengkap dengan Download TOR & Daftar -->
+    <!-- Grid Program Kerja Lengkap -->
     <section class="py-16 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto space-y-8">
 
-        <!-- Flagship Card Besar: Civil Expo -->
-        <div class="clean-card p-6 sm:p-8 border-2 border-brand-yellow/60">
+        <!-- Flagship Event Card: Civil Expo -->
+        <div class="clean-card p-6 sm:p-8 border-2 border-brand-yellow/50">
           <div class="flex items-center justify-between pb-3 mb-6 border-b border-white/10 font-mono text-xs">
-            <span class="text-brand-yellow font-bold">// FLAGSHIP NASIONAL // PUSPRESNAS DIKTI</span>
-            <span class="px-3 py-1 rounded-full bg-rose-950 border border-rose-500/50 text-rose-300 font-bold">LIVE OPEN REGISTRATION</span>
+            <span class="text-brand-yellow font-semibold">Kompetisi Nasional</span>
+            <span class="px-3 py-1 rounded-full bg-rose-950/80 border border-rose-500/50 text-rose-300 font-semibold">Pendaftaran Dibuka</span>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div class="lg:col-span-7">
-              <span class="text-xs font-mono text-brand-yellow font-bold block mb-1">TOTAL HADIAH: RP 30.000.000</span>
-              <h3 class="font-display font-black text-2xl sm:text-3xl text-white uppercase mb-4">CIVIL EXPO & BRIDGE DESIGN COMPETITION 2026</h3>
+              <h3 class="font-display font-black text-2xl sm:text-3xl text-white uppercase mb-3">
+                Civil Expo & Bridge Design Competition 2026
+              </h3>
               <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6">
-                Kompetisi prestisius perancangan jembatan bentang panjang berskala nasional. Menantang mahasiswa teknik sipil se-Indonesia merancang inovasi jembatan tanggap bencana, hemat material, dan tahan gempa dengan uji pembebanan dinamis.
+                Kompetisi tahunan perancangan jembatan bentang panjang berskala nasional. Menantang mahasiswa teknik sipil se-Indonesia merancang model jembatan inovatif tahan gempa, efisien material, dan siap diuji pembebanan dinamis.
               </p>
 
               <div class="grid grid-cols-3 gap-3 p-4 bg-black/60 rounded-xl border border-white/10 font-mono text-xs mb-6">
                 <div>
-                  <div class="text-[10px] text-zinc-500 uppercase">TINGKAT</div>
-                  <div class="text-white font-bold">NASIONAL</div>
+                  <div class="text-[10px] text-zinc-500 uppercase">Tingkat</div>
+                  <div class="text-white font-semibold">Nasional</div>
                 </div>
                 <div>
-                  <div class="text-[10px] text-zinc-500 uppercase">KUOTA</div>
-                  <div class="text-white font-bold">120 TIM</div>
+                  <div class="text-[10px] text-zinc-500 uppercase">Total Hadiah</div>
+                  <div class="text-white font-semibold">Rp 30 Juta</div>
                 </div>
                 <div>
-                  <div class="text-[10px] text-zinc-500 uppercase">DEWAN JURI</div>
-                  <div class="text-brand-yellow font-bold">HAKI & LPJK</div>
+                  <div class="text-[10px] text-zinc-500 uppercase">Juri</div>
+                  <div class="text-brand-yellow font-semibold">HAKI & LPJK</div>
                 </div>
               </div>
 
               <div class="flex flex-wrap items-center gap-3">
                 <button onclick="alert('Formulir pendaftaran tim dibuka!');" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-2.5 rounded-full font-mono text-xs font-bold uppercase shadow-lg shadow-brand-orange/20">
-                  DAFTAR TIM SEKARANG ↗
+                  Daftar Tim Sekarang ↗
                 </button>
-                <a href="#" class="border border-white/20 hover:bg-white/5 text-white px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase">
-                  UNDUH TOR (PDF 8.6 MB)
+                <a href="#" class="border border-white/20 hover:bg-white/5 text-white px-5 py-2.5 rounded-full font-mono text-xs font-semibold uppercase">
+                  Unduh Panduan TOR (PDF)
                 </a>
               </div>
             </div>
 
             <div class="lg:col-span-5">
               <div class="rounded-2xl overflow-hidden border border-white/10 bg-black">
-                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Bridge Expo" class="w-full h-56 object-cover grayscale">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Bridge Expo" class="w-full h-52 object-cover">
                 <div class="p-4 font-mono text-xs bg-[#161622] space-y-1.5 border-t border-white/10">
-                  <div class="flex justify-between text-[11px]"><span class="text-zinc-400">SUBMISI PROPOSAL:</span><span class="text-white font-bold">15 APRIL 2026</span></div>
-                  <div class="flex justify-between text-[11px]"><span class="text-zinc-400">PENGUMUMAN FINALIS:</span><span class="text-white font-bold">02 MEI 2026</span></div>
-                  <div class="flex justify-between text-[11px]"><span class="text-zinc-400">FINAL UJI BEBAN:</span><span class="text-brand-yellow font-bold">28 MEI 2026</span></div>
+                  <div class="flex justify-between"><span class="text-zinc-400">Batas Proposal:</span><span class="text-white font-semibold">15 April 2026</span></div>
+                  <div class="flex justify-between"><span class="text-zinc-400">Pengumuman Finalis:</span><span class="text-white font-semibold">02 Mei 2026</span></div>
+                  <div class="flex justify-between"><span class="text-zinc-400">Uji Beban Final:</span><span class="text-brand-yellow font-semibold">28 Mei 2026</span></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 3 Program Tambahan Grid -->
+        <!-- 3 Program Lainnya -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           <div class="clean-card p-6 flex flex-col justify-between">
             <div>
               <div class="h-40 rounded-xl overflow-hidden mb-4 bg-black">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Workshop BIM" class="w-full h-full object-cover grayscale">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Workshop BIM" class="w-full h-full object-cover">
               </div>
-              <span class="font-mono text-[10px] text-brand-yellow font-bold uppercase block mb-1">PELATIHAN // 32 SKP</span>
-              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">CIVIL WORKSHOP BIM & ETABS 2026</h4>
-              <p class="text-xs text-zinc-400 leading-relaxed mb-4">Pelatihan intensif pemodelan 3D Revit dan analisis dinamik gempa SNI 1726 bersertifikasi resmi.</p>
+              <span class="font-mono text-xs text-brand-yellow font-semibold block mb-1">Pelatihan Bersertifikat</span>
+              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">Civil Workshop BIM & ETABS 2026</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed mb-4">Pemodelan 3D Revit dan analisis dinamik struktur gedung tahan gempa SNI 1726.</p>
             </div>
             <div class="pt-4 border-t border-white/5 flex items-center justify-between font-mono text-xs">
-              <span class="text-rose-400 font-bold">SISA 5 KURSI</span>
-              <button onclick="alert('Silabus terunduh');" class="text-brand-yellow hover:underline font-bold">UNDUH SILABUS ↗</button>
+              <span class="text-zinc-400">32 Jam Praktik</span>
+              <button onclick="alert('Silabus terunduh');" class="text-brand-yellow hover:underline font-semibold">Silabus ↗</button>
             </div>
           </div>
 
           <div class="clean-card p-6 flex flex-col justify-between">
             <div>
               <div class="h-40 rounded-xl overflow-hidden mb-4 bg-black">
-                <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=600&q=80" alt="Sipil Bangun Desa" class="w-full h-full object-cover grayscale">
+                <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=600&q=80" alt="Sipil Bangun Desa" class="w-full h-full object-cover">
               </div>
-              <span class="font-mono text-[10px] text-brand-yellow font-bold uppercase block mb-1">PENGMAS // KAB. SIGI</span>
-              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">SIPIL BANGUN DESA: REHAB JEMBATAN GANTUNG</h4>
-              <p class="text-xs text-zinc-400 leading-relaxed mb-4">Aksi pengabdian penggantian sling baja jembatan gantung perintis demi mobilitas aman anak sekolah.</p>
+              <span class="font-mono text-xs text-brand-yellow font-semibold block mb-1">Aksi Sosial</span>
+              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">Sipil Bangun Desa: Jembatan Gantung</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed mb-4">Penggantian sling baja dan lantai jembatan perintis demi keamanan akses warga di Kab. Sigi.</p>
             </div>
             <div class="pt-4 border-t border-white/5 flex items-center justify-between font-mono text-xs">
-              <span class="text-emerald-400 font-bold">OPEN VOLUNTEER</span>
-              <button onclick="alert('Pendaftaran relawan dibuka');" class="text-brand-yellow hover:underline font-bold">GABUNG RELAWAN ↗</button>
+              <span class="text-emerald-400 font-semibold">Relawan Terbuka</span>
+              <button onclick="alert('Pendaftaran relawan dibuka');" class="text-brand-yellow hover:underline font-semibold">Daftar Relawan ↗</button>
             </div>
           </div>
 
           <div class="clean-card p-6 flex flex-col justify-between">
             <div>
               <div class="h-40 rounded-xl overflow-hidden mb-4 bg-black">
-                <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80" alt="Concrete Challenge" class="w-full h-full object-cover grayscale">
+                <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80" alt="Concrete Challenge" class="w-full h-full object-cover">
               </div>
-              <span class="font-mono text-[10px] text-brand-yellow font-bold uppercase block mb-1">RISET // TARGET fc' 45 MPa</span>
-              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">NATIONAL CONCRETE INNOVATION CHALLENGE</h4>
-              <p class="text-xs text-zinc-400 leading-relaxed mb-4">Ajang riset material substitusi semen ramah lingkungan dengan pemanfaatan limbah lokal untuk beton mutu tinggi.</p>
+              <span class="font-mono text-xs text-brand-yellow font-semibold block mb-1">Riset Material</span>
+              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">Concrete Innovation Challenge</h4>
+              <p class="text-xs text-zinc-400 leading-relaxed mb-4">Inovasi beton ramah lingkungan memanfaatkan abu terbang dan serat lokal untuk target kuat tekan tinggi.</p>
             </div>
             <div class="pt-4 border-t border-white/5 flex items-center justify-between font-mono text-xs">
-              <span class="text-brand-yellow font-bold">TOTAL: RP 25 JT</span>
-              <button onclick="alert('Panduan terunduh');" class="text-brand-yellow hover:underline font-bold">PANDUAN TEKNIS ↗</button>
+              <span class="text-zinc-400">Lab Teknologi Beton</span>
+              <button onclick="alert('Panduan terunduh');" class="text-brand-yellow hover:underline font-semibold">Panduan ↗</button>
             </div>
           </div>
 
@@ -1116,167 +1052,172 @@
   </main>
 
   <!-- ========================================================================= -->
-  <!-- HALAMAN 4: LAYANAN MAHASISWA (ONE-STOP STUDENT HUB: PINJAM ALAT, QR, ASPIRASI, ASET) -->
+  <!-- HALAMAN 4: LAYANAN MAHASISWA -->
   <!-- ========================================================================= -->
   <main id="page-services" class="page-container hidden">
 
-    <section class="pt-10 pb-16 px-4 sm:px-6 lg:px-8 border-b border-white/10">
+    <section class="pt-10 pb-12 px-4 sm:px-6 lg:px-8 border-b border-white/10">
       <div class="max-w-7xl mx-auto">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-zinc-300 mb-4">
-          <span class="text-brand-yellow font-bold">+</span>
-          <span>One-Stop Student Services (PRD M2, M7, M8, M11, M12)</span>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-zinc-300 mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-yellow"></span>
+          <span>Layanan Terpadu</span>
         </div>
         <h1 class="font-display font-black text-3xl sm:text-5xl text-white uppercase tracking-tight mb-2">
-          PUSAT LAYANAN <span class="text-brand-yellow">TERPADU MAHASISWA</span>
+          Pusat Layanan <span class="text-brand-yellow">Mahasiswa</span>
         </h1>
         <p class="text-zinc-300 text-sm max-w-2xl leading-relaxed">
-          Pintu masuk utilitas mandiri: reservasi alat lab survei anti-bentrok, scan presensi QR acara, kotak aspirasi anonim, dan unduh repositori aset resmi.
+          Pintu masuk utilitas mandiri: reservasi alat laboratorium survei, presensi kegiatan, penyampaian aspirasi, dan unduhan berkas resmi.
         </p>
 
         <!-- Sub-Navigasi 4 Tab Layanan -->
         <div class="flex flex-wrap items-center gap-2 mt-8 font-mono text-xs">
-          <button id="service-tab-borrow" onclick="switchServiceTab('borrow')" class="px-5 py-2.5 rounded-full bg-brand-orange text-white font-bold">
-            1. PINJAM ALAT LAB (M7/M8)
+          <button id="service-tab-borrow" onclick="switchServiceTab('borrow')" class="px-5 py-2.5 rounded-full bg-brand-orange text-white font-semibold">
+            Peminjaman Alat Lab
           </button>
           <button id="service-tab-qr" onclick="switchServiceTab('qr')" class="px-5 py-2.5 rounded-full bg-white/5 text-zinc-300 hover:text-white">
-            2. SCAN PRESENSI QR (M2)
+            Presensi QR Acara
           </button>
           <button id="service-tab-aspiration" onclick="switchServiceTab('aspiration')" class="px-5 py-2.5 rounded-full bg-white/5 text-zinc-300 hover:text-white">
-            3. KOTAK ASPIRASI & CEK TIKET (M11)
+            Kotak Aspirasi & Tiket
           </button>
           <button id="service-tab-assets" onclick="switchServiceTab('assets')" class="px-5 py-2.5 rounded-full bg-white/5 text-zinc-300 hover:text-white">
-            4. BANK ASET & RISET (M12)
+            Bank Aset & Repositori
           </button>
         </div>
       </div>
     </section>
 
-    <!-- CONTENT TAB 1: PINJAM ALAT LAB (M7 & M8) -->
+    <!-- CONTENT TAB 1: PINJAM ALAT LAB -->
     <section id="service-view-borrow" class="service-view-panel py-16 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
         <div class="flex items-center justify-between pb-4 mb-8 border-b border-white/10">
           <div>
-            <h3 class="font-display font-bold text-xl text-white uppercase">KATALOG ALAT LAB & RESERVASI ANTI-BENTROK</h3>
-            <p class="text-xs text-zinc-400 mt-1 font-mono">Peminjaman alat survei terlindungi algoritma verifikasi jadwal otomatis.</p>
+            <h3 class="font-display font-bold text-xl text-white uppercase">Katalog Alat Laboratorium</h3>
+            <p class="text-xs text-zinc-400 mt-1 font-mono">Peminjaman alat ukur untuk kebutuhan praktikum lapangan dan tugas akhir.</p>
           </div>
           <button onclick="toggleModal('borrowModal')" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-2.5 rounded-full font-mono text-xs font-bold uppercase shadow-lg shadow-brand-orange/20">
-            + ISI FORM PINJAM ALAT
+            + Formulir Peminjaman
           </button>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
           <div class="clean-card p-6 flex flex-col justify-between">
             <div>
-              <div class="flex justify-between items-center pb-2 mb-3 border-b border-white/10 font-mono text-[11px]">
-                <span class="text-brand-yellow font-bold">LAB SURVEI</span>
-                <span class="text-emerald-400 font-bold bg-emerald-950 px-2 py-0.5 rounded-full">3 UNIT TERSEDIA</span>
+              <div class="flex justify-between items-center pb-2 mb-3 border-b border-white/10 font-mono text-xs">
+                <span class="text-zinc-400">Lab Survei</span>
+                <span class="text-emerald-400 font-semibold bg-emerald-950/80 px-2 py-0.5 rounded-full">3 Unit Tersedia</span>
               </div>
-              <h4 class="font-display font-bold text-base text-white uppercase mb-2">TOTAL STATION SOKKIA CX-105</h4>
-              <p class="text-xs text-zinc-400 mb-4">Pengukuran sudut dan jarak presisi tinggi 5 detik untuk pemetaan kontur dan poligon.</p>
+              <h4 class="font-display font-bold text-base text-white uppercase mb-2">Total Station Sokkia CX-105</h4>
+              <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Pengukuran sudut dan jarak presisi tinggi untuk pemetaan poligon dan kontur topografi.</p>
             </div>
-            <button onclick="openBorrowWithTool('Total Station Sokkia CX-105')" class="w-full py-2 bg-white/5 hover:bg-brand-orange hover:text-white rounded-lg font-mono text-xs font-bold uppercase transition-colors">
-              PILIH ALAT INI
+            <button onclick="openBorrowWithTool('Total Station Sokkia CX-105')" class="w-full py-2 bg-white/5 hover:bg-brand-orange hover:text-white rounded-lg font-mono text-xs font-semibold uppercase transition-colors">
+              Pilih Alat Ini
             </button>
           </div>
 
           <div class="clean-card p-6 flex flex-col justify-between">
             <div>
-              <div class="flex justify-between items-center pb-2 mb-3 border-b border-white/10 font-mono text-[11px]">
-                <span class="text-brand-yellow font-bold">LAB SURVEI</span>
-                <span class="text-emerald-400 font-bold bg-emerald-950 px-2 py-0.5 rounded-full">5 UNIT TERSEDIA</span>
+              <div class="flex justify-between items-center pb-2 mb-3 border-b border-white/10 font-mono text-xs">
+                <span class="text-zinc-400">Lab Survei</span>
+                <span class="text-emerald-400 font-semibold bg-emerald-950/80 px-2 py-0.5 rounded-full">5 Unit Tersedia</span>
               </div>
-              <h4 class="font-display font-bold text-base text-white uppercase mb-2">THEODOLITE TOPCON DT-200</h4>
-              <p class="text-xs text-zinc-400 mb-4">Instrumen ukur sudut digital praktikum ilmu ukur tanah dan survei konstruksi.</p>
+              <h4 class="font-display font-bold text-base text-white uppercase mb-2">Theodolite Topcon DT-200</h4>
+              <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Instrumen ukur sudut digital untuk praktikum ilmu ukur tanah dan survei konstruksi.</p>
             </div>
-            <button onclick="openBorrowWithTool('Theodolite Topcon DT-200')" class="w-full py-2 bg-white/5 hover:bg-brand-orange hover:text-white rounded-lg font-mono text-xs font-bold uppercase transition-colors">
-              PILIH ALAT INI
+            <button onclick="openBorrowWithTool('Theodolite Topcon DT-200')" class="w-full py-2 bg-white/5 hover:bg-brand-orange hover:text-white rounded-lg font-mono text-xs font-semibold uppercase transition-colors">
+              Pilih Alat Ini
             </button>
           </div>
 
           <div class="clean-card p-6 flex flex-col justify-between">
             <div>
-              <div class="flex justify-between items-center pb-2 mb-3 border-b border-white/10 font-mono text-[11px]">
-                <span class="text-brand-yellow font-bold">LAB SURVEI</span>
-                <span class="text-emerald-400 font-bold bg-emerald-950 px-2 py-0.5 rounded-full">6 UNIT TERSEDIA</span>
+              <div class="flex justify-between items-center pb-2 mb-3 border-b border-white/10 font-mono text-xs">
+                <span class="text-zinc-400">Lab Survei</span>
+                <span class="text-emerald-400 font-semibold bg-emerald-950/80 px-2 py-0.5 rounded-full">6 Unit Tersedia</span>
               </div>
-              <h4 class="font-display font-bold text-base text-white uppercase mb-2">WATERPASS NIKON AC-2S</h4>
-              <p class="text-xs text-zinc-400 mb-4">Pengukuran beda tinggi elevasi tanah untuk pekerjaan drainase dan perataan pondasi.</p>
+              <h4 class="font-display font-bold text-base text-white uppercase mb-2">Waterpass Nikon AC-2S</h4>
+              <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Pengukuran beda tinggi elevasi tanah untuk pekerjaan drainase dan cut & fill tanah.</p>
             </div>
-            <button onclick="openBorrowWithTool('Waterpass Nikon AC-2S')" class="w-full py-2 bg-white/5 hover:bg-brand-orange hover:text-white rounded-lg font-mono text-xs font-bold uppercase transition-colors">
-              PILIH ALAT INI
+            <button onclick="openBorrowWithTool('Waterpass Nikon AC-2S')" class="w-full py-2 bg-white/5 hover:bg-brand-orange hover:text-white rounded-lg font-mono text-xs font-semibold uppercase transition-colors">
+              Pilih Alat Ini
             </button>
           </div>
 
           <div class="clean-card p-6 flex flex-col justify-between">
             <div>
-              <div class="flex justify-between items-center pb-2 mb-3 border-b border-white/10 font-mono text-[11px]">
-                <span class="text-brand-yellow font-bold">LAB BETON</span>
-                <span class="text-amber-400 font-bold bg-amber-950 px-2 py-0.5 rounded-full">2 UNIT TERSEDIA</span>
+              <div class="flex justify-between items-center pb-2 mb-3 border-b border-white/10 font-mono text-xs">
+                <span class="text-zinc-400">Lab Beton</span>
+                <span class="text-amber-400 font-semibold bg-amber-950/80 px-2 py-0.5 rounded-full">2 Unit Tersedia</span>
               </div>
-              <h4 class="font-display font-bold text-base text-white uppercase mb-2">CONCRETE HAMMER TEST SCHMIDT</h4>
-              <p class="text-xs text-zinc-400 mb-4">Pengujian tak merusak untuk estimasi mutu kuat tekan beton kolom dan balok lapangan.</p>
+              <h4 class="font-display font-bold text-base text-white uppercase mb-2">Hammer Test Schmidt</h4>
+              <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Pengujian non-destruktif untuk estimasi keseragaman mutu beton kolom dan balok eksisting.</p>
             </div>
-            <button onclick="openBorrowWithTool('Concrete Hammer Test Schmidt')" class="w-full py-2 bg-white/5 hover:bg-brand-orange hover:text-white rounded-lg font-mono text-xs font-bold uppercase transition-colors">
-              PILIH ALAT INI
+            <button onclick="openBorrowWithTool('Concrete Hammer Test Schmidt')" class="w-full py-2 bg-white/5 hover:bg-brand-orange hover:text-white rounded-lg font-mono text-xs font-semibold uppercase transition-colors">
+              Pilih Alat Ini
             </button>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- CONTENT TAB 2: SCAN PRESENSI QR (M2) -->
+    <!-- CONTENT TAB 2: PRESENSI QR ACARA -->
     <section id="service-view-qr" class="service-view-panel hidden py-16 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto rounded-3xl border border-white/15 bg-[#121217] p-8 sm:p-10 shadow-2xl">
+      <div class="max-w-3xl mx-auto clean-card p-8 sm:p-10">
         <div class="text-center pb-4 mb-6 border-b border-white/10">
-          <span class="text-brand-yellow font-mono text-xs font-bold uppercase block mb-1">// PRESENSI MANDIRI (M2)</span>
-          <h3 class="font-display font-black text-2xl text-white uppercase">PEMINDAI QR PRESENSI ACARA</h3>
-          <p class="text-xs text-zinc-400 mt-1">Arahkan kamera ke token QR dinamis di layar proyektor atau masukkan token manual.</p>
+          <span class="text-brand-yellow font-mono text-xs font-semibold uppercase block mb-1">Presensi Mandiri</span>
+          <h3 class="font-display font-black text-2xl text-white uppercase">Presensi QR Acara & Seminar</h3>
+          <p class="text-xs text-zinc-400 mt-1">Pindai kode QR dari layar proyektor atau masukkan token sesi secara manual.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div class="p-6 rounded-2xl bg-black/80 border border-white/10 text-center flex flex-col items-center justify-center min-h-[240px]">
-            <div class="w-32 h-32 border-2 border-dashed border-brand-yellow/60 rounded-2xl flex flex-col items-center justify-center p-4 mb-3">
-              <span class="text-3xl mb-1">📷</span>
-              <span class="text-[10px] font-mono text-zinc-400">KAMERA AKTIF</span>
+          <div class="p-6 rounded-2xl bg-black/60 border border-white/10 text-center flex flex-col items-center justify-center min-h-[220px]">
+            <div class="w-28 h-28 border-2 border-dashed border-white/20 rounded-2xl flex flex-col items-center justify-center p-4 mb-4">
+              <svg class="w-8 h-8 text-brand-yellow mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
+              </svg>
+              <span class="text-[11px] font-mono text-zinc-400">Kamera Scanner</span>
             </div>
-            <button onclick="simulateQrScan()" class="px-5 py-2 bg-brand-orange text-white font-mono text-xs font-bold rounded-full uppercase hover:bg-brand-orangeHover shadow-md">
-              SIMULASI SCAN KAMERA
+            <button onclick="simulateQrScan()" class="px-5 py-2 bg-brand-orange text-white font-mono text-xs font-semibold rounded-full uppercase hover:bg-brand-orangeHover transition-colors shadow-md">
+              Simulasi Pindai QR
             </button>
           </div>
 
           <div>
             <div class="mb-4">
-              <label class="block font-mono text-xs text-zinc-300 font-bold mb-1 uppercase">TOKEN SESI DARI PROYEKTOR</label>
-              <input type="text" id="serviceQrToken" placeholder="Contoh: TS-489" class="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white font-mono uppercase tracking-widest outline-none mb-3">
+              <label class="block font-mono text-xs text-zinc-300 font-semibold mb-1">Token Sesi Acara</label>
+              <input type="text" id="serviceQrToken" placeholder="Contoh: TS-489" class="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white font-mono uppercase tracking-wider outline-none mb-3">
             </div>
             <div class="mb-4">
-              <label class="block font-mono text-xs text-zinc-300 font-bold mb-1 uppercase">NIM MAHASISWA</label>
+              <label class="block font-mono text-xs text-zinc-300 font-semibold mb-1">NIM Mahasiswa</label>
               <input type="text" id="serviceQrNim" placeholder="F111XXXXX" class="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white font-mono uppercase outline-none mb-3">
             </div>
-            <button onclick="submitServiceAttendance()" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white py-2.5 rounded-full font-mono text-xs font-bold uppercase shadow-md">
-              CATAT KEHADIRAN ↗
+            <button onclick="submitServiceAttendance()" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white py-2.5 rounded-full font-mono text-xs font-bold uppercase transition-colors shadow-md">
+              Simpan Presensi ↗
             </button>
           </div>
         </div>
 
         <div id="serviceAttendanceSuccess" class="hidden mt-6 p-4 rounded-xl bg-black border border-emerald-500 font-mono text-xs text-emerald-400">
-          ✓ Presensi mandiri berhasil diverifikasi dan tersimpan resmi di register kegiatan!
+          ✓ Presensi berhasil dicatat dalam register kegiatan resmi!
         </div>
       </div>
     </section>
 
-    <!-- CONTENT TAB 3: KOTAK ASPIRASI & CEK TIKET (M11) -->
+    <!-- CONTENT TAB 3: KOTAK ASPIRASI & CEK TIKET -->
     <section id="service-view-aspiration" class="service-view-panel hidden py-16 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto rounded-3xl border border-white/15 bg-[#121217] p-8 sm:p-10 shadow-2xl">
+      <div class="max-w-3xl mx-auto clean-card p-8 sm:p-10">
         <div class="text-center pb-4 mb-6 border-b border-white/10">
-          <span class="text-brand-yellow font-mono text-xs font-bold uppercase block mb-1">// ZERO-IDENTITY KOTAK ASPIRASI (M11)</span>
-          <h3 class="font-display font-black text-2xl text-white uppercase">SALURKAN MASUKAN & CEK STATUS TIKET</h3>
-          <p class="text-xs text-zinc-400 mt-1">Sistem menjamin kerahasiaan identitas 100% tanpa pencatatan nama, email, maupun IP address.</p>
+          <span class="text-brand-yellow font-mono text-xs font-semibold uppercase block mb-1">Advokasi Mahasiswa</span>
+          <h3 class="font-display font-black text-2xl text-white uppercase">Kotak Aspirasi & Pelacakan Tiket</h3>
+          <p class="text-xs text-zinc-400 mt-1">Sampaikan masukan secara anonim. Identitas Anda terjamin aman.</p>
         </div>
 
         <div class="flex items-center justify-center gap-2 mb-6 font-mono text-xs">
-          <button id="subtab-asp-send" onclick="switchAspirationSubTab('send')" class="px-5 py-2 rounded-full bg-brand-orange text-white font-bold">KIRIM ASPIRASI BARU</button>
-          <button id="subtab-asp-track" onclick="switchAspirationSubTab('track')" class="px-5 py-2 rounded-full bg-white/5 text-zinc-300 hover:text-white">LACAK STATUS TIKET</button>
+          <button id="subtab-asp-send" onclick="switchAspirationSubTab('send')" class="px-5 py-2 rounded-full bg-brand-orange text-white font-semibold">Kirim Aspirasi Baru</button>
+          <button id="subtab-asp-track" onclick="switchAspirationSubTab('track')" class="px-5 py-2 rounded-full bg-white/5 text-zinc-300 hover:text-white">Lacak Status Tiket</button>
         </div>
 
         <!-- Sub-panel Kirim -->
@@ -1284,51 +1225,51 @@
           <form onsubmit="event.preventDefault(); submitAspirationService();" class="space-y-4 font-mono text-xs">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label class="block text-zinc-300 font-bold mb-1 uppercase">KATEGORI</label>
-                <select id="serviceAspCategory" class="w-full bg-[#181822] border border-white/10 rounded-xl text-white px-4 py-2.5 outline-none">
-                  <option value="lab">Fasilitas Laboratorium & Alat Survei</option>
-                  <option value="akademik">Akademik & Praktikum Dosen</option>
-                  <option value="proker">Evaluasi Pengurus Himpunan</option>
+                <label class="block text-zinc-300 font-semibold mb-1">Kategori Masukan</label>
+                <select id="serviceAspCategory" class="w-full bg-[#181822] border border-white/10 rounded-xl text-white px-4 py-2.5 outline-none font-sans text-xs">
+                  <option value="lab">Fasilitas Laboratorium & Alat</option>
+                  <option value="akademik">Akademik & Perkuliahan</option>
+                  <option value="proker">Evaluasi Pengurus HMTS</option>
                   <option value="umum">Sarana Gedung Fakultas Teknik</option>
                 </select>
               </div>
               <div>
-                <label class="block text-zinc-400 font-bold mb-1 uppercase">STATUS KEAMANAN</label>
-                <input type="text" disabled value="ENCRYPTED // NO IP STORED" class="w-full bg-white/5 border border-white/10 rounded-xl text-brand-yellow font-bold px-4 py-2.5 cursor-not-allowed">
+                <label class="block text-zinc-400 font-semibold mb-1">Privasi</label>
+                <input type="text" disabled value="Anonim & Rahasia" class="w-full bg-white/5 border border-white/10 rounded-xl text-emerald-400 font-semibold px-4 py-2.5 cursor-not-allowed">
               </div>
             </div>
             <div>
-              <label class="block text-zinc-300 font-bold mb-1 uppercase">URAIAN MASUKAN</label>
-              <textarea id="serviceAspContent" rows="4" required placeholder="Tuliskan saran atau pengaduan Anda..." class="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-3 text-white outline-none font-sans text-xs"></textarea>
+              <label class="block text-zinc-300 font-semibold mb-1">Uraian Aspirasi atau Keluhan</label>
+              <textarea id="serviceAspContent" rows="4" required placeholder="Tuliskan masukan atau saran konstruktif Anda..." class="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-3 text-white outline-none font-sans text-xs"></textarea>
             </div>
-            <button type="submit" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-8 py-2.5 rounded-full font-bold uppercase shadow-lg shadow-brand-orange/20">
-              KIRIMKAN ASPIRASI SEKARANG ↗
+            <button type="submit" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-8 py-2.5 rounded-full font-bold uppercase transition-colors shadow-lg shadow-brand-orange/20">
+              Kirimkan Aspirasi ↗
             </button>
           </form>
 
           <div id="serviceAspResultBox" class="hidden mt-6 p-4 rounded-xl bg-black border border-brand-yellow font-mono text-xs">
-            <span class="text-brand-yellow font-bold block mb-1">✓ Aspirasi terkirim anonim! Kode tiket pelacakan:</span>
-            <span class="text-white font-black text-base bg-white/10 px-3 py-1 rounded inline-block" id="serviceAspTicketCode">ASP-2026-X</span>
+            <span class="text-brand-yellow font-semibold block mb-1">✓ Aspirasi berhasil dikirim secara anonim. Simpan kode tiket Anda:</span>
+            <span class="text-white font-bold text-base bg-white/10 px-3 py-1 rounded inline-block mt-1" id="serviceAspTicketCode">ASP-2026-X</span>
           </div>
         </div>
 
         <!-- Sub-panel Lacak -->
         <div id="asp-subview-track" class="hidden space-y-4 font-mono text-xs">
           <div>
-            <label class="block text-zinc-300 font-bold mb-1 uppercase">MASUKKAN KODE TIKET PELACAKAN</label>
+            <label class="block text-zinc-300 font-semibold mb-1">Masukkan Kode Tiket</label>
             <div class="flex gap-2">
               <input type="text" id="serviceTrackInput" placeholder="Contoh: ASP-HMTS-2026-X892" class="flex-1 bg-[#181822] border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none uppercase">
-              <button onclick="trackAspirationService();" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-2.5 rounded-xl font-bold uppercase shadow-md">CARI</button>
+              <button onclick="trackAspirationService();" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-2.5 rounded-xl font-semibold uppercase transition-colors">Cari</button>
             </div>
           </div>
 
           <div id="serviceTrackResultBox" class="hidden p-4 rounded-xl bg-black/60 border border-white/10 space-y-2">
             <div class="flex justify-between border-b border-white/10 pb-2">
-              <span class="text-zinc-400">STATUS:</span>
-              <span class="text-emerald-400 font-bold">DITINDAKLANJUTI BPH</span>
+              <span class="text-zinc-400">Status:</span>
+              <span class="text-emerald-400 font-semibold">Sedang Ditindaklanjuti BPH</span>
             </div>
-            <p class="font-sans text-xs text-zinc-300 bg-white/5 p-3 rounded">
-              "Terima kasih atas masukannya. Usulan pengadaan waterpass baru telah diajukan ke Jurusan dalam rapat RKAT bulan ini."
+            <p class="font-sans text-xs text-zinc-300 bg-white/5 p-3 rounded leading-relaxed">
+              "Terima kasih atas masukannya. Usulan pemeliharaan alat Waterpass telah kami teruskan ke laboratorium untuk kalibrasi berkala."
             </p>
           </div>
         </div>
@@ -1336,62 +1277,64 @@
       </div>
     </section>
 
-    <!-- CONTENT TAB 4: BANK ASET & REPOSITORI RISET (M12) -->
+    <!-- CONTENT TAB 4: BANK ASET & REPOSITORI -->
     <section id="service-view-assets" class="service-view-panel hidden py-16 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
         <div class="pb-4 mb-8 border-b border-white/10">
-          <h3 class="font-display font-bold text-xl text-white uppercase">BANK ASET RESMI & REPOSITORI TERBUKA</h3>
-          <p class="text-xs text-zinc-400 mt-1 font-mono">Repositori terbuka identitas visual, modul lab, dan publikasi paper keteknikan.</p>
+          <h3 class="font-display font-bold text-xl text-white uppercase">Bank Aset & Repositori Resmi</h3>
+          <p class="text-xs text-zinc-400 mt-1 font-mono">Pusat unduhan identitas visual, format CAD gambar kerja, dan panduan praktikum.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
           <div class="clean-card p-6 flex flex-col justify-between">
             <div>
-              <span class="font-mono text-xs text-brand-yellow font-bold uppercase block mb-1">BRANDKIT RESMI</span>
-              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">MASTER LOGO KIT HMTS & KOP SURAT</h4>
-              <p class="text-xs text-zinc-400 mb-4">Vektor SVG, PNG resolusi tinggi transparan, kop surat resmi, dan pedoman warna.</p>
+              <span class="font-mono text-xs text-brand-yellow font-semibold uppercase block mb-1">Identitas Visual</span>
+              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">Logo Kit & Kop Surat HMTS</h4>
+              <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Vektor SVG, PNG resolusi tinggi transparan, kop surat resmi, dan pedoman warna.</p>
             </div>
             <div class="pt-3 border-t border-white/5 flex justify-between font-mono text-xs">
-              <span class="text-zinc-500">ZIP • 12 MB</span>
-              <a href="#" class="text-brand-yellow hover:underline font-bold">UNDUH ↗</a>
+              <span class="text-zinc-500">ZIP · 12 MB</span>
+              <a href="#" class="text-brand-yellow hover:underline font-semibold">Unduh ↗</a>
             </div>
           </div>
 
           <div class="clean-card p-6 flex flex-col justify-between">
             <div>
-              <span class="font-mono text-xs text-emerald-400 font-bold uppercase block mb-1">JUARA 1 KJI</span>
-              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">BLUEPRINT CAD JEMBATAN BUSUR 60M</h4>
-              <p class="text-xs text-zinc-400 mb-4">Gambar kerja rancang bangun jembatan lengkung busur baja canai dingin efisiensi tinggi.</p>
+              <span class="font-mono text-xs text-brand-yellow font-semibold uppercase block mb-1">Gambar Kerja CAD</span>
+              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">Blueprint Jembatan Busur 60M</h4>
+              <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Contoh gambar kerja rancang bangun jembatan busur baja efisiensi tinggi karya tim KJI.</p>
             </div>
             <div class="pt-3 border-t border-white/5 flex justify-between font-mono text-xs">
-              <span class="text-zinc-500">DWG • 8 MB</span>
-              <a href="#" class="text-brand-yellow hover:underline font-bold">UNDUH ↗</a>
+              <span class="text-zinc-500">DWG · 8 MB</span>
+              <a href="#" class="text-brand-yellow hover:underline font-semibold">Unduh ↗</a>
             </div>
           </div>
 
           <div class="clean-card p-6 flex flex-col justify-between">
             <div>
-              <span class="font-mono text-xs text-brand-yellow font-bold uppercase block mb-1">RISET STRUKTUR</span>
-              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">PAPER BETON SABUT KELAPA TAHAN GEMPA</h4>
-              <p class="text-xs text-zinc-400 mb-4">Publikasi pemanfaatan limbah serat sabut kelapa untuk daktilitas beton mutu f'c 38.5 MPa.</p>
+              <span class="font-mono text-xs text-brand-yellow font-semibold uppercase block mb-1">Publikasi Riset</span>
+              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">Paper Inovasi Beton Serat</h4>
+              <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Publikasi pemanfaatan serat limbah pertanian untuk peningkatan daktilitas beton mutu tinggi.</p>
             </div>
             <div class="pt-3 border-t border-white/5 flex justify-between font-mono text-xs">
-              <span class="text-zinc-500">PDF • 4 MB</span>
-              <a href="#" class="text-brand-yellow hover:underline font-bold">UNDUH ↗</a>
+              <span class="text-zinc-500">PDF · 4 MB</span>
+              <a href="#" class="text-brand-yellow hover:underline font-semibold">Unduh ↗</a>
             </div>
           </div>
 
           <div class="clean-card p-6 flex flex-col justify-between">
             <div>
-              <span class="font-mono text-xs text-brand-yellow font-bold uppercase block mb-1">AKADEMIK</span>
-              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">MODUL PRAKTIKUM SURVEI & TANAH</h4>
-              <p class="text-xs text-zinc-400 mb-4">Buku panduan resmi praktikum pengukuran waterpass, total station, dan uji mekanika tanah.</p>
+              <span class="font-mono text-xs text-brand-yellow font-semibold uppercase block mb-1">Panduan Praktikum</span>
+              <h4 class="font-display font-bold text-sm text-white uppercase mb-2">Modul Praktikum Survei</h4>
+              <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Buku panduan resmi pengukuran poligon, waterpass, total station, dan mekanika tanah dasar.</p>
             </div>
             <div class="pt-3 border-t border-white/5 flex justify-between font-mono text-xs">
-              <span class="text-zinc-500">PDF • 15 MB</span>
-              <a href="#" class="text-brand-yellow hover:underline font-bold">UNDUH ↗</a>
+              <span class="text-zinc-500">PDF · 15 MB</span>
+              <a href="#" class="text-brand-yellow hover:underline font-semibold">Unduh ↗</a>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -1399,7 +1342,7 @@
   </main>
 
   <!-- ========================================================================= -->
-  <!-- FOOTER RESMI (PERSISTENT DI SEMUA HALAMAN) -->
+  <!-- FOOTER -->
   <!-- ========================================================================= -->
   <footer class="bg-black py-12 px-4 sm:px-6 lg:px-8 border-t border-white/10 mt-12">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-xs text-zinc-500">
@@ -1409,8 +1352,8 @@
           TS
         </div>
         <div>
-          <span class="text-white font-bold">HMTS FT-UNTAD</span> — KABINET TEKTONIKA 2026/2027
-          <div class="text-[10px] text-zinc-500">JURUSAN TEKNIK SIPIL, UNIVERSITAS TADULAKO</div>
+          <span class="text-white font-semibold">HMTS FT-UNTAD</span> — Kabinet Tektonika
+          <div class="text-[11px] text-zinc-500">Jurusan Teknik Sipil, Universitas Tadulako</div>
         </div>
       </div>
 
@@ -1422,30 +1365,30 @@
       </div>
 
       <div class="text-[11px] text-zinc-500 text-center md:text-right">
-        © 2026 HMTS FT-UNTAD. KOKOH, INOVATIF, MEMBANGUN PERADABAN.
+        © 2026 HMTS FT-UNTAD. Kokoh, Inovatif, Membangun Peradaban.
       </div>
 
     </div>
   </footer>
 
   <!-- ========================================================================= -->
-  <!-- MODAL 1: FORMULIR PINJAM ALAT (PRD Modul M8) -->
+  <!-- MODAL: FORMULIR PINJAM ALAT -->
   <!-- ========================================================================= -->
   <div id="borrowModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="clean-card max-w-xl w-full p-6 sm:p-8 relative border-2 border-brand-yellow shadow-2xl">
+    <div class="clean-card max-w-lg w-full p-6 sm:p-8 relative border-2 border-brand-yellow shadow-2xl">
       <button onclick="toggleModal('borrowModal')" class="absolute top-4 right-4 text-zinc-400 hover:text-white font-mono text-sm border border-white/20 w-8 h-8 rounded-full flex items-center justify-center">
         ✕
       </button>
 
       <div class="pb-3 mb-5 border-b border-white/10">
-        <span class="font-mono text-xs text-brand-yellow font-bold uppercase block mb-1">// MODUL M8: RESERVASI ALAT LAB</span>
-        <h3 class="font-display font-black text-xl text-white uppercase">FORMULIR PEMINJAMAN ALAT SIPIL</h3>
+        <span class="font-mono text-xs text-brand-yellow font-semibold uppercase block mb-1">Reservasi Alat</span>
+        <h3 class="font-display font-bold text-xl text-white uppercase">Formulir Peminjaman Alat Lab</h3>
       </div>
 
       <form onsubmit="event.preventDefault(); submitBorrowFormAction();" class="space-y-4 font-mono text-xs">
         <div>
-          <label class="block text-zinc-300 font-bold mb-1 uppercase">ALAT YANG DIPINJAM</label>
-          <select id="modalToolSelect" class="w-full bg-[#181822] border border-white/10 focus:border-brand-yellow rounded-xl text-white px-4 py-2.5 outline-none">
+          <label class="block text-zinc-300 font-semibold mb-1 uppercase">Pilih Instrumen Alat</label>
+          <select id="modalToolSelect" class="w-full bg-[#181822] border border-white/10 focus:border-brand-yellow rounded-xl text-white px-4 py-2.5 outline-none font-sans text-xs">
             <option value="Total Station Sokkia CX-105">Total Station Sokkia CX-105 (3 Unit Tersedia)</option>
             <option value="Theodolite Topcon DT-200">Theodolite Topcon DT-200 (5 Unit Tersedia)</option>
             <option value="Waterpass Nikon AC-2S">Waterpass Nikon AC-2S (6 Unit Tersedia)</option>
@@ -1455,83 +1398,84 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-zinc-300 font-bold mb-1 uppercase">NAMA PEMINJAM</label>
-            <input type="text" required placeholder="Nama Mahasiswa" class="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none">
+            <label class="block text-zinc-300 font-semibold mb-1 uppercase">Nama Peminjam</label>
+            <input type="text" required placeholder="Nama Lengkap" class="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none">
           </div>
           <div>
-            <label class="block text-zinc-300 font-bold mb-1 uppercase">NIM</label>
+            <label class="block text-zinc-300 font-semibold mb-1 uppercase">NIM</label>
             <input type="text" required placeholder="F111XXXXX" class="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none">
           </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-zinc-300 font-bold mb-1 uppercase">TANGGAL PINJAM</label>
+            <label class="block text-zinc-300 font-semibold mb-1 uppercase">Tanggal Pinjam</label>
             <input type="date" required class="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none">
           </div>
           <div>
-            <label class="block text-zinc-300 font-bold mb-1 uppercase">TANGGAL KEMBALI</label>
+            <label class="block text-zinc-300 font-semibold mb-1 uppercase">Tanggal Pengembalian</label>
             <input type="date" required class="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none">
           </div>
         </div>
 
         <div>
-          <label class="block text-zinc-300 font-bold mb-1 uppercase">KEPERLUAN</label>
-          <textarea rows="2" required placeholder="Praktikum / Tugas Akhir Skripsi / Lomba..." class="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-2 text-white outline-none font-sans text-xs"></textarea>
+          <label class="block text-zinc-300 font-semibold mb-1 uppercase">Keperluan Peminjaman</label>
+          <textarea rows="2" required placeholder="Praktikum / Tugas Akhir / Penelitian..." class="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-2 text-white outline-none font-sans text-xs"></textarea>
         </div>
 
         <div class="pt-2 flex justify-end gap-3">
-          <button type="button" onclick="toggleModal('borrowModal')" class="px-5 py-2 rounded-full border border-white/20 text-white font-mono text-xs">BATAL</button>
-          <button type="submit" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-2 rounded-full font-mono text-xs font-bold uppercase shadow-lg shadow-brand-orange/20">AJUKAN RESERVASI ↗</button>
+          <button type="button" onclick="toggleModal('borrowModal')" class="px-5 py-2 rounded-full border border-white/20 text-white font-mono text-xs">Batal</button>
+          <button type="submit" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-2 rounded-full font-mono text-xs font-bold uppercase shadow-lg shadow-brand-orange/20">
+            Ajukan Peminjaman ↗
+          </button>
         </div>
       </form>
     </div>
   </div>
 
   <!-- ========================================================================= -->
-  <!-- MODAL 2: LOGIN PENGURUS (SUPERADMIN & ADMIN) -->
+  <!-- MODAL: LOGIN PENGURUS -->
   <!-- ========================================================================= -->
   <div id="adminLoginModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="clean-card max-w-md w-full p-6 sm:p-8 relative border-2 border-brand-yellow shadow-2xl">
+    <div class="clean-card max-w-md w-full p-6 sm:p-8 relative border border-white/20 shadow-2xl">
       <button onclick="toggleModal('adminLoginModal')" class="absolute top-4 right-4 text-zinc-400 hover:text-white font-mono text-sm border border-white/20 w-8 h-8 rounded-full flex items-center justify-center">
         ✕
       </button>
 
       <div class="text-center pb-3 mb-5 border-b border-white/10">
         <div class="w-10 h-10 rounded-full bg-brand-yellow text-black font-black flex items-center justify-center text-sm mx-auto mb-2">TS</div>
-        <span class="font-mono text-xs text-brand-yellow font-bold uppercase block">[ ZONA OTENTIKASI PENGURUS ]</span>
-        <h3 class="font-display font-black text-xl text-white uppercase">COMMAND CENTER (/APP)</h3>
-        <p class="text-[11px] text-zinc-400 mt-1">Akses khusus Superadmin & Admin HMTS FT-UNTAD</p>
+        <h3 class="font-display font-bold text-xl text-white uppercase">Login Pengurus</h3>
+        <p class="text-xs text-zinc-400 mt-1 font-mono">Portal Akses Pengurus HMTS FT-UNTAD</p>
       </div>
 
       <form onsubmit="event.preventDefault(); simulateLoginAction();" class="space-y-4 font-mono text-xs">
         <div>
-          <label class="block text-zinc-300 font-bold mb-1 uppercase">EMAIL PENGURUS</label>
+          <label class="block text-zinc-300 font-semibold mb-1 uppercase">Email Pengurus</label>
           <input type="email" required placeholder="pengurus@hmts-untad.org" class="w-full bg-[#181822] border border-white/10 focus:border-brand-orange rounded-xl px-4 py-2.5 text-white outline-none">
         </div>
 
         <div>
-          <label class="block text-zinc-300 font-bold mb-1 uppercase">KATA SANDI</label>
+          <label class="block text-zinc-300 font-semibold mb-1 uppercase">Kata Sandi</label>
           <input type="password" required placeholder="••••••••" class="w-full bg-[#181822] border border-white/10 focus:border-brand-orange rounded-xl px-4 py-2.5 text-white outline-none">
         </div>
 
         <div>
-          <label class="block text-zinc-300 font-bold mb-1 uppercase">LEVEL AKSES (PRD RBAC)</label>
-          <select id="modalRoleChoice" class="w-full bg-[#181822] border border-white/10 focus:border-brand-orange rounded-xl text-white px-4 py-2.5 outline-none">
-            <option value="superadmin">Superadmin (Ketua Himpunan / Otoritas Penuh)</option>
-            <option value="admin">Admin (Pengurus Harian BPH / Divisi)</option>
+          <label class="block text-zinc-300 font-semibold mb-1 uppercase">Tingkat Akses</label>
+          <select id="modalRoleChoice" class="w-full bg-[#181822] border border-white/10 focus:border-brand-orange rounded-xl text-white px-4 py-2.5 outline-none font-sans text-xs">
+            <option value="superadmin">Ketua Himpunan (Superadmin)</option>
+            <option value="admin">Pengurus Harian / Divisi (Admin)</option>
           </select>
         </div>
 
         <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white py-3 rounded-full font-bold uppercase tracking-wider transition-all shadow-md shadow-brand-orange/20 mt-2">
-          MASUK COMMAND CENTER ↗
+          Masuk ke Sistem ↗
         </button>
       </form>
     </div>
   </div>
 
   <!-- ========================================================================= -->
-  <!-- JAVASCRIPT: LOGIKA NAVIGASI 4 HALAMAN & INTERAKTIVITAS -->
+  <!-- JAVASCRIPT LOGIC -->
   <!-- ========================================================================= -->
   <script>
     function toggleModal(id) {
@@ -1550,13 +1494,12 @@
           navBtn.className = 'px-4 py-2 rounded-full bg-brand-orange text-white font-bold transition-all shadow-md';
         } else {
           pageEl.classList.add('hidden');
-          navBtn.className = 'px-4 py-2 rounded-full text-zinc-300 hover:text-white hover:bg-white/5 transition-colors';
+          navBtn.className = 'px-4 py-2 rounded-full text-zinc-300 hover:text-white hover:bg-white/5 transition-colors font-medium';
         }
       });
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // Jika ada target sub-tab di halaman layanan
       if (pageId === 'services' && subTarget) {
         switchServiceTab(subTarget);
       }
@@ -1570,7 +1513,7 @@
         const btn = document.getElementById('service-tab-' + t);
         if (t === tabId) {
           panel.classList.remove('hidden');
-          btn.className = 'px-5 py-2.5 rounded-full bg-brand-orange text-white font-bold';
+          btn.className = 'px-5 py-2.5 rounded-full bg-brand-orange text-white font-semibold';
         } else {
           panel.classList.add('hidden');
           btn.className = 'px-5 py-2.5 rounded-full bg-white/5 text-zinc-300 hover:text-white';
@@ -1588,30 +1531,28 @@
       if (sub === 'send') {
         sendView.classList.remove('hidden');
         trackView.classList.add('hidden');
-        sendBtn.className = 'px-5 py-2 rounded-full bg-brand-orange text-white font-bold';
+        sendBtn.className = 'px-5 py-2 rounded-full bg-brand-orange text-white font-semibold';
         trackBtn.className = 'px-5 py-2 rounded-full bg-white/5 text-zinc-300 hover:text-white';
       } else {
         sendView.classList.add('hidden');
         trackView.classList.remove('hidden');
-        trackBtn.className = 'px-5 py-2 rounded-full bg-brand-orange text-white font-bold';
+        trackBtn.className = 'px-5 py-2 rounded-full bg-brand-orange text-white font-semibold';
         sendBtn.className = 'px-5 py-2 rounded-full bg-white/5 text-zinc-300 hover:text-white';
       }
     }
 
-    // Buka Modal Pinjam dengan Alat Tertentu
     function openBorrowWithTool(toolName) {
       document.getElementById('modalToolSelect').value = toolName;
       toggleModal('borrowModal');
     }
 
     function submitBorrowFormAction() {
-      alert('Permohonan peminjaman berhasil diajukan! Menunggu approval Admin BPH.');
+      alert('Permohonan peminjaman berhasil diajukan! Admin akan memverifikasi jadwal Anda.');
       toggleModal('borrowModal');
     }
 
-    // Presensi Mandiri
     function simulateQrScan() {
-      const nim = prompt('Simulasi Kamera: Masukkan NIM Anda untuk presensi:');
+      const nim = prompt('Simulasi Pemindaian: Masukkan NIM Anda untuk presensi:');
       if (nim) {
         document.getElementById('serviceAttendanceSuccess').classList.remove('hidden');
       }
@@ -1621,15 +1562,14 @@
       const token = document.getElementById('serviceQrToken').value.trim();
       const nim = document.getElementById('serviceQrNim').value.trim();
       if (!token || !nim) {
-        alert('Mohon lengkapi token dan NIM Anda!');
+        alert('Mohon lengkapi token sesi dan NIM Anda!');
         return;
       }
       document.getElementById('serviceAttendanceSuccess').classList.remove('hidden');
     }
 
-    // Aspirasi
     function submitAspirationService() {
-      const code = 'ASP-HMTS-2026-' + Math.random().toString(36).substring(2, 6).toUpperCase();
+      const code = 'ASP-' + Math.random().toString(36).substring(2, 7).toUpperCase();
       document.getElementById('serviceAspTicketCode').innerText = code;
       document.getElementById('serviceAspResultBox').classList.remove('hidden');
       document.getElementById('serviceAspContent').value = '';
@@ -1638,16 +1578,15 @@
     function trackAspirationService() {
       const val = document.getElementById('serviceTrackInput').value.trim();
       if (!val) {
-        alert('Masukkan kode tiket!');
+        alert('Masukkan kode tiket pelacakan Anda!');
         return;
       }
       document.getElementById('serviceTrackResultBox').classList.remove('hidden');
     }
 
-    // Login Action
     function simulateLoginAction() {
       const role = document.getElementById('modalRoleChoice').value;
-      alert(`Berhasil login sebagai ${role.toUpperCase()}. Mengalihkan ke Command Center (/app)...`);
+      alert(`Berhasil login sebagai ${role.toUpperCase()}. Mengalihkan ke Command Center...`);
       toggleModal('adminLoginModal');
     }
   </script>

@@ -2,12 +2,13 @@
 ## Web Profil & Sistem Manajemen Organisasi HMTS UNTAD
 **Stack:** Laravel 11/12 · Livewire 3 · Alpine.js · Tailwind CSS · MySQL  
 **Database Engine:** MySQL 8.0+ / MariaDB 10.11+  
-**Design Aesthetic:** Modern Architectural Civil Engineering · Streamlined Agency Precision · Non-Gimmick Minimalist  
+**Design Aesthetic:** Modern Architectural Civil Engineering · Anti-Slop Minimalist · Ambient Glow Lighting  
 **Public Site Architecture:** 4 Halaman Utama Terpisah (Beranda, Tentang Kami, Kegiatan, Layanan)  
 **Color Palette:** Canvas `#0A0A0E` · **CTA Tombol Oranye Baja `#CC6600`** (Teks Putih) · **Aksen Sorotan Kuning Helm `#FFE500`** · Tipografi `#FFFFFF` & `#E4E4E7`  
+**Background System:** Ambient Glow Lighting System (Fixed Diffused Light Orbs) — *Bebas Pola Grid Kotak-Kotak*  
 **Infrastructure Principle:** Zero-Redis Monolith · Single VPS Budget-Friendly  
-**Versi Dokumen:** 5.3 (Steel Orange CTA & High-Vis Yellow Accent Edition)  
-**Tanggal Pembaruan:** 8 Oktober 2026  
+**Versi Dokumen:** 6.0 (Final Paten — Anti-Slop & Ambient Glow Edition)  
+**Tanggal Pembaruan:** 9 Oktober 2026  
 
 ---
 
@@ -65,49 +66,47 @@ Himpunan Mahasiswa Teknik Sipil Universitas Tadulako (HMTS UNTAD) membutuhkan pl
 ## 4. Spesifikasi Fungsional Portal Publik (4 Halaman Terinci)
 
 ### 4.1 Halaman 1: Beranda (`/`)
-- **Top Minimal Ticker:** Periode aktif Kabinet Tektonika 2026/2027, Akreditasi LAM-Teknik Unggul, lokasi Palu, dan shortcut kotak aspirasi.
-- **Floating Island Navbar:** Navbar berkapsul (`rounded-full`) dengan 4 navigasi utama: `Beranda`, `Tentang Kami`, `Kegiatan`, `Layanan`, serta tombol `Login Pengurus ↗`.
-- **Framed Hero Container:** Bingkai lengkung (`rounded-[2rem]`) berlatar foto infrastruktur riil dengan headline monumental: `KOKOH, INOVATIF, MEMBANGUN [→] PERADABAN`, ringkasan identitas, dan aksi cepat jelajahi kegiatan / profil.
-- **Strip Akreditasi & Rekognisi:** Stempel kemitraan dan reputasi (LAM-Teknik Unggul, HAKI Indonesia, LPJK Sulteng, BMPTTSSI Wilayah VIII, Kementerian PUPR).
-- **Tentang HMTS Secara Singkat:** Profil ringkas sejarah pendirian sejak 1994, filosofi perjuangan di Bumi Tadulako pasca-bencana Palu 2018, moto resmi *"Kokoh, Inovatif, Membangun Peradaban"*, 4 indikator metrik utama (640+ Mahasiswa, 32 Tahun Rekam Jejak, Akreditasi Unggul, 1.200+ Alumni), dan tombol baca selengkapnya ke `/tentang`.
-- **Kelebihan Masuk HMTS:** 5 pilar nilai tambah bagi mahasiswa (Jejaring Alumni Nasional & BUMN Karya, Pelatihan Software Sipil & Sertifikasi BIM/ETABS, Inkubasi Lomba Nasional KJI/KBGI & Hibah Riset PKM, Pengalaman Lapangan & Sipil Bangun Desa, serta Jiwa Korsa & Tutor Sebaya Bebas Biaya).
-- **5 Pilar Spesialisasi Keilmuan Sipil (M1):** Rekayasa Struktur, Geoteknik & Tanah (highlight riset mitigasi likuefaksi Palu), Manajemen Konstruksi, Sumber Daya Air, dan Rekayasa Transportasi.
-- **Program Kerja Unggulan Sedang Berjalan (M3/M4):** Kartu sorotan agenda terdekat (Civil Expo & Bridge Competition, Workshop BIM Revit 32 SKP, Sipil Bangun Desa Kab. Sigi) dengan tautan menuju halaman `/kegiatan`.
-- **Akses Layanan Singkat (M2, M7, M8, M11, M12):** Grid pintasan cepat fungsional menuju modul Peminjaman Alat Lab, Scan Presensi QR Acara Mandiri, Kotak Aspirasi Terenkripsi, dan Bank Aset Digital dengan parameter navigasi langsung ke tab terkait di `/layanan`.
-- **Peta Lokasi Sekretariat HMTS FT-UNTAD:** Peta Google Maps embed interaktif berkoordinat presisi di Kampus Bumi Tadulako Tondo, Palu (`-0.835847, 119.893219`), status piket aktif, alamat gedung lengkap, jam operasional layanan (Senin–Jumat 08.00–17.00 WITA), kontak resmi (Email, Hotline BPH, Instagram), dan petunjuk rute.
+- **Top Minimal Utility Bar:** Indikator HMTS FT-UNTAD aktif, Jurusan Teknik Sipil Universitas Tadulako, Akreditasi Unggul, lokasi Palu, dan shortcut cepat ke Kotak Aspirasi Mahasiswa.
+- **Floating Island Navbar:** Navbar berkapsul (`rounded-full`) dengan logo monogram `TS`, 4 tombol menu utama (`Beranda`, `Tentang Kami`, `Kegiatan`, `Layanan`), serta tombol `Login Pengurus ↗`.
+- **Framed Hero Container:** Bingkai lengkung (`rounded-[2rem] sm:rounded-[2.5rem]`) berlatar foto infrastruktur riil dengan headline monumental: `KOKOH, INOVATIF, MEMBANGUN [→] PERADABAN`, subteks ringkas (< 25 kata), serta tombol aksi primer Oranye Baja (`Jelajahi Kegiatan ↗`) dan tombol sekunder (`Layanan Mahasiswa`).
+- **Quick Access Strip di Dasar Hero:** Bar jalan pintas layanan terpadu yang memuat status periode aktif Kabinet Tektonika 2026/2027 dan 4 tombol aksi cepat (`Pinjam Alat Lab →`, `Presensi QR →`, `Kotak Aspirasi →`, `Bank Aset →`).
+- **Strip Afiliasi & Akreditasi:** Banner kemitraan semi-transparan (`bg-[#0D0D12]/70 backdrop-blur-sm`): Akreditasi Unggul LAM-Teknik, BMPTTSSI Wilayah VIII, HAKI Indonesia, LPJK Sulawesi Tengah, Kementerian PUPR.
+- **Tentang HMTS & Metrik Kunci:** Narasi ringkas kiprah sejak 1994, fokus mitigasi kebencanaan tanah, semboyan resmi, dan 4 metrik capaian: 640+ Mahasiswa Aktif, 1994 Tahun Berdiri, Akreditasi Unggul, 1.200+ Jejaring Alumni.
+- **5 Konsentrasi Keilmuan Sipil (M1):** 5 kartu pilar keilmuan (Rekayasa Struktur, Geoteknik & Tanah [highlight kartu aktif kuning], Manajemen Konstruksi, Sumber Daya Air, Rekayasa Transportasi).
+- **Program Kerja Pilihan (M3/M4):** 3 kartu visual agenda terdekat (*Civil Expo & Bridge Design 2026*, *Workshop BIM Revit & ETABS*, *Sipil Bangun Desa*) dengan badge status registrasi dan tautan detail.
+- **Akses Mandiri Mahasiswa (M2, M7, M8, M11, M12):** 4 kartu layanan menggunakan ikon SVG monokrom presisi tinggi (tanpa emoji): Peminjaman Alat Lab, Presensi Mandiri QR, Kotak Aspirasi, Bank Aset & Repositori.
+- **Sekretariat & Peta Lokasi:** Peta Google Maps embed interaktif Kampus Bumi Tadulako Tondo, Palu (`-0.835847, 119.893219`), alamat gedung, jam layanan piket (Senin–Jumat 08.00–17.00 WITA), dan saluran kontak resmi.
 
 ### 4.2 Halaman 2: Tentang Kami (`/tentang`)
-- **Sejarah Organisasi:** Kilas balik berdirinya HMTS FT-UNTAD sejak tahun 1994, dedikasi keinsinyuran di Bumi Tadulako, dan ketangguhan pasca-gempa/likuefaksi Palu 2018.
-- **Filosofi Lambang:** Arti mendalam bentuk segitiga rangka truss baja, warna kuning helm proyek, dan kanvas hitam obsidian.
-- **Visi & 3 Pilar Misi:** Visi kabinet aktif dan 3 pilar: *Penalaran & Keilmuan*, *Kaderisasi & Kekeluargaan*, serta *Pengabdian Rekayasa Pedesaan*.
-- **Mars HMTS FT-UNTAD:** Teks lirik resmi mars himpunan dengan tipografi editorial bersih dan pemutar audio mars.
-- **Struktur Kepengurusan Lengkap:**
-  - Dewan Pimpinan Harian (Ketua Himpunan [Superadmin], Wakil Ketua, Sekjen, Bendahara).
-  - 5 Departemen Spesialis: Dep. Akademik & Riset, Dep. Kaderisasi, Dep. Pengmas, Dep. Hubungan Alumni, dan Dep. Media Informasi.
+- **Sejarah Organisasi:** Kilas balik berdirinya HMTS FT-UNTAD sejak 1994, peran kepemimpinan mahasiswa sipil di Bumi Tadulako, dan aksi kebencanaan gempa & likuefaksi Palu 2018.
+- **Makna Lambang:** Filosofi 3 pilar visual: Rangka Segitiga Truss Baja (stabilitas mekanika), Kuning Helm Keselamatan (etos K3 konstruksi), dan Hitam Obsidian Kanvas (integritas etika profesi).
+- **Visi & 3 Pilar Misi:** Visi kabinet aktif dalam boks kuning monumental dan 3 pilar misi: *Penalaran & Keilmuan*, *Kaderisasi & Karakter*, serta *Pengabdian Rekayasa Tepat Guna*.
+- **Mars HMTS FT-UNTAD:** Lirik lagu perjuangan organisasi dengan tipografi editorial bersih dan pemutar audio mars.
+- **Struktur Kepengurusan Kabinet Tektonika:**
+  - 4 Badan Pengurus Harian (BPH): Ketua Himpunan [Superadmin], Wakil Ketua, Sekretaris Umum, Bendahara Umum — ditampilkan bersih (Nama, NIM, Angkatan) tanpa kutipan fiktif yang berlebihan.
+  - 5 Departemen Pelaksana: Dep. Akademik & Riset, Dep. Kaderisasi, Dep. Pengmas, Dep. Hubungan Alumni, Dep. Media & Publikasi.
 
 ### 4.3 Halaman 3: Kegiatan & Proker (`/kegiatan`)
-- **Kalender Agenda Proker (M3 & M4):** Kalender kegiatan sepanjang tahun kepengurusan.
-- **Penyaring Kategori:** Filter interaktif (*Semua, Kompetisi Nasional, Workshop & Sertifikasi, Bakti Sosial Desa, Webinar*).
+- **Kalender Agenda Proker (M3 & M4):** Rekapitulasi 28 agenda kerja terjadwal.
+- **Penyaring Kategori:** Filter interaktif (*Semua, Kompetisi, Workshop & Pelatihan, Pengabdian Masyarakat, Seminar Akademik*).
 - **Detail Program Kerja Unggulan:**
-  - *Civil Expo & Bridge Design Competition 2026* (jadwal, kuota tim, syarat juri HAKI/LPJK, hadiah Rp 30 Juta).
-  - *Workshop BIM Revit & ETABS* (silabus 32 SKP terakreditasi).
-  - *Sipil Bangun Desa* (aksi lapangan perbaikan jembatan gantung di Kab. Sigi).
-  - *National Concrete Innovation Challenge* (riset beton substitusi ramah lingkungan).
-- **Aksi Publik:** Formulir pendaftaran tim dan tombol unduh dokumen TOR (Term of Reference) PDF.
+  - *Civil Expo & Bridge Design Competition 2026* (tingkat nasional, hadiah Rp 30 Juta, juri HAKI & LPJK, kuota tim, formulir registrasi, dan unduh dokumen TOR PDF).
+  - *Civil Workshop BIM Revit & ETABS 2026* (pelatihan pemodelan dan analisis beban gempa SNI 1726, 32 jam praktik, unduh silabus).
+  - *Sipil Bangun Desa: Jembatan Gantung* (aksi sosial penggantian sling dan lantai jembatan di Kab. Sigi, open volunteer).
+  - *Concrete Innovation Challenge* (riset inovasi beton ramah lingkungan target kuat tekan tinggi, panduan teknis).
 
 ### 4.4 Halaman 4: Layanan Mahasiswa (`/layanan`)
-*Pusat utilitas mandiri mahasiswa (One-Stop Student Hub) yang memuat 4 tab terintegrasi:*
-1. **Tab 1: Peminjaman Alat Lab Sipil (M7 & M8):**
-   - Katalog ketersediaan: Total Station Sokkia, Theodolite Topcon, Waterpass Nikon, Hammer Test Schmidt.
-   - Formulir permohonan peminjaman online (Nama, NIM, tanggal pinjam/kembali, keperluan) terproteksi verifikasi anti-bentrok jadwal.
-2. **Tab 2: Scan Presensi QR Acara Mandiri (M2):**
-   - Antarmuka pemindai kamera smartphone untuk scan token QR dinamis (30-60 detik) saat hadir di acara terbuka.
-   - Opsi input manual token 6-digit alternatif.
-3. **Tab 3: Kotak Aspirasi Anonim & Pelacak Tiket (M11):**
-   - Formulir pengiriman aspirasi *zero-identity logging* (kategori lab, akademik, fasilitas).
-   - Fitur pencarian status tiket (`ASP-HMTS-2026-XXXX`) untuk memantau respon pengurus.
-4. **Tab 4: Bank Aset & Repositori Riset (M12):**
-   - Unduhan Master Logo Kit (ZIP), Blueprint CAD Jembatan 60m (DWG), Paper Riset Beton Tahan Gempa 38.5 MPa (PDF), dan Modul Praktikum Lab (PDF).
+*Pusat utilitas mandiri mahasiswa (One-Stop Student Hub) dengan 4 tab terintegrasi (bebas dari penamaan kode modul internal pada tombol UI):*
+1. **Tab 1: Peminjaman Alat Lab (M7 & M8):**
+   - Katalog alat: Total Station Sokkia CX-105, Theodolite Topcon DT-200, Waterpass Nikon AC-2S, Hammer Test Schmidt.
+   - Modal formulir reservasi online anti-bentrok jadwal (`borrowModal`).
+2. **Tab 2: Presensi QR Acara (M2):**
+   - Antarmuka pemindai simulasi kamera smartphone dan formulir input manual token 6-digit + NIM.
+3. **Tab 3: Kotak Aspirasi & Tiket (M11):**
+   - Formulir pengiriman aspirasi anonim (kategori lab, akademik, fasilitas) dengan perlindungan kerahasiaan identitas.
+   - Sub-tab pelacak status tiket (`ASP-2026-XXXX`) untuk memantau respon pengurus harian.
+4. **Tab 4: Bank Aset & Repositori (M12):**
+   - Unduhan terbuka: Master Logo Kit & Kop Surat (ZIP), Blueprint CAD Jembatan Busur 60m (DWG), Paper Jurnal Beton Serat (PDF), dan Modul Praktikum Survei (PDF).
 
 ---
 

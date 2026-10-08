@@ -5,10 +5,10 @@
 **Database Engine:** MySQL 8.0+ / MariaDB 10.11+  
 **Public Architecture:** 4 Halaman Utama Terpisah (`/`, `/tentang`, `/kegiatan`, `/layanan`)  
 **Role Structure:** Simple Dual-Role (`superadmin` & `admin`) tanpa Enum / Spatie  
-**Aesthetic:** Modern Architectural Civil Engineering · Streamlined Agency Precision · Non-Gimmick Minimalist  
+**Aesthetic:** Modern Architectural Civil Engineering · Anti-Slop Minimalist · Ambient Glow Lighting  
 **Infrastructure Principle:** Zero-Redis Monolith · Single VPS Budget-Friendly  
 **Timezone:** Asia/Makassar (WITA - UTC+8)  
-**Versi:** 5.2 (Multi-Page Public Portal Edition)  
+**Versi:** 6.0 (Final Locked Preview Edition)  
 
 ---
 
@@ -40,17 +40,18 @@ npm run dev
 
 ---
 
-## 🎨 Color Palette & Construction Design System
+## 🎨 Color Palette & Ambient Lighting Design System
 
 | Peran | Nilai Hex / Token | Keterangan |
 | :--- | :--- | :--- |
-| **Canvas Primary** | `#0A0A0E` | Latar utama kanvas gelap struktural (Obsidian Slate) |
+| **Canvas Primary** | `#0A0A0E` | Kanvas obsidian dengan Ambient Glow Lighting (Bebas grid kotak) |
 | **Surface Dark** | `#121217` | Latar kartu standar & bar navigasi |
-| **Surface Elevated** | `#181820` | Latar kartu aktif & bar formulir cepat |
-| **CTA Yellow (Utama)**| `#FFE500` | **Aksen CTA primer** & status aktif (High-Vis Safety Yellow) |
-| **Steel Orange (Pendukung)**| `#CC6600` | **Warna pendukung** (Primer cat baja, overline penanda) |
+| **Surface Elevated** | `#181820` / `#15151e` | Latar kartu aktif & bar formulir cepat |
+| **Steel Orange (CTA Utama)**| `#CC6600` | **Tombol CTA primer & aksi utama** (Teks Putih `#FFFFFF`) |
+| **Steel Orange Hover** | `#E67300` | State hover tombol oranye primer |
+| **Yellow Highlight (Aksen)**| `#FFE500` | Sorotan kata headline, lencana panah `(→)`, metrik, & border aktif |
 | **Ink White** | `#FFFFFF` | Headings & teks kontras tinggi (Poppins / Inter) |
-| **Body Muted** | `#E4E4E7` | Isi paragraf & data teks teknis (Inter / Switzer) |
+| **Body Muted** | `#E4E4E7` / `#A1A1AA` | Isi paragraf & data teks teknis (Inter / Switzer) |
 
 ---
 

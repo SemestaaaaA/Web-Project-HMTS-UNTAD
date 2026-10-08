@@ -3,12 +3,13 @@
 **Stack:** Laravel 11/12 · Livewire 3 · Alpine.js · Tailwind CSS · MySQL  
 **Database Engine:** MySQL 8.0+ / MariaDB 10.11+  
 **Role Structure:** Simple Dual-Role (`superadmin` & `admin`) tanpa Enum / Spatie  
-**Design System:** Modern Architectural Civil Engineering · Streamlined Agency Precision · Non-Gimmick Minimalist  
-**Color Benchmark:** Latar `#0A0A0E` · **CTA Kuning `#FFE500`** · **Pendukung Oranye `#CC6600`**  
+**Design System:** Modern Architectural Civil Engineering · Anti-Slop Minimalist · Ambient Glow Lighting  
+**Color Benchmark:** Latar `#0A0A0E` · **CTA Oranye Baja `#CC6600`** (Teks Putih) · **Aksen Sorotan Kuning Helm `#FFE500`**  
+**Background System:** Ambient Glow Lighting System (Fixed Diffused Light Orbs) — *Bebas Pola Grid Kotak-Kotak*  
 **Infrastructure Principle:** Zero-Redis Monolith · Single VPS Budget-Friendly  
 **Target:** Panduan Resmi Agen AI & Pengembang Perangkat Lunak  
-**Versi:** 5.1 (Streamlined Civil Edition)  
-**Tanggal Pembaruan:** 8 Oktober 2026  
+**Versi:** 6.0 (Final Paten — Anti-Slop & Ambient Glow Edition)  
+**Tanggal Pembaruan:** 9 Oktober 2026  
 
 ---
 
@@ -28,21 +29,26 @@ Sebagai AI Coding Assistant untuk proyek HMTS UNTAD, Anda bertindak sebagai **Se
 
 ## 2. Standar Koding & Konvensi Frontend
 
-### 2.1 Konvensi Visual: Modern Civil Engineering Aesthetic (Sesuai `docs/design.md`)
-- **Latar Belakang Kanvas:** `#0A0A0E` (Baja struktural pekat / Obsidian Slate) dengan blueprint grid halus.
-- **Warna Aksen Kunci (CTA Primer):** **Kuning Konstruksi `#FFE500`** dengan teks kontras hitam pekat `#000000`. Digunakan khusus untuk tombol aksi utama berkapsul (`rounded-full`), indikator kartu aktif, dan penanda penting.
-- **Warna Pendukung:** **Oranye Baja `#CC6600`** untuk garis aksen, border pendukung, dan overline tags.
+### 2.1 Konvensi Visual: Modern Civil Engineering Aesthetic (Sesuai `preview.html` & `docs/design.md`)
+- **Latar Belakang Kanvas:** `#0A0A0E` (Obsidian Slate) dengan **Ambient Glow Lighting System** (radial gradient pendaran hangat Oranye Baja `#CC6600` dan Kuning Keselamatan `#FFE500`, bebas pola garis grid kotak-kotak).
+- **Warna Aksen Kunci (CTA Primer):** **Oranye Baja `#CC6600`** (Hover: `#E67300`) dengan teks kontras putih tebal `#FFFFFF`. Digunakan khusus untuk tombol aksi utama berkapsul (`rounded-full`), tombol submit, dan tab navigasi aktif.
+- **Warna Sorotan & Aksen Status:** **Kuning Helm Proyek `#FFE500`** untuk sorotan kata headline, lencana panah sirkular `(→)`, metrik angka capaian, dan border kartu prioritas geoteknik.
+- **Standar Anti-AI Slop:**
+  - Dilarang memunculkan kode modul PRD internal (`M1..M12`) pada antarmuka publik yang diakses pengunjung.
+  - Dilarang menggunakan awalan slash berulang (`//`) pada headline.
+  - Dilarang menggunakan emoji warna-warni dalam kartu; wajib menggunakan ikon garis SVG monokrom berpresisi tinggi (`stroke-width: 1.5`).
+  - Dilarang menyematkan kutipan puitis fiktif pada profil pimpinan BPH.
 - **Komponen Kunci:**
-  - *Floating Island Navbar* berkapsul melengkung penuh (`rounded-full`) dengan efek *backdrop-blur*.
-  - *Framed Hero Container* (`rounded-[2rem]`) berlatar foto nyata infrastruktur dan lencana panah sirkular (`→`).
-  - *Floating Quick Bar* formulir layanan & aspirasi mengambang di dasar hero.
+  - *Floating Island Navbar* berkapsul melengkung penuh (`rounded-full`) dengan efek *backdrop-blur* dan 4 menu terpisah.
+  - *Framed Hero Container* (`rounded-[2rem] sm:rounded-[2.5rem]`) berlatar foto nyata infrastruktur dan lencana panah sirkular (`→`).
+  - *Quick Access Strip* jalan pintas layanan di dasar hero (`Pinjam Alat Lab →`, `Presensi QR →`, `Kotak Aspirasi →`, `Bank Aset →`).
   - Grid 5 kartu keahlian sipil (dengan status kartu aktif kuning untuk geoteknik).
-  - Grid 4 kartu program kerja dengan foto thumbnail di bagian atas.
-  - Alur SOP operasional 5 langkah bernomor (`01` s/d `05`).
-  - Kotak sorotan akuntabilitas dengan angka metrik 99.2% dan kisi foto civitas.
+  - Grid 3 kartu program kerja unggulan.
+  - Hub 4 layanan mandiri dengan ikon SVG monokrom terpresisi.
+  - Peta Google Maps embed interaktif sekretariat kampus Tondo.
 - **Tipografi:**
   - Headings / Labels: **Poppins** (Bold/Black)
-  - Data Teknis / Uang / Kode Tiket / Stationing: **JetBrains Mono**
+  - Data Teknis / Uang / Kode Tiket / Jam Layanan: **JetBrains Mono**
   - Paragraf Bacaan & UI: **Inter**
 
 ---
