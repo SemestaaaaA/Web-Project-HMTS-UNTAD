@@ -111,8 +111,10 @@ Himpunan Mahasiswa Teknik Sipil Universitas Tadulako (HMTS UNTAD) membutuhkan pl
 
 ---
 
-## 5. Rencana Milestone Rilis
+## 5. Rencana Milestone Rilis & Standar Dokumentasi Implementasi
 
-- **Sprint 1 (Fondasi, Arsitektur 4 Halaman & MySQL):** Inisialisasi TALL Stack dengan MySQL, routing 4 halaman publik (`/`, `/tentang`, `/kegiatan`, `/layanan`), model dual-role (`superadmin`/`admin`), skema database M1 & M12.
+> **Aturan Dokumentasi Sprint:** Setiap setelah menerapkan tahapan sprint, wajib menambahkan berkas laporan berformat markdown pada direktori `docs/implemented/namahasilsprint_tgl.md` (misal: `docs/implemented/sprint1_09-10-2026.md`).
+
+- **Sprint 1 (Fondasi, Arsitektur 4 Halaman & MySQL) — [SELESAI]:** Inisialisasi TALL Stack dengan MySQL, routing 4 halaman publik (`/`, `/tentang`, `/kegiatan`, `/layanan`), model dual-role (`superadmin`/`admin`), skema database `periods`, `divisions` (8 divisi), `members` (5 BPH), integrasi lambang resmi mandiri, tagar `#WeAreTheChampions`, dan laporan lengkap di [`docs/implemented/sprint1_09-10-2026.md`](implemented/sprint1_09-10-2026.md).
 - **Sprint 2 (Layanan Mahasiswa M2, M7, M8, M11):** Presensi QR dinamis berbasis MySQL dan Livewire polling, katalog & form pinjam alat anti-bentrok, kotak aspirasi honeypot dengan tiket pelacak.
 - **Sprint 3 (Command Center `/app`, Kas Immutable & Testing):** Kas M5/M6 dengan void Superadmin, timeline M3/M4 internal, ekspor CSV native, testing & deployment single VPS murah.

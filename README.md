@@ -67,3 +67,5 @@ Seluruh spesifikasi dan panduan arsitektur terdokumentasi lengkap di folder `doc
    Setup developer cepat, skema routing 4 halaman publik, skema database MySQL, model User role sederhana, justifikasi arsitektur tanpa Redis, ActivePeriodScope, dan immutable cash ledger.
 4. **[AI Coding Agent Guidelines (docs/agent.md)](docs/agent.md)**  
    Aturan koding agen, resep Action Classes (termasuk streamed CSV export), otorisasi Superadmin, dan standar TALL Stack.
+5. **[Laporan Hasil Sprint (docs/implemented/)](docs/implemented/)**  
+   Catatan implementasi berkala setiap rilis sprint, diawali dengan **[Sprint 1 (09-10-2026)](docs/implemented/sprint1_09-10-2026.md)**.
